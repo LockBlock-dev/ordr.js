@@ -1,8 +1,8 @@
 # o!rdr.js
 
-Made with [![axios](https://img.shields.io/github/package-json/dependency-version/LockBlock-dev/ordr.js/axios)](https://www.npmjs.com/package/axios) and [![ws](https://img.shields.io/github/package-json/dependency-version/LockBlock-dev/unmineable.js/ws)](https://www.npmjs.com/package/ws)
+[![axios](https://img.shields.io/github/package-json/dependency-version/LockBlock-dev/ordr.js/axios)](https://www.npmjs.com/package/axios) [![ws](https://img.shields.io/github/package-json/dependency-version/LockBlock-dev/unmineable.js/ws)](https://www.npmjs.com/package/ws)
 
-[![GitHub stars](https://img.shields.io/github/stars/LockBlock-dev/ordr.js.svg)](https://github.com/LockBlock-dev/ordr.js/stargazers)
+[![GitHub stars](https://img.shields.io/github/stars/LockBlock-dev/ordr.js.svg)](https://github.com/LockBlock-dev/ordr.js/stargazers) ![npm](https://img.shields.io/npm/dm/ordr.js)
 
 ordr.js is a Node.js module that allows you to easily interact with the o!rdr API and WebSocket.
 
