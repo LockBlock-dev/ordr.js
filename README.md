@@ -42,10 +42,10 @@ See the [WebSocket documentation](/WebSocket.md)
 
 ## Example usage
 
-### Using the library
+### Using the library - API
 
 ```js
-const { Client } = require("ordr.js")
+const { Client } = require('ordr.js')
 
 const client = new Client()
 
@@ -74,7 +74,7 @@ The library is async, be sure to use [async functions](https://developer.mozilla
 ### Using the library - WebSocket
 
 ```js
-const { Client } = require("ordr.js")
+const { Client } = require('ordr.js')
 
 const client = new Client()
 
