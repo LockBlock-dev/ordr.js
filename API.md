@@ -98,7 +98,8 @@ Get a list of renders.
 **Example**  
 ```js
 renders()
-renders({ pageSize: 10, page: 3})
+renders({ pageSize: 10, page: 3 })
+renders({ renderID: 1234 })
 ```
 
 <a name="skins"></a>
@@ -119,5 +120,6 @@ Get a list of skins.
 **Example**  
 ```js
 skins()
-skins({ pageSize: 10, page: 3})
+skins({ pageSize: 10, page: 3 })
+skins({ name: "best-skin-osu" })
 ```
