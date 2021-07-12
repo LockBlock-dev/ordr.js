@@ -184,7 +184,7 @@ exports.Client = class Client extends EventEmitter {
     */
     renders(params = {}) {
       params = querystring.stringify(params)
-      console.log(params)
+      //console.log(params)
       return this.#request("GET", `renders?${params}`)
     }
 
@@ -200,7 +200,7 @@ exports.Client = class Client extends EventEmitter {
     */
     skins(params = {}) {
       params = querystring.stringify(params)
-      console.log(params)
+      //console.log(params)
       return this.#request("GET", `skins?${params}`)
     }
 
