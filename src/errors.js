@@ -1,19 +1,21 @@
+const { APIcodes } = require('./constants')
+
 class BaseError extends Error {
     /**
     * @class BaseError
     * @constructor
     * @private
-    * @param  {String} code Error code
-    * @param  {String} message Error message
+    * @param {String} type Error type
+    * @param {String} message Error message
     */
-    constructor(code, message) {
+    constructor(type, message) {
         super(message)
-        this.code = code
+        this.type = type
     }
 
     toJSON() {
         return {
-            code: this.code,
+            type: this.type,
             message: this.message
         }
     }
@@ -26,7 +28,7 @@ exports.FatalError = class FatalError extends BaseError {
     * Represents a fatal error from the Client : `"FatalError"`.
     * @extends BaseError
     * @constructor
-    * @param  {String|Error} error Error object or message
+    * @param {String|Error} error Error object or message
     */
     constructor(error) {
         const errObject = (typeof error == 'string') ? null : error
@@ -43,18 +45,26 @@ exports.APIError = class APIError extends BaseError {
     * Represents an error from the API : `"APIError"`.
     * @extends BaseError
     * @constructor
-    * @param  {String|Error} error Error message
-    * @param  {String} status Status code of the request
-    * @param  {String} method Method used for the request
-    * @param  {String} url Url of the request to the endpoint
+    * @param {String|Error} error Error message
+    * @param {String} status Status type of the request
+    * @param {String} method Method used for the request
+    * @param {String} url Url of the request to the endpoint
     */
-    constructor(error, status, method, url) {
+    constructor(error, response, status, method, url) {
         const errObject = (typeof error == 'string') ? null : error
         const message = errObject ? errObject.message : error
         super('APIError', message)
         this.status = status
         this.method = method
         this.url = url
+        if (response.data) {
+            response.data.message ? this.result = response.data.message : null
+            response.data.reason ? this.result += `. Reason: ${response.data.reason}` : null
+            response.data.errorCode ? (
+                this.code = response.data.errorCode,
+                this.error = APIcodes[response.data.errorCode]
+                ) : null
+        }
     }
 }
 
@@ -63,8 +73,8 @@ exports.ParseError = class ParseError extends BaseError {
      * Represents a parsing error : `"ParseError"`.
      * @class ParseError
      * @constructor
-     * @param  {String} message Error message
-     * @param  {http.IncomingMessage} response Server response
+     * @param {String} message Error message
+     * @param {http.IncomingMessage} response Server response
      */
     constructor(message, response) {
       super('ParseError', message)
