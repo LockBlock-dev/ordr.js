@@ -1,5 +1,6 @@
-const WS = require("ws")
-const EventEmitter = require("events")
+const { WScodes } = require('./constants')
+const WS = require('ws')
+const EventEmitter = require('events')
 
 exports.WebSocket = class WebSocket extends EventEmitter {
 
@@ -56,6 +57,10 @@ exports.WebSocket = class WebSocket extends EventEmitter {
                             break
                         case "render_error":
                             this.emit("render_error", data)
+                            break
+                        case "render_failed":
+                            var splitted = data.render_failed.split(" ")
+                            this.emit("render_failed", { "render_failed": splitted[0], code: splitted[1], error: WScodes[splitted[1]], op: data.op })
                             break
                     }
                     break
