@@ -18,7 +18,10 @@
 <dd><p>Get the renderID of a render that just got finished.</p>
 </dd>
 <dt><a href="#render_error">render_error</a> ⇒ <code>Event</code></dt>
-<dd><p>Get the renderID of a render that failed.</p>
+<dd><p>Get the renderID of a render that failed. (DEPRECATED)</p>
+</dd>
+<dt><a href="#render_failed">render_failed</a> ⇒ <code>Event</code></dt>
+<dd><p>Get the renderID and the error code of a render that failed.</p>
 </dd>
 <dt><a href="#render_progress">render_progress</a> ⇒ <code>Event</code></dt>
 <dd><p>Get the renderID and the progression of this render when it changes.</p>
@@ -67,16 +70,29 @@ Get the renderID of a render that just got finished.
 client.on("render_done")
 ```
 
+<a name="render_failed"></a>
+
+## render_failed ⇒ <code>Event</code>
+Get the renderID and the error code of a render that failed.
+
+**Kind**: event  
+
+**Example**  
+```js
+client.on("render_failed")
+```
+
 <a name="render_error"></a>
 
 ## render_error ⇒ <code>Event</code>
-Get the renderID of a render that failed.
+Get the renderID of a render that failed. (DEPRECATED)
 
 **Kind**: event  
 
 **Example**  
 ```js
 client.on("render_error")
+//render_error is deprecated and will be removed in a future update!
 ```
 
 <a name="render_progress"></a>
