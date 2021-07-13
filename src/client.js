@@ -1,8 +1,9 @@
 const axios = require('axios').default
 const errors = require('./errors')
+const { APIcodes } = require('./constants')
 const querystring = require('querystring')
 const EventEmitter = require('events')
-const { WebSocket } = require("./websocket")
+const { WebSocket } = require('./websocket')
 
 exports.Client = class Client extends EventEmitter {
     constructor(API_KEY) {
@@ -64,17 +65,20 @@ exports.Client = class Client extends EventEmitter {
           return response.data
         } else {
           try {
-            const data = JSON.parse(response.data)
-            if (data.ok) {
-              return data.result
-            }
+            var data = JSON.parse(response.data)
+            data.errorCode ? (
+              data.code = data.errorCode,
+              data.error = APIcodes[data.errorCode],
+              delete data.errorCode
+            ) : null
+            return data
           } catch (err) {
             throw new errors.ParseError(`Error parsing response: ${response.data}`, response)
           }
         }
       })
       .catch(error => {
-        throw new errors.APIError(error, error.response.status, options.method, options.url)
+        return new errors.APIError(error, error.response, error.response.status, options.method, options.url)
       })
     }
 
@@ -99,6 +103,10 @@ exports.Client = class Client extends EventEmitter {
         this.emit("render_done", data)
       })
 
+      ws.on("render_failed", (data) => {
+        this.emit("render_failed", data)
+      })
+
       ws.on("render_error", (data) => {
         this.emit("render_error", data)
       })
@@ -115,51 +123,53 @@ exports.Client = class Client extends EventEmitter {
     /**
     * Create a new render on o!rdr.
     * @param {Object} body
-    * @param {Boolean} body.BGParallax
-    * @param {Number} body.breakBGDim
-    * @param {Boolean} body.cursorRainbow
-    * @param {Boolean} body.cursorRipples
-    * @param {Boolean} body.cursorScaleToCS
-    * @param {Number} body.cursorSize
-    * @param {Boolean} body.cursorTrail
-    * @param {Boolean} body.cursorTrailGlow
-    * @param {Boolean} body.drawComboNumbers
-    * @param {Boolean} body.drawFollowPoints
-    * @param {Number} body.globalVolume
-    * @param {Number} body.hitsoundVolume
-    * @param {Number} body.inGameBGDim
-    * @param {Number} body.introBGDim
-    * @param {Boolean} body.loadStoryboard
-    * @param {Boolean} body.loadVideo
+    * @param {Boolean} [body.BGParallax=false]
+    * @param {Number} [body.breakBGDim=30]
+    * @param {Boolean} [body.cursorRainbow=false]
+    * @param {Boolean} [body.cursorRipples=false]
+    * @param {Boolean} [body.cursorScaleToCS=false]
+    * @param {Number} [body.cursorSize=1]
+    * @param {Boolean} [body.cursorTrail=true]
+    * @param {Boolean} [body.cursorTrailGlow=false]
+    * @param {Boolean} [body.drawComboNumbers=true]
+    * @param {Boolean} [body.drawFollowPoints=true]
+    * @param {Number} [body.globalVolume=50]
+    * @param {Number} [body.hitsoundVolume=50]
+    * @param {Number} [body.inGameBGDim=75]
+    * @param {Number} [body.introBGDim=0]
+    * @param {Boolean} [body.loadStoryboard=true]
+    * @param {Boolean} [body.loadVideo=true]
     * @param {Boolean} body.motionBlur960fps
-    * @param {Number} body.musicVolume
-    * @param {Boolean} body.objectsFlashToTheBeat
-    * @param {Boolean} body.objectsRainbow
+    * @param {Number} [body.musicVolume=50]
+    * @param {Boolean} [body.objectsFlashToTheBeat=false]
+    * @param {Boolean} [body.objectsRainbow=false]
     * @param {File} body.replayFile
     * @param {String} body.replayURL
     * @param {String} body.resolution
-    * @param {Boolean} body.scaleToTheBeat
-    * @param {Boolean} body.seizureWarning
-    * @param {Boolean} body.showBorders
-    * @param {Boolean} body.showComboCounter
-    * @param {Boolean} body.showDanserLogo
-    * @param {Boolean} body.showHPBar
-    * @param {Boolean} body.showHitErrorMeter
+    * @param {Boolean} [body.scaleToTheBeat=false]
+    * @param {Boolean} [body.seizureWarning=false]
+    * @param {Boolean} [body.showBorders=false]
+    * @param {Boolean} [body.showComboCounter=true]
+    * @param {Boolean} [body.showDanserLogo=true]
+    * @param {Boolean} [body.showHPBar=true]
+    * @param {Boolean} [body.showHitErrorMeter=true]
     * @param {Boolean} body.showKeyOverlay
-    * @param {Boolean} body.showMods
-    * @param {Boolean} body.showPPCounter
-    * @param {Boolean} body.showResultScreen
-    * @param {Boolean} body.showScore
-    * @param {Boolean} body.showScoreboard
-    * @param {Boolean} body.showUnstableRate
+    * @param {Boolean} [body.showMods=true]
+    * @param {Boolean} [body.showPPCounter=true]
+    * @param {Boolean} [body.showResultScreen=true]
+    * @param {Boolean} [body.showScore=true]
+    * @param {Boolean} [body.showScoreboard=false]
+    * @param {Boolean} [body.showUnstableRate=true]
     * @param {String} body.skin
-    * @param {Boolean} body.skip
-    * @param {Boolean} body.sliderMerge
-    * @param {Boolean} body.sliderSnaking
-    * @param {Boolean} body.useBeatmapColors
-    * @param {Boolean} body.useHitCircleColor
-    * @param {Boolean} body.useSkinColors
-    * @param {Boolean} body.useSkinCursor
+    * @param {Boolean} [body.skip=true]
+    * @param {Boolean} [body.sliderMerge=false]
+    * @param {Boolean} [body.sliderSnakingIn=true]
+    * @param {Boolean} [body.sliderSnakingOut=true]
+    * @param {Boolean} [body.useBeatmapColors=true]
+    * @param {Boolean} [body.useHitCircleColor=true]
+    * @param {Boolean} [body.useSkinColors=false]
+    * @param {Boolean} [body.useSkinCursor=true]
+    * @param {Boolean} [body.useSkinHitsounds=true]
     * @param {String} body.username
     * @tutorial See the o!rdr Documentation: {@link https://ordr.issou.best/#/documentation}
     * @example newRender({ replayURL: "https://url.tld/file.osr", username: "ordr.js", resolution: "1920x1080", ... })
@@ -178,29 +188,27 @@ exports.Client = class Client extends EventEmitter {
     * @param {String} params.ordrUsername - get renders that matches the most this o!rdr username
     * @param {String} params.replayUsername - get renders that matches the most this replay username
     * @param {Number} params.renderID - get a render with this specific renderID
-    * @example renders({ pageSize: 10, page: 3})
+    * @example renders({ pageSize: 10, page: 3 })
     * @link https://ordr.issou.best/#/renders
     * @return {Promise}
     */
     renders(params = {}) {
       params = querystring.stringify(params)
-      console.log(params)
       return this.#request("GET", `renders?${params}`)
     }
 
     /**
     * Get a list of skins.
     * @param {Object} params - query parameters
-    * @param {Number} [params.pageSize=50] - number of renders that the API will return
+    * @param {Number} [params.pageSize=100] - number of renders that the API will return
     * @param {Number} [params.page=1] - page number
-    * @param {String} params.name - get skins that matches the most this name
-    * @example skins({ pageSize: 10, page: 3})
+    * @param {String} params.search - get the skins that matches the most this string
+    * @example skins({ pageSize: 10, page: 3 })
     * @link https://ordr.issou.best/#/skins
     * @return {Promise}
     */
     skins(params = {}) {
       params = querystring.stringify(params)
-      console.log(params)
       return this.#request("GET", `skins?${params}`)
     }
 
