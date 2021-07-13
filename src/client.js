@@ -171,7 +171,7 @@ exports.Client = class Client extends EventEmitter {
     * @param {Boolean} [body.useSkinCursor=true]
     * @param {Boolean} [body.useSkinHitsounds=true]
     * @param {String} body.username
-    * @tutorial See the o!rdr Documentation: {@link https://ordr.issou.best/#/documentation}
+    * @tutorial See the o!rdr Documentation: {@link https://ordr.issou.best/docs}
     * @example newRender({ replayURL: "https://url.tld/file.osr", username: "ordr.js", resolution: "1920x1080", ... })
     * @return {Promise}
     */

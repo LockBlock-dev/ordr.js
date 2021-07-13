@@ -90,7 +90,7 @@ List of events available [here](/WebSocket.md)
 
 ## Credits
 
-[o!rdr API](https://ordr.issou.best/#/documentation)
+[o!rdr API](https://ordr.issou.best/docs)
 
 
 ## Copyright
