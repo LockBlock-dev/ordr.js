@@ -1,13 +1,13 @@
 # Methods
 
 <dl>
-<dt><a href="#newRender">newRender()</a> ⇒ <code>Promise</code></dt>
+<dt><a href="#newRender">newRender(body)</a> ⇒ <code>Promise</code></dt>
 <dd><p>Create a new render on o!rdr.</p>
 </dd>
-<dt><a href="#renders">renders()</a> ⇒ <code>Promise</code></dt>
+<dt><a href="#renders">renders(params)</a> ⇒ <code>Promise</code></dt>
 <dd><p>Get a list of renders.</p>
 </dd>
-<dt><a href="#skins">skins()</a> ⇒ <code>Promise</code></dt>
+<dt><a href="#skins">skins(params)</a> ⇒ <code>Promise</code></dt>
 <dd><p>Get a list of skins.</p>
 </dd>
 </dl>
@@ -65,11 +65,13 @@ Create a new render on o!rdr.
 | body<area>.skin | <code>String</code> |
 | body<area>.skip | <code>Boolean</code> |
 | body<area>.sliderMerge | <code>Boolean</code> |
-| body<area>.sliderSnaking | <code>Boolean</code> |
+| body<area>.sliderSnakingIn | <code>Boolean</code> |
+| body<area>.sliderSnakingOut | <code>Boolean</code> |
 | body<area>.useBeatmapColors | <code>Boolean</code> |
 | body<area>.useHitCircleColor | <code>Boolean</code> |
 | body<area>.useSkinColors | <code>Boolean</code> |
 | body<area>.useSkinCursor | <code>Boolean</code> |
+| body<area>.useSkinHitsounds | <code>Boolean</code> |
 | body<area>.username | <code>String</code> |
 
 **Example**  
@@ -92,8 +94,8 @@ Get a list of renders.
 | params<area>.ordrUsername | <code>String</code> | renders that matches the most this o!rdr username |
 | params<area>.page | <code>Number</code> | page number |
 | params<area>.pageSize | <code>Number</code> | number of renders that the API will return|
-| params<area>.replayUsername | <code>String</code> | renders that matches the most this replay username |
 | params<area>.renderID | <code>Number</code> | render with this specific renderID |
+| params<area>.replayUsername | <code>String</code> | renders that matches the most this replay username |
 
 **Example**  
 ```js
@@ -113,7 +115,7 @@ Get a list of skins.
 | Param | Type | Description |
 | --- | --- | --- |
 | params | <code>Object</code> | query parameters |
-| params<area>.name | <code>String</code> | skins that matches the most this name |
+| params<area>.search | <code>String</code> | skins that matches the most this string |
 | params<area>.page | <code>Number</code> | page number |
 | params<area>.pageSize | <code>Number</code> | number of renders that the API will return|
 
@@ -121,5 +123,5 @@ Get a list of skins.
 ```js
 skins()
 skins({ pageSize: 10, page: 3 })
-skins({ name: "best-skin-osu" })
+skins({ search: "best-skin-osu" })
 ```
