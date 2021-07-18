@@ -42,10 +42,14 @@ See the [WebSocket documentation](/WebSocket.md)
 
 ## Example usage
 
+The library can be used in both CommonJS and ES Modules
+
 ### Using the library - API
 
 ```js
 const { Client } = require('ordr.js')
+//OR
+import { Client } from 'ordr.js'
 
 const client = new Client()
 
@@ -75,6 +79,8 @@ The library is async, be sure to use [async functions](https://developer.mozilla
 
 ```js
 const { Client } = require('ordr.js')
+//OR
+import { Client } from 'ordr.js'
 
 const client = new Client()
 
