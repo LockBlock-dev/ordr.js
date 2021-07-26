@@ -1,6 +1,6 @@
 {
   "name": "ordr.js",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "A JavaScript library for interacting with the o!rdr API and WebSocket",
   "main": "./index.js",
   "exports": {
@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "axios": "^0.21.1",
-    "ws": "^7.5.0"
+    "socket.io-client": "^4.1.3"
   },
   "scripts": {
     "start": "node index.js"
