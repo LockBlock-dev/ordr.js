@@ -12,7 +12,23 @@
 </dd>
 </dl>
 
+# Errors
+
+<dl>
+<dt><a href="APIError">APIError</a> ⇒ <code>Error</code></dt>
+<dd><p>Error related to the API.</p>
+</dd>
+<dt><a href="FatalError">FatalError</a> ⇒ <code>Error</code></dt>
+<dd><p>Fatal error in the program. (you don't want this one)</p>
+</dd>
+<dt><a href="ParseError">ParseError</a> ⇒ <code>Error</code></dt>
+<dd><p>Error related to a parsing error in the response from the API.</p>
+</dd>
+</dl>
+
 ---
+
+# Methods
 
 <a name="newRender"></a>
 
@@ -20,7 +36,16 @@
 Create a new render on o!rdr.
 
 **Kind**: method  
-**Returns**: <code>Promise</code>  
+**Returns**:
+```js
+{
+
+    message: String,
+    renderID: Number,
+    errorCode: Number
+
+}
+```
 
 | Param | Type |
 | --- | --- |
@@ -86,7 +111,13 @@ newRender({ replayURL: "https://url.tld/file.osr", username: "ordr.js", resoluti
 Get a list of renders.
 
 **Kind**: method  
-**Returns**: <code>Promise</code>
+**Returns**:
+```js
+{
+    renders: Array,
+    maxRenders: Number
+}
+```
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -110,7 +141,14 @@ renders({ renderID: 1234 })
 Get a list of skins.
 
 **Kind**: method  
-**Returns**: <code>Promise</code>
+**Returns**:
+```js
+{
+    message: String,
+    skins: Array,
+    maxSkins: Number
+}
+```
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -124,4 +162,91 @@ Get a list of skins.
 skins()
 skins({ pageSize: 10, page: 3 })
 skins({ search: "best-skin-osu" })
+```
+
+# Errors
+
+<a name="APIError"></a>
+
+## APIError ⇒ <code>Error</code>
+Error related to the API
+
+**Returns**:
+```js
+{
+    message: String,
+    type: String,
+    status: Number,
+    method: String,
+    url: String,
+    result: String,
+    code: Number,
+    error: String
+}
+```
+
+**Example**  
+```js
+{
+    message: "Error parsing response: No replay file provided.",
+    type: 'APIError',
+    status: 200,
+    method: 'POST',
+    url: 'https://ordr-api.issou.best/renders'
+}
+{
+    message: "Request failed with status code 401",
+    type: 'APIError',
+    status: 401,
+    method: 'POST',
+    url: 'https://ordr-api.issou.best/renders',
+    result: "This player is banned from o!rdr. Time left before unban: 2.00 days. Reason: I don't like you :)",
+    code: 15,
+    error: "This player is banned from o!rdr"
+}
+```
+
+<a name="FatalError"></a>
+
+## FatalError ⇒ <code>Error</code>
+Fatal error in the program. (you don't want this one)
+
+**Kind**: method  
+**Returns**:
+```js
+{
+    message: String,
+    type: String,
+    stack: String
+}
+```
+
+<a name="ParseError"></a>
+
+## ParseError ⇒ <code>Error</code>
+Error related to a parsing error in the response from the API.
+
+**Kind**: method  
+**Returns**:
+```js
+{
+    message: String,
+    type: String,
+    status: Number,
+    method: String,
+    url: String,
+    response: String|Object
+}
+```
+
+**Example**  
+```js
+{
+    message: "Error parsing response",
+    type: 'ParseError',
+    status: 200,
+    method: 'GET',
+    url: 'https://ordr-api.issou.best/renders',
+    response: ""
+}
 ```
