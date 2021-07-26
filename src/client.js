@@ -73,7 +73,7 @@ exports.Client = class Client extends EventEmitter {
             ) : null
             return data
           } catch (err) {
-            throw new errors.ParseError("Error parsing response", response.data, error.response.status, options.method, options.url)
+            throw new errors.ParseError("Error parsing response", response.data, response.status, options.method, options.url)
           }
         }
       })
@@ -173,7 +173,7 @@ exports.Client = class Client extends EventEmitter {
     * @param {String} body.username
     * @tutorial See the o!rdr Documentation: {@link https://ordr.issou.best/docs}
     * @example newRender({ replayURL: "https://url.tld/file.osr", username: "ordr.js", resolution: "1920x1080", ... })
-    * @return {Promise}
+    * @return {Promise<Object>}
     */
     newRender(body = {}) {
       this.API_KEY ? body.verificationKey = this.API_KEY : null
@@ -190,7 +190,7 @@ exports.Client = class Client extends EventEmitter {
     * @param {Number} params.renderID - get a render with this specific renderID
     * @example renders({ pageSize: 10, page: 3 })
     * @link https://ordr.issou.best/#/renders
-    * @return {Promise}
+    * @return {Promise<Object>}
     */
     renders(params = {}) {
       params = querystring.stringify(params)
@@ -205,7 +205,7 @@ exports.Client = class Client extends EventEmitter {
     * @param {String} params.search - get the skins that matches the most this string
     * @example skins({ pageSize: 10, page: 3 })
     * @link https://ordr.issou.best/#/skins
-    * @return {Promise}
+    * @return {Promise<Object>}
     */
     skins(params = {}) {
       params = querystring.stringify(params)
