@@ -35,7 +35,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - render_error event is deprecated since rev12
 
 ### Removed
-- console.log
+- console.log [#1](https://github.com/LockBlock-dev/ordr.js/pull/1)
 
 ## [1.0.0] - 2021-06-28
 ### Added
