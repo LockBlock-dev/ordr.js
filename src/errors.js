@@ -46,6 +46,7 @@ exports.APIError = class APIError extends BaseError {
     * @extends BaseError
     * @constructor
     * @param {String|Error} error Error message
+    * @param {Object} response Error response
     * @param {String} status Status type of the request
     * @param {String} method Method used for the request
     * @param {String} url Url of the request to the endpoint
@@ -74,10 +75,16 @@ exports.ParseError = class ParseError extends BaseError {
      * @class ParseError
      * @constructor
      * @param {String} message Error message
-     * @param {http.IncomingMessage} response Server response
+     * @param {Object} response Error response
+     * @param {String} status Status type of the request
+     * @param {String} method Method used for the request
+     * @param {String} url Url of the request to the endpoint
      */
-    constructor(message, response) {
-      super('ParseError', message)
-      this.response = response
+    constructor(message, response, status, method, url) {
+        super('ParseError', message)
+        this.status = status
+        this.method = method
+        this.url = url
+        this.response = response
     }
   }
