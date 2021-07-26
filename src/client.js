@@ -25,7 +25,7 @@ exports.Client = class Client extends EventEmitter {
       * The WebSocket Url
       * @type {String}
       */
-      this.webSocketUrl = "wss://ordr-ws.issou.best/socket.io/?EIO=4&transport=websocket"
+      this.webSocketUrl = "wss://ordr-ws.issou.best"
     }
 
     /**
@@ -73,7 +73,7 @@ exports.Client = class Client extends EventEmitter {
             ) : null
             return data
           } catch (err) {
-            throw new errors.ParseError(`Error parsing response: ${response.data}`, response)
+            throw new errors.ParseError("Error parsing response", response.data, error.response.status, options.method, options.url)
           }
         }
       })
@@ -92,8 +92,6 @@ exports.Client = class Client extends EventEmitter {
     */
     start() {
       const ws = new WebSocket(this.webSocketUrl)
-
-      ws.start()
 
       ws.on("render_added", (data) => {
         this.emit("render_added", data)
@@ -114,6 +112,8 @@ exports.Client = class Client extends EventEmitter {
       ws.on("render_progress", (data) => {
         this.emit("render_progress", data)
       })
+
+      ws.start()
     }
 
 

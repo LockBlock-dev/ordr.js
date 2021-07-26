@@ -52,6 +52,12 @@ start()
 Get the renderID of a render that just got added.
 
 **Kind**: event  
+**Returns**:
+```js
+{
+    renderID: Number
+}
+```
 
 **Example**  
 ```js
@@ -64,6 +70,12 @@ client.on("render_added")
 Get the renderID of a render that just got finished.
 
 **Kind**: event  
+**Returns**: 
+```js
+{
+    renderID: Number
+}
+```
 
 **Example**  
 ```js
@@ -76,6 +88,14 @@ client.on("render_done")
 Get the renderID and the error code of a render that failed.
 
 **Kind**: event  
+**Returns**:
+```js
+{
+    renderID: Number,
+    code: Number,
+    error: String
+}
+```
 
 **Example**  
 ```js
@@ -88,6 +108,12 @@ client.on("render_failed")
 Get the renderID of a render that failed. (DEPRECATED)
 
 **Kind**: event  
+**Returns**: 
+```js
+{
+    renderID: Number
+}
+```
 
 **Example**  
 ```js
@@ -101,6 +127,14 @@ client.on("render_error")
 Get the renderID and the progression of this render when it changes.
 
 **Kind**: event  
+**Returns**:
+```js
+{
+    renderID: Number,
+    status: String,
+    progression: String
+}
+```
 
 **Example**  
 ```js

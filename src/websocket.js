@@ -1,5 +1,5 @@
-const { WScodes } = require('./constants')
-const WS = require('ws')
+const { WScodes, WSstatus } = require('./constants')
+const io = require("socket.io-client")
 const EventEmitter = require('events')
 
 exports.WebSocket = class WebSocket extends EventEmitter {
@@ -9,62 +9,49 @@ exports.WebSocket = class WebSocket extends EventEmitter {
        this.gateway = gateway
     }
 
-    #parseWS(event) {
-        var first, op, data
-        first = Math.min(event.indexOf("{") == -1 ? 100 : event.indexOf("{"), event.indexOf("[") == -1 ? 100 : event.indexOf("["))
-        op = parseInt(event.slice(0, first))
-        event = JSON.parse(event.slice(first))
-        data = Array.isArray(event) ? Object.fromEntries([event]) : event
-        data.op = op
-        return data
-    }
-
     start() {
-        const ws = new WS(this.gateway)
+        const socket = io(this.gateway)
 
-        ws.on('open', function open() {
-            ws.send(40)
-            //console.log("Sent:", 40)
+        socket.on("connect", () => {
+            //console.log(socket.id)
         })
 
-        ws.on('message', function incoming(event) {
-            var data = {}
-            //console.log("Event:", event)
-            if (event.includes("{") || event.includes("[")) {
-                data = this.#parseWS(event)
-            } else {
-                data.op = parseInt(event)
+        socket.on("disconnect", (reason) => {
+            if (reason === "io server disconnect") {
+              // the disconnection was initiated by the server, you need to reconnect manually
+              socket.connect()
             }
-           
-            //console.log("Received:", data)
-            switch (data.op) {
-                case 40:
-                    //console.log("Connected!\nReceived:", 40)
-                case 2:
-                    ws.send(3)
-                    //console.log("Sent:", 3)
-                    break
-                case 42:
-                    switch (Object.keys(data)[0]) {
-                        case "render_done":
-                            this.emit("render_done", data)
-                            break
-                        case "render_progress":
-                            this.emit("render_progress", data)
-                            break
-                        case "render_added":
-                            this.emit("render_added", data)
-                            break
-                        case "render_error":
-                            this.emit("render_error", data)
-                            break
-                        case "render_failed":
-                            var splitted = data.render_failed.split(" ")
-                            this.emit("render_failed", { "render_failed": splitted[0], code: splitted[1], error: WScodes[splitted[1]], op: data.op })
-                            break
-                    }
-                    break
+            // else the socket will automatically try to reconnect
+        })
+
+        socket.on("render_done", data => {
+            this.emit("render_done", { renderID: data })
+        })
+        
+        socket.on("render_progress", data => {
+            var splitted = data.split(" ")
+            var status = splitted[1]
+            var progression = WSstatus[status] || null
+            if (splitted[3]) {
+                status = `${splitted[1]} ${splitted[2]} ${splitted[3]}`
+                progression = null
+            } else if (splitted[2]) {
+                progression = splitted[2]
             }
-        }.bind(this))
+            this.emit("render_progress", { renderID: splitted[0], status: status, progression: progression })
+        })
+        
+        socket.on("render_added", data => {
+            this.emit("render_added", { renderID: data })
+        })
+
+        socket.on("render_error", data => {
+            this.emit("render_error", { renderID: data })
+        })
+
+        socket.on("render_failed", data => {
+            var splitted = data.split(" ")
+            this.emit("render_failed", { renderID: splitted[0], code: splitted[1], error: WScodes[splitted[1]] })
+        })
     }
 }
