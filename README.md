@@ -1,6 +1,6 @@
 # o!rdr.js
 
-[![axios](https://img.shields.io/github/package-json/dependency-version/LockBlock-dev/ordr.js/axios)](https://www.npmjs.com/package/axios) [![ws](https://img.shields.io/github/package-json/dependency-version/LockBlock-dev/ordr.js/ws)](https://www.npmjs.com/package/ws)
+[![axios](https://img.shields.io/github/package-json/dependency-version/LockBlock-dev/ordr.js/axios)](https://www.npmjs.com/package/axios) [![ws](https://img.shields.io/github/package-json/dependency-version/LockBlock-dev/ordr.js/socket.io-client)](https://www.npmjs.com/package/socket.io-client)
 
 [![GitHub stars](https://img.shields.io/github/stars/LockBlock-dev/ordr.js.svg)](https://github.com/LockBlock-dev/ordr.js/stargazers) ![npm](https://img.shields.io/npm/dm/ordr.js)
 
