@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [3.0.0] - 2021-07-26
 ### Added
+- TS types
+
+## [3.0.0] - 2021-07-26
+### Added
 - This CHANGELOG file
 - Socket.io-client for WebSocket
 - Errors in the documentation
