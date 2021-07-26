@@ -36,8 +36,9 @@ With NPM :
 
 ## Documentation
 
-See the [API documentation](/API.md).
-See the [WebSocket documentation](/WebSocket.md)
+See the [API documentation](/API.md)  
+See the [WebSocket documentation](/WebSocket.md)  
+See the [changelog](/CHANGELOG.md)
 
 
 ## Example usage
