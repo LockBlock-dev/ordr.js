@@ -39,9 +39,9 @@ export class APIError extends BaseError {
     status: string;
     method: string;
     url: string;
-    result: any;
-    code: any;
-    error: any;
+    result: string;
+    code: number;
+    error: string;
 }
 
 export class ParseError extends BaseError {

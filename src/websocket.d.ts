@@ -1,7 +1,7 @@
 export class WebSocket {
-    constructor(gateway: any);
+    constructor(gateway: string);
 
-    gateway: any;
+    gateway: string;
     
     start(): void;
 }

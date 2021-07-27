@@ -1,5 +1,5 @@
 export class Client {
-    constructor(API_KEY: any);
+    constructor(API_KEY: string);
     
     /**
     * The API Bot Key
@@ -24,6 +24,13 @@ export class Client {
     * @example start()
     */
     start(): void;
+
+    // Events
+    on(event: "render_added", listener: (data: { renderID: number }) => void): this;
+    on(event: "render_done", listener: (data: { renderID: number }) => void): this;
+    on(event: "render_failed", listener: (data: { renderID: number, code: number, error: string }) => void): this;
+    on(event: "render_error", listener: (data: { renderID: number }) => void): this;
+    on(event: "render_progress", listener: (data: { renderID: number, status: string, progression: string | null }) => void): this;
 
     /**
     * Create a new render on o!rdr.
@@ -78,7 +85,7 @@ export class Client {
     * @param {String} body.username
     * @tutorial See the o!rdr Documentation: {@link https://ordr.issou.best/docs}
     * @example newRender({ replayURL: "https://url.tld/file.osr", username: "ordr.js", resolution: "1920x1080", ... })
-    * @return {Promise<Object>}
+    * @return {Promise<object>}
     */
     newRender(body?: {
         BGParallax?: boolean;
@@ -129,7 +136,7 @@ export class Client {
         useSkinCursor?: boolean;
         useSkinHitsounds?: boolean;
         username: string;
-    }): Promise<Object>;
+    }): Promise<object>;
 
     /**
     * Get a list of renders.
@@ -149,7 +156,7 @@ export class Client {
         ordrUsername: string;
         replayUsername: string;
         renderID: number;
-    }): Promise<Object>;
+    }): Promise<object>;
 
     /**
     * Get a list of skins.
@@ -165,5 +172,5 @@ export class Client {
         pageSize?: number;
         page?: number;
         search: string;
-    }): Promise<Object>;
+    }): Promise<object>;
 }
