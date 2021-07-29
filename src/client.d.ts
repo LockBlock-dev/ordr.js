@@ -153,9 +153,9 @@ export class Client {
     renders(params?: {
         pageSize?: number;
         page?: number;
-        ordrUsername: string;
-        replayUsername: string;
-        renderID: number;
+        ordrUsername?: string;
+        replayUsername?: string;
+        renderID?: number;
     }): Promise<object>;
 
     /**
@@ -171,6 +171,6 @@ export class Client {
     skins(params?: {
         pageSize?: number;
         page?: number;
-        search: string;
+        search?: string;
     }): Promise<object>;
 }
