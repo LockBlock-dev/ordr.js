@@ -193,8 +193,8 @@ exports.Client = class Client extends EventEmitter {
     * @return {Promise<Object>}
     */
     renders(params = {}) {
-      params = querystring.stringify(params)
-      return this.#request("GET", `renders?${params}`)
+      params = new URLSearchParams(params)
+      return this.#request("GET", `renders?${params.toString()}`)
     }
 
     /**
@@ -208,8 +208,8 @@ exports.Client = class Client extends EventEmitter {
     * @return {Promise<Object>}
     */
     skins(params = {}) {
-      params = querystring.stringify(params)
-      return this.#request("GET", `skins?${params}`)
+      params = new URLSearchParams(params)
+      return this.#request("GET", `skins?${params.toString()}`)
     }
 
 }
