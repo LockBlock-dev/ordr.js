@@ -1,11 +1,11 @@
 export class Client {
-    constructor(API_KEY: string);
+    constructor(API_KEY?: string);
     
     /**
     * The API Bot Key
     * @type {String}
     */
-    API_KEY: string;
+    API_KEY?: string;
 
     /**
     * The base API Url
