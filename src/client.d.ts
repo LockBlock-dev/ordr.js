@@ -85,7 +85,7 @@ export class Client {
     * @param {String} body.username
     * @tutorial See the o!rdr Documentation: {@link https://ordr.issou.best/docs}
     * @example newRender({ replayURL: "https://url.tld/file.osr", username: "ordr.js", resolution: "1920x1080", ... })
-    * @return {Promise<object>}
+    * @return {Promise<API.NewRender>}
     */
     newRender(body?: {
         BGParallax?: boolean;
@@ -136,7 +136,7 @@ export class Client {
         useSkinCursor?: boolean;
         useSkinHitsounds?: boolean;
         username: string;
-    }): Promise<object>;
+    }): Promise<API.NewRender>;
 
     /**
     * Get a list of renders.
@@ -148,7 +148,7 @@ export class Client {
     * @param {Number} params.renderID - get a render with this specific renderID
     * @example renders({ pageSize: 10, page: 3 })
     * @link https://ordr.issou.best/#/renders
-    * @return {Promise<Object>}
+    * @return {Promise<API.Renders>}
     */
     renders(params?: {
         pageSize?: number;
@@ -156,7 +156,7 @@ export class Client {
         ordrUsername?: string;
         replayUsername?: string;
         renderID?: number;
-    }): Promise<object>;
+    }): Promise<API.Renders>;
 
     /**
     * Get a list of skins.
@@ -166,11 +166,117 @@ export class Client {
     * @param {String} params.search - get the skins that matches the most this string
     * @example skins({ pageSize: 10, page: 3 })
     * @link https://ordr.issou.best/#/skins
-    * @return {Promise<Object>}
+    * @return {Promise<API.Skins>}
     */
     skins(params?: {
         pageSize?: number;
         page?: number;
         search?: string;
-    }): Promise<object>;
+    }): Promise<API.Skins>;
+}
+
+declare namespace API {
+    interface NewRender {
+        message: string,
+        errorCode: number,
+        renderID?: number
+    }
+
+    interface Renders {
+        renders: API.Render[] | [],
+        maxRenders: number
+    }
+
+    type Render = {
+        date: string,
+        readableDate: string,
+        renderID: number,
+        username: string,
+        progress: string,
+        errorCode: number,
+        renderer: string,
+        description: string,
+        title: string,
+        replayFilePath: string,
+        videoUrl: string,
+        mapLink: string,
+        mapTitle: string,
+        mapLength: number,
+        replayDifficulty: string,
+        replayUsername: string,
+        replayMods: string,
+        mapID: number,
+        needToRedownload: boolean,
+        resolution: string,
+        globalVolume: number,
+        musicVolume: number,
+        hitsoundVolume: number,
+        useSkinHitsounds: boolean,
+        showHitErrorMeter: boolean,
+        showUnstableRate: boolean,
+        showScore: boolean,
+        showHPBar: boolean,
+        showComboCounter: boolean,
+        showPPCounter: boolean,
+        showKeyOverlay: boolean,
+        showScoreboard: boolean,
+        showBorders: boolean,
+        showMods: boolean,
+        showResultScreen: boolean,
+        skin: string,
+        hasCursorMiddle: boolean,
+        useSkinCursor: boolean,
+        useSkinColors: boolean,
+        useBeatmapColors: boolean,
+        cursorScaleToCS: boolean,
+        cursorRainbow: boolean,
+        cursorTrailGlow: boolean,
+        cursorSize: number,
+        cursorTrail: boolean,
+        drawFollowPoints: boolean,
+        drawComboNumbers: boolean,
+        scaleToTheBeat: boolean,
+        sliderMerge: boolean,
+        objectsRainbow: boolean,
+        objectsFlashToTheBeat: boolean,
+        useHitCircleColor: boolean,
+        seizureWarning: boolean,
+        loadStoryboard: boolean,
+        loadVideo: boolean,
+        introBGDim: number,
+        inGameBGDim: number,
+        breakBGDim: number,
+        BGParallax: boolean,
+        showDanserLogo: boolean,
+        motionBlur960fps: boolean,
+        skip: boolean,
+        cursorRipples: boolean,
+        sliderSnakingIn: boolean,
+        sliderSnakingOut: boolean,
+        isVerified: boolean,
+        isBot: boolean,
+        renderStartTime: number,
+        renderEndTime: number,
+        renderTotalTime: number,
+        uploadEndTime: number,
+        uploadTotalTime: number
+    }
+
+    interface Skins {
+        message: string,
+        skins: API.Skin[] | [],
+        maxSkins: number
+    }
+
+    type Skin = {
+        skin: string;
+        presentationName: string;
+        url: string,
+        lowResPreview: string,
+        highResPreview: string,
+        mozaicPreview: string,
+        id: number,
+        hasCursorMiddle: boolean,
+        gridPreview: string
+    }
 }
