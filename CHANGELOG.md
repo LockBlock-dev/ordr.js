@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Removed querystring for URLSearchParams
 
 ### Added
-- Types for API responses
+- Types for API responses [#3](https://github.com/LockBlock-dev/ordr.js/issues/3)
 
 ## [3.1.3] - 2021-07-29
 ### Changed
