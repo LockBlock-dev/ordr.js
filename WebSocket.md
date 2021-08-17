@@ -33,13 +33,15 @@
 # WebSocket Methods
 
 ## start()
+
 Start the WebSocket.
 
-**Kind**: method  
+**Kind**: method
 
-**Example**  
+**Example**
+
 ```js
-start()
+start();
 ```
 
 ---
@@ -49,46 +51,54 @@ start()
 <a name="render_added"></a>
 
 ## render_added ⇒ <code>Event</code>
+
 Get the renderID of a render that just got added.
 
 **Kind**: event  
 **Returns**:
+
 ```js
 {
-    renderID: Number
+    renderID: Number;
 }
 ```
 
-**Example**  
+**Example**
+
 ```js
-client.on("render_added")
+client.on("render_added");
 ```
 
 <a name="render_done"></a>
 
 ## render_done ⇒ <code>Event</code>
+
 Get the renderID of a render that just got finished.
 
 **Kind**: event  
-**Returns**: 
+**Returns**:
+
 ```js
 {
-    renderID: Number
+    renderID: Number;
 }
 ```
 
-**Example**  
+**Example**
+
 ```js
-client.on("render_done")
+client.on("render_done");
 ```
 
 <a name="render_failed"></a>
 
 ## render_failed ⇒ <code>Event</code>
+
 Get the renderID and the error code of a render that failed.
 
 **Kind**: event  
 **Returns**:
+
 ```js
 {
     renderID: Number,
@@ -97,37 +107,43 @@ Get the renderID and the error code of a render that failed.
 }
 ```
 
-**Example**  
+**Example**
+
 ```js
-client.on("render_failed")
+client.on("render_failed");
 ```
 
 <a name="render_error"></a>
 
 ## render_error ⇒ <code>Event</code>
+
 Get the renderID of a render that failed. (DEPRECATED)
 
 **Kind**: event  
-**Returns**: 
+**Returns**:
+
 ```js
 {
-    renderID: Number
+    renderID: Number;
 }
 ```
 
-**Example**  
+**Example**
+
 ```js
-client.on("render_error")
+client.on("render_error");
 //render_error is deprecated and will be removed in a future update!
 ```
 
 <a name="render_progress"></a>
 
 ## render_progress ⇒ <code>Event</code>
+
 Get the renderID and the progression of this render when it changes.
 
 **Kind**: event  
 **Returns**:
+
 ```js
 {
     renderID: Number,
@@ -136,7 +152,8 @@ Get the renderID and the progression of this render when it changes.
 }
 ```
 
-**Example**  
+**Example**
+
 ```js
-client.on("render_progress")
+client.on("render_progress");
 ```

@@ -1,92 +1,92 @@
 export class Client {
     constructor(API_KEY?: string);
-    
+
     /**
-    * The API Bot Key
-    * @type {String}
-    */
+     * The API Bot Key
+     * @type {String}
+     */
     API_KEY?: string;
 
     /**
-    * The base API Url
-    * @type {String}
-    */
+     * The base API Url
+     * @type {String}
+     */
     baseApiUrl: string;
 
     /**
-    * The WebSocket Url
-    * @type {String}
-    */
+     * The WebSocket Url
+     * @type {String}
+     */
     webSocketUrl: string;
 
     /**
-    * Start the WebSocket.
-    * @example start()
-    */
+     * Start the WebSocket.
+     * @example start()
+     */
     start(): void;
 
     // Events
     on(event: "render_added", listener: (data: { renderID: number }) => void): this;
     on(event: "render_done", listener: (data: { renderID: number }) => void): this;
-    on(event: "render_failed", listener: (data: { renderID: number, code: number, error: string }) => void): this;
+    on(event: "render_failed", listener: (data: { renderID: number; code: number; error: string }) => void): this;
     on(event: "render_error", listener: (data: { renderID: number }) => void): this;
-    on(event: "render_progress", listener: (data: { renderID: number, status: string, progression: string | null }) => void): this;
+    on(event: "render_progress", listener: (data: { renderID: number; status: string; progression: string | null }) => void): this;
 
     /**
-    * Create a new render on o!rdr.
-    * @param {Object} body
-    * @param {Boolean} [body.BGParallax=false]
-    * @param {Number} [body.breakBGDim=30]
-    * @param {Boolean} [body.cursorRainbow=false]
-    * @param {Boolean} [body.cursorRipples=false]
-    * @param {Boolean} [body.cursorScaleToCS=false]
-    * @param {Number} [body.cursorSize=1]
-    * @param {Boolean} [body.cursorTrail=true]
-    * @param {Boolean} [body.cursorTrailGlow=false]
-    * @param {Boolean} [body.drawComboNumbers=true]
-    * @param {Boolean} [body.drawFollowPoints=true]
-    * @param {Number} [body.globalVolume=50]
-    * @param {Number} [body.hitsoundVolume=50]
-    * @param {Number} [body.inGameBGDim=75]
-    * @param {Number} [body.introBGDim=0]
-    * @param {Boolean} [body.loadStoryboard=true]
-    * @param {Boolean} [body.loadVideo=true]
-    * @param {Boolean} body.motionBlur960fps
-    * @param {Number} [body.musicVolume=50]
-    * @param {Boolean} [body.objectsFlashToTheBeat=false]
-    * @param {Boolean} [body.objectsRainbow=false]
-    * @param {File} body.replayFile
-    * @param {String} body.replayURL
-    * @param {String} body.resolution
-    * @param {Boolean} [body.scaleToTheBeat=false]
-    * @param {Boolean} [body.seizureWarning=false]
-    * @param {Boolean} [body.showBorders=false]
-    * @param {Boolean} [body.showComboCounter=true]
-    * @param {Boolean} [body.showDanserLogo=true]
-    * @param {Boolean} [body.showHPBar=true]
-    * @param {Boolean} [body.showHitErrorMeter=true]
-    * @param {Boolean} body.showKeyOverlay
-    * @param {Boolean} [body.showMods=true]
-    * @param {Boolean} [body.showPPCounter=true]
-    * @param {Boolean} [body.showResultScreen=true]
-    * @param {Boolean} [body.showScore=true]
-    * @param {Boolean} [body.showScoreboard=false]
-    * @param {Boolean} [body.showUnstableRate=true]
-    * @param {String} body.skin
-    * @param {Boolean} [body.skip=true]
-    * @param {Boolean} [body.sliderMerge=false]
-    * @param {Boolean} [body.sliderSnakingIn=true]
-    * @param {Boolean} [body.sliderSnakingOut=true]
-    * @param {Boolean} [body.useBeatmapColors=true]
-    * @param {Boolean} [body.useHitCircleColor=true]
-    * @param {Boolean} [body.useSkinColors=false]
-    * @param {Boolean} [body.useSkinCursor=true]
-    * @param {Boolean} [body.useSkinHitsounds=true]
-    * @param {String} body.username
-    * @tutorial See the o!rdr Documentation: {@link https://ordr.issou.best/docs}
-    * @example newRender({ replayURL: "https://url.tld/file.osr", username: "ordr.js", resolution: "1920x1080", ... })
-    * @return {Promise<API.NewRender>}
-    */
+     * Create a new render on o!rdr.
+     * @param {Object} body
+     * @param {Boolean} [body.BGParallax=false]
+     * @param {Number} [body.breakBGDim=30]
+     * @param {Boolean} [body.cursorRainbow=false]
+     * @param {Boolean} [body.cursorRipples=false]
+     * @param {Boolean} [body.cursorScaleToCS=false]
+     * @param {Number} [body.cursorSize=1]
+     * @param {Boolean} [body.cursorTrail=true]
+     * @param {Boolean} [body.cursorTrailGlow=false]
+     * @param {Boolean} [body.drawComboNumbers=true]
+     * @param {Boolean} [body.drawFollowPoints=true]
+     * @param {Number} [body.globalVolume=50]
+     * @param {Number} [body.hitsoundVolume=50]
+     * @param {Number} [body.inGameBGDim=75]
+     * @param {Number} [body.introBGDim=0]
+     * @param {Boolean} [body.loadStoryboard=true]
+     * @param {Boolean} [body.loadVideo=true]
+     * @param {Boolean} body.motionBlur960fps
+     * @param {Number} [body.musicVolume=50]
+     * @param {Boolean} [body.objectsFlashToTheBeat=false]
+     * @param {Boolean} [body.objectsRainbow=false]
+     * @param {File} body.replayFile
+     * @param {String} body.replayURL
+     * @param {String} body.resolution
+     * @param {Boolean} [body.scaleToTheBeat=false]
+     * @param {Boolean} [body.seizureWarning=false]
+     * @param {Boolean} [body.showBorders=false]
+     * @param {Boolean} [body.showComboCounter=true]
+     * @param {Boolean} [body.showDanserLogo=true]
+     * @param {Boolean} [body.showHPBar=true]
+     * @param {Boolean} [body.showHitErrorMeter=true]
+     * @param {Boolean} body.showKeyOverlay
+     * @param {Boolean} [body.showMods=true]
+     * @param {Boolean} [body.showPPCounter=true]
+     * @param {Boolean} [body.showResultScreen=true]
+     * @param {Boolean} [body.showScore=true]
+     * @param {Boolean} [body.showScoreboard=false]
+     * @param {Boolean} [body.showUnstableRate=true]
+     * @param {String} body.skin
+     * @param {Boolean} [body.skip=true]
+     * @param {Boolean} [body.sliderMerge=false]
+     * @param {Boolean} [body.sliderSnakingIn=true]
+     * @param {Boolean} [body.sliderSnakingOut=true]
+     * @param {Boolean} [body.useBeatmapColors=true]
+     * @param {Boolean} [body.useHitCircleColor=true]
+     * @param {Boolean} [body.useSkinColors=false]
+     * @param {Boolean} [body.useSkinCursor=true]
+     * @param {Boolean} [body.useSkinHitsounds=true]
+     * @param {String} body.username
+     * @tutorial See the o!rdr Documentation: {@link https://ordr.issou.best/docs}
+     * @example newRender({ replayURL: "https://url.tld/file.osr", username: "ordr.js", resolution: "1920x1080", ... })
+     * @return {Promise<API.NewRender>}
+     */
     newRender(body?: {
         BGParallax?: boolean;
         breakBGDim?: number;
@@ -139,144 +139,134 @@ export class Client {
     }): Promise<API.NewRender>;
 
     /**
-    * Get a list of renders.
-    * @param {Object} params - query parameters
-    * @param {Number} [params.pageSize=50] - number of renders that the API will return
-    * @param {Number} [params.page=1] - page number
-    * @param {String} params.ordrUsername - get renders that matches the most this o!rdr username
-    * @param {String} params.replayUsername - get renders that matches the most this replay username
-    * @param {Number} params.renderID - get a render with this specific renderID
-    * @example renders({ pageSize: 10, page: 3 })
-    * @link https://ordr.issou.best/#/renders
-    * @return {Promise<API.Renders>}
-    */
-    renders(params?: {
-        pageSize?: number;
-        page?: number;
-        ordrUsername?: string;
-        replayUsername?: string;
-        renderID?: number;
-    }): Promise<API.Renders>;
+     * Get a list of renders.
+     * @param {Object} params - query parameters
+     * @param {Number} [params.pageSize=50] - number of renders that the API will return
+     * @param {Number} [params.page=1] - page number
+     * @param {String} params.ordrUsername - get renders that matches the most this o!rdr username
+     * @param {String} params.replayUsername - get renders that matches the most this replay username
+     * @param {Number} params.renderID - get a render with this specific renderID
+     * @example renders({ pageSize: 10, page: 3 })
+     * @link https://ordr.issou.best/#/renders
+     * @return {Promise<API.Renders>}
+     */
+    renders(params?: { pageSize?: number; page?: number; ordrUsername?: string; replayUsername?: string; renderID?: number }): Promise<API.Renders>;
 
     /**
-    * Get a list of skins.
-    * @param {Object} params - query parameters
-    * @param {Number} [params.pageSize=100] - number of renders that the API will return
-    * @param {Number} [params.page=1] - page number
-    * @param {String} params.search - get the skins that matches the most this string
-    * @example skins({ pageSize: 10, page: 3 })
-    * @link https://ordr.issou.best/#/skins
-    * @return {Promise<API.Skins>}
-    */
-    skins(params?: {
-        pageSize?: number;
-        page?: number;
-        search?: string;
-    }): Promise<API.Skins>;
+     * Get a list of skins.
+     * @param {Object} params - query parameters
+     * @param {Number} [params.pageSize=100] - number of renders that the API will return
+     * @param {Number} [params.page=1] - page number
+     * @param {String} params.search - get the skins that matches the most this string
+     * @example skins({ pageSize: 10, page: 3 })
+     * @link https://ordr.issou.best/#/skins
+     * @return {Promise<API.Skins>}
+     */
+    skins(params?: { pageSize?: number; page?: number; search?: string }): Promise<API.Skins>;
 }
 
 declare namespace API {
     interface NewRender {
-        message: string,
-        errorCode: number,
-        renderID?: number
+        message: string;
+        errorCode: number;
+        renderID?: number;
     }
 
     interface Renders {
-        renders: API.Render[] | [],
-        maxRenders: number
+        renders: API.Render[] | [];
+        maxRenders: number;
     }
 
     type Render = {
-        date: string,
-        readableDate: string,
-        renderID: number,
-        username: string,
-        progress: string,
-        errorCode: number,
-        renderer: string,
-        description: string,
-        title: string,
-        replayFilePath: string,
-        videoUrl: string,
-        mapLink: string,
-        mapTitle: string,
-        mapLength: number,
-        replayDifficulty: string,
-        replayUsername: string,
-        replayMods: string,
-        mapID: number,
-        needToRedownload: boolean,
-        resolution: string,
-        globalVolume: number,
-        musicVolume: number,
-        hitsoundVolume: number,
-        useSkinHitsounds: boolean,
-        showHitErrorMeter: boolean,
-        showUnstableRate: boolean,
-        showScore: boolean,
-        showHPBar: boolean,
-        showComboCounter: boolean,
-        showPPCounter: boolean,
-        showKeyOverlay: boolean,
-        showScoreboard: boolean,
-        showBorders: boolean,
-        showMods: boolean,
-        showResultScreen: boolean,
-        skin: string,
-        hasCursorMiddle: boolean,
-        useSkinCursor: boolean,
-        useSkinColors: boolean,
-        useBeatmapColors: boolean,
-        cursorScaleToCS: boolean,
-        cursorRainbow: boolean,
-        cursorTrailGlow: boolean,
-        cursorSize: number,
-        cursorTrail: boolean,
-        drawFollowPoints: boolean,
-        drawComboNumbers: boolean,
-        scaleToTheBeat: boolean,
-        sliderMerge: boolean,
-        objectsRainbow: boolean,
-        objectsFlashToTheBeat: boolean,
-        useHitCircleColor: boolean,
-        seizureWarning: boolean,
-        loadStoryboard: boolean,
-        loadVideo: boolean,
-        introBGDim: number,
-        inGameBGDim: number,
-        breakBGDim: number,
-        BGParallax: boolean,
-        showDanserLogo: boolean,
-        motionBlur960fps: boolean,
-        skip: boolean,
-        cursorRipples: boolean,
-        sliderSnakingIn: boolean,
-        sliderSnakingOut: boolean,
-        isVerified: boolean,
-        isBot: boolean,
-        renderStartTime: number,
-        renderEndTime: number,
-        renderTotalTime: number,
-        uploadEndTime: number,
-        uploadTotalTime: number
-    }
+        date: string;
+        readableDate: string;
+        renderID: number;
+        username: string;
+        progress: string;
+        errorCode: number;
+        renderer: string;
+        description: string;
+        title: string;
+        replayFilePath: string;
+        videoUrl: string;
+        mapLink: string;
+        mapTitle: string;
+        mapLength: number;
+        replayDifficulty: string;
+        replayUsername: string;
+        replayMods: string;
+        mapID: number;
+        needToRedownload: boolean;
+        resolution: string;
+        globalVolume: number;
+        musicVolume: number;
+        hitsoundVolume: number;
+        useSkinHitsounds: boolean;
+        showHitErrorMeter: boolean;
+        showUnstableRate: boolean;
+        showScore: boolean;
+        showHPBar: boolean;
+        showComboCounter: boolean;
+        showPPCounter: boolean;
+        showKeyOverlay: boolean;
+        showScoreboard: boolean;
+        showBorders: boolean;
+        showMods: boolean;
+        showResultScreen: boolean;
+        skin: string;
+        hasCursorMiddle: boolean;
+        useSkinCursor: boolean;
+        useSkinColors: boolean;
+        useBeatmapColors: boolean;
+        cursorScaleToCS: boolean;
+        cursorRainbow: boolean;
+        cursorTrailGlow: boolean;
+        cursorSize: number;
+        cursorTrail: boolean;
+        drawFollowPoints: boolean;
+        drawComboNumbers: boolean;
+        scaleToTheBeat: boolean;
+        sliderMerge: boolean;
+        objectsRainbow: boolean;
+        objectsFlashToTheBeat: boolean;
+        useHitCircleColor: boolean;
+        seizureWarning: boolean;
+        loadStoryboard: boolean;
+        loadVideo: boolean;
+        introBGDim: number;
+        inGameBGDim: number;
+        breakBGDim: number;
+        BGParallax: boolean;
+        showDanserLogo: boolean;
+        motionBlur960fps: boolean;
+        skip: boolean;
+        cursorRipples: boolean;
+        sliderSnakingIn: boolean;
+        sliderSnakingOut: boolean;
+        isVerified: boolean;
+        isBot: boolean;
+        renderStartTime: number;
+        renderEndTime: number;
+        renderTotalTime: number;
+        uploadEndTime: number;
+        uploadTotalTime: number;
+    };
 
     interface Skins {
-        message: string,
-        skins: API.Skin[] | [],
-        maxSkins: number
+        message: string;
+        skins: API.Skin[] | [];
+        maxSkins: number;
     }
 
     type Skin = {
         skin: string;
         presentationName: string;
-        url: string,
-        lowResPreview: string,
-        highResPreview: string,
-        mozaicPreview: string,
-        id: number,
-        hasCursorMiddle: boolean,
-        gridPreview: string
-    }
+        url: string;
+        lowResPreview: string;
+        highResPreview: string;
+        mozaicPreview: string;
+        id: number;
+        hasCursorMiddle: boolean;
+        gridPreview: string;
+    };
 }

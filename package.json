@@ -1,40 +1,40 @@
 {
-  "name": "ordr.js",
-  "version": "3.2.0",
-  "description": "A JavaScript library for interacting with the o!rdr API and WebSocket",
-  "main": "./index.js",
-  "types": "./index.d.ts",
-  "exports": {
-    "require": "./index.js",
-    "import": "./esm/wrapper.js"
-  },
-  "dependencies": {
-    "axios": "^0.21.1",
-    "socket.io-client": "^4.1.3"
-  },
-  "scripts": {
-    "start": "node index.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/LockBlock-dev/ordr.js.git"
-  },
-  "author": "LockBlock-dev",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/LockBlock-dev/ordr.js/issues"
-  },
-  "homepage": "https://github.com/LockBlock-dev/ordr.js#readme",
-  "devDependencies": {
-    "gen-esm-wrapper": "^1.1.2",
-    "ts-node": "^10.1.0",
-    "typescript": "^4.3.5"
-  },
-  "keywords": [
-    "osu",
-    "render",
-    "replays",
-    "API",
-    "Websocket"
-  ]
+    "name": "ordr.js",
+    "version": "3.2.1",
+    "description": "A JavaScript library for interacting with the o!rdr API and WebSocket",
+    "main": "./index.js",
+    "types": "./index.d.ts",
+    "exports": {
+        "require": "./index.js",
+        "import": "./esm/wrapper.js"
+    },
+    "dependencies": {
+        "axios": "^0.21.1",
+        "socket.io-client": "^4.1.3"
+    },
+    "scripts": {
+        "start": "node index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/LockBlock-dev/ordr.js.git"
+    },
+    "author": "LockBlock-dev",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/LockBlock-dev/ordr.js/issues"
+    },
+    "homepage": "https://github.com/LockBlock-dev/ordr.js#readme",
+    "devDependencies": {
+        "gen-esm-wrapper": "^1.1.2",
+        "ts-node": "^10.1.0",
+        "typescript": "^4.3.5"
+    },
+    "keywords": [
+        "osu",
+        "render",
+        "replays",
+        "API",
+        "Websocket"
+    ]
 }

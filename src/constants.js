@@ -1,7 +1,8 @@
 module.exports.WSstatus = {
+    "Waiting": "(0%)",
     "Uploading...": "(100%)",
-    "Finalizing...": "(100%)"
-}
+    "Finalizing...": "(100%)",
+};
 
 module.exports.WScodes = {
     1: "Emergency stop (triggered manually)",
@@ -21,8 +22,8 @@ module.exports.WScodes = {
     18: "Unknown error from the renderer",
     19: "The renderer cannot download the map",
     20: "Beatmap version on the mirror is not the same as the replay",
-    21: "The replay is corrupted (danser cannot process it)"
-}
+    21: "The replay is corrupted (danser cannot process it)",
+};
 
 module.exports.APIcodes = {
     2: "Replay parsing error (bad upload from the sender)",
@@ -31,5 +32,5 @@ module.exports.APIcodes = {
     7: "The replay has no input data",
     15: "This player is banned from o!rdr",
     16: "This IP is banned from o!rdr",
-    17: "This username is banned from o!rdr"
-}
+    17: "This username is banned from o!rdr",
+};
