@@ -1,4 +1,5 @@
 export var WSstatus: {
+    "Waiting": string;
     "Uploading...": string;
     "Finalizing...": string;
 };
