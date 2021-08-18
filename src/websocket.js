@@ -46,8 +46,6 @@ exports.WebSocket = class WebSocket extends EventEmitter {
         });
 
         socket.on("render_error", (data) => {
-            this.emit("render_error", { renderID: data });
-
             if (this.emit("render_error", { renderID: data }) && !deprecationEmitted) {
                 deprecationEmitted = true;
                 process.emitWarning("The render_error event is deprecated. Use render_failed instead", "DeprecationWarning");

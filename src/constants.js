@@ -23,6 +23,7 @@ module.exports.WScodes = {
     19: "The renderer cannot download the map",
     20: "Beatmap version on the mirror is not the same as the replay",
     21: "The replay is corrupted (danser cannot process it)",
+    22: "There is a server-side problem while finalizing the generated video",
 };
 
 module.exports.APIcodes = {
@@ -33,4 +34,5 @@ module.exports.APIcodes = {
     15: "This player is banned from o!rdr",
     16: "This IP is banned from o!rdr",
     17: "This username is banned from o!rdr",
+    23: "There is a server-side problem while preparing the render",
 };

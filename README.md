@@ -22,7 +22,7 @@ With GitHub :
 
 • Go to the ordr.js folder and do `npm install`
 
-• Require the [index.js](/index.js)
+• Require the [client.js](/src/client.js)
 
 With NPM :
 

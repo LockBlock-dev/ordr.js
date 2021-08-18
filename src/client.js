@@ -68,12 +68,16 @@ exports.Client = class Client extends EventEmitter {
                         data.errorCode ? ((data.code = data.errorCode), (data.error = APIcodes[data.errorCode]), delete data.errorCode) : null;
                         return data;
                     } catch (err) {
-                        throw new errors.ParseError("Error parsing response", response.data, response.status, options.method, options.url);
+                        throw new errors.ParseError(response.data, response.status, options.method, options.url);
                     }
                 }
             })
             .catch((error) => {
-                return new errors.APIError(error, error.response, error.response.status, options.method, options.url);
+                if (error.type == "ParseError") {
+                    return error;
+                } else {
+                    return new errors.APIError(error, error.response, error.response.status, options.method, options.url);
+                }
             });
     }
 
@@ -143,8 +147,9 @@ exports.Client = class Client extends EventEmitter {
      * @param {Boolean} [body.showComboCounter=true]
      * @param {Boolean} [body.showDanserLogo=true]
      * @param {Boolean} [body.showHPBar=true]
+     * @param {Boolean} [body.showHitCounter=false]
      * @param {Boolean} [body.showHitErrorMeter=true]
-     * @param {Boolean} body.showKeyOverlay
+     * @param {Boolean} [body.showKeyOverlay=]
      * @param {Boolean} [body.showMods=true]
      * @param {Boolean} [body.showPPCounter=true]
      * @param {Boolean} [body.showResultScreen=true]
@@ -162,12 +167,14 @@ exports.Client = class Client extends EventEmitter {
      * @param {Boolean} [body.useSkinCursor=true]
      * @param {Boolean} [body.useSkinHitsounds=true]
      * @param {String} body.username
+     * @param {String} body.devmode
      * @tutorial See the o!rdr Documentation: {@link https://ordr.issou.best/docs}
      * @example newRender({ replayURL: "https://url.tld/file.osr", username: "ordr.js", resolution: "1920x1080", ... })
      * @return {Promise<Object>}
      */
     newRender(body = {}) {
         this.API_KEY ? (body.verificationKey = this.API_KEY) : null;
+        body.devmode ? ((body.verificationKey = `devmode_${body.devmode}`), delete body.devmode) : null;
         return this.#request("POST", "renders", body);
     }
 
@@ -179,11 +186,13 @@ exports.Client = class Client extends EventEmitter {
      * @param {String} params.ordrUsername - get renders that matches the most this o!rdr username
      * @param {String} params.replayUsername - get renders that matches the most this replay username
      * @param {Number} params.renderID - get a render with this specific renderID
+     * @param {Boolean} [params.nobots=false] - hide bots from the returned render query
      * @example renders({ pageSize: 10, page: 3 })
      * @link https://ordr.issou.best/#/renders
      * @return {Promise<Object>}
      */
     renders(params = {}) {
+        params.nobots == false ? delete params.nobots : null;
         params = new URLSearchParams(params);
         return this.#request("GET", `renders?${params.toString()}`);
     }

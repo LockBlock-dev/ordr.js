@@ -64,6 +64,7 @@ export class Client {
      * @param {Boolean} [body.showComboCounter=true]
      * @param {Boolean} [body.showDanserLogo=true]
      * @param {Boolean} [body.showHPBar=true]
+     * @param {Boolean} [body.showHitCounter=false]
      * @param {Boolean} [body.showHitErrorMeter=true]
      * @param {Boolean} body.showKeyOverlay
      * @param {Boolean} [body.showMods=true]
@@ -83,6 +84,7 @@ export class Client {
      * @param {Boolean} [body.useSkinCursor=true]
      * @param {Boolean} [body.useSkinHitsounds=true]
      * @param {String} body.username
+     * @param {String} body.devmode
      * @tutorial See the o!rdr Documentation: {@link https://ordr.issou.best/docs}
      * @example newRender({ replayURL: "https://url.tld/file.osr", username: "ordr.js", resolution: "1920x1080", ... })
      * @return {Promise<API.NewRender>}
@@ -117,6 +119,7 @@ export class Client {
         showComboCounter?: boolean;
         showDanserLogo?: boolean;
         showHPBar?: boolean;
+        showHitCounter?: boolean;
         showHitErrorMeter?: boolean;
         showKeyOverlay: boolean;
         showMods?: boolean;
@@ -136,6 +139,7 @@ export class Client {
         useSkinCursor?: boolean;
         useSkinHitsounds?: boolean;
         username: string;
+        devmode: "success" | "fail" | "wsfail";
     }): Promise<API.NewRender>;
 
     /**
@@ -146,6 +150,7 @@ export class Client {
      * @param {String} params.ordrUsername - get renders that matches the most this o!rdr username
      * @param {String} params.replayUsername - get renders that matches the most this replay username
      * @param {Number} params.renderID - get a render with this specific renderID
+     * @param {Boolean} params.nobots - hide bots from the returned render query
      * @example renders({ pageSize: 10, page: 3 })
      * @link https://ordr.issou.best/#/renders
      * @return {Promise<API.Renders>}
@@ -250,6 +255,7 @@ declare namespace API {
         renderTotalTime: number;
         uploadEndTime: number;
         uploadTotalTime: number;
+        removed: boolean;
     };
 
     interface Skins {
@@ -269,4 +275,115 @@ declare namespace API {
         hasCursorMiddle: boolean;
         gridPreview: string;
     };
+}
+
+export class WebSocket {
+    constructor(gateway: string);
+
+    gateway: string;
+
+    start(): void;
+}
+
+export var WSstatus: {
+    Waiting: string;
+    "Uploading...": string;
+    "Finalizing...": string;
+};
+
+export var WScodes: {
+    1: string;
+    2: string;
+    3: string;
+    4: string;
+    5: string;
+    6: string;
+    7: string;
+    8: string;
+    9: string;
+    10: string;
+    11: string;
+    12: string;
+    13: string;
+    14: string;
+    18: string;
+    19: string;
+    20: string;
+    21: string;
+    22: string;
+};
+
+export var APIcodes: {
+    2: string;
+    5: string;
+    6: string;
+    7: string;
+    15: string;
+    16: string;
+    17: string;
+    23: string;
+};
+
+export class BaseError extends Error {
+    /**
+     * @class BaseError
+     * @constructor
+     * @private
+     * @param {String} type Error type
+     * @param {String} message Error message
+     */
+    constructor();
+    type: string;
+    toJSON(): {
+        type: string;
+        message: string;
+    };
+}
+
+export class FatalError extends BaseError {
+    /**
+     * Represents a fatal error from the Client : `"FatalError"`.
+     * @extends BaseError
+     * @constructor
+     * @param {String|Error} error Error object or message
+     */
+    constructor(error: string | Error);
+}
+
+export class APIError extends BaseError {
+    /**
+     * Represents an error from the API : `"APIError"`.
+     * @extends BaseError
+     * @constructor
+     * @param {String|Error} error Error message
+     * @param {Object} response Error response
+     * @param {String} status Status type of the request
+     * @param {String} method Method used for the request
+     * @param {String} url Url of the request to the endpoint
+     */
+    constructor(error: string | Error, response: any, status: string, method: string, url: string);
+    status: string;
+    method: string;
+    url: string;
+    result: string;
+    code: number;
+    error: string;
+}
+
+export class ParseError extends BaseError {
+    /**
+     * Represents a parsing error : `"ParseError"`.
+     * @class ParseError
+     * @constructor
+     * @param {String} message Error message
+     * @param {Object} response Error response
+     * @param {String} status Status type of the request
+     * @param {String} method Method used for the request
+     * @param {String} url Url of the request to the endpoint
+     */
+    constructor(message: string, response: any, status: string, method: string, url: string);
+    status: string;
+    method: string;
+    url: string;
+    response: any;
 }

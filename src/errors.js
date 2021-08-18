@@ -72,16 +72,14 @@ exports.ParseError = class ParseError extends BaseError {
      * @class ParseError
      * @constructor
      * @param {String} message Error message
-     * @param {Object} response Error response
      * @param {String} status Status type of the request
      * @param {String} method Method used for the request
      * @param {String} url Url of the request to the endpoint
      */
-    constructor(message, response, status, method, url) {
+    constructor(message, status, method, url) {
         super("ParseError", message);
         this.status = status;
         this.method = method;
         this.url = url;
-        this.response = response;
     }
 };
