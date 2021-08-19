@@ -104,6 +104,11 @@ exports.Client = class Client extends EventEmitter {
 
         ws.on("render_error", (data) => {
             this.emit("render_error", data);
+
+            if (this.emit("render_error", data) && !deprecationEmitted) {
+                deprecationEmitted = true;
+                process.emitWarning("The render_error event is deprecated. Use render_failed instead", "DeprecationWarning");
+            }
         });
 
         ws.on("render_progress", (data) => {
