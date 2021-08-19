@@ -139,7 +139,6 @@ exports.Client = class Client extends EventEmitter {
      * @param {Number} [body.introBGDim=0]
      * @param {Boolean} [body.loadStoryboard=true]
      * @param {Boolean} [body.loadVideo=true]
-     * @param {Boolean} body.motionBlur960fps
      * @param {Number} [body.musicVolume=50]
      * @param {Boolean} [body.objectsFlashToTheBeat=false]
      * @param {Boolean} [body.objectsRainbow=false]
@@ -154,7 +153,7 @@ exports.Client = class Client extends EventEmitter {
      * @param {Boolean} [body.showHPBar=true]
      * @param {Boolean} [body.showHitCounter=false]
      * @param {Boolean} [body.showHitErrorMeter=true]
-     * @param {Boolean} [body.showKeyOverlay=]
+     * @param {Boolean} [body.showKeyOverlay=true]
      * @param {Boolean} [body.showMods=true]
      * @param {Boolean} [body.showPPCounter=true]
      * @param {Boolean} [body.showResultScreen=true]
@@ -180,6 +179,7 @@ exports.Client = class Client extends EventEmitter {
     newRender(body = {}) {
         this.API_KEY ? (body.verificationKey = this.API_KEY) : null;
         body.devmode ? ((body.verificationKey = `devmode_${body.devmode}`), delete body.devmode) : null;
+        delete body?.motionBlur960fps;
         return this.#request("POST", "renders", body);
     }
 

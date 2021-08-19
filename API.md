@@ -68,7 +68,6 @@ Create a new render on o!rdr.
 | body<area>.introBGDim            | <code>Number</code>  | <code>0</code>     |
 | body<area>.loadStoryboard        | <code>Boolean</code> | <code>true</code>  |
 | body<area>.loadVideo             | <code>Boolean</code> | <code>true</code>  |
-| body<area>.motionBlur960fps      | <code>Boolean</code> |                    |
 | body<area>.musicVolume           | <code>Number</code>  | <code>50</code>    |
 | body<area>.objectsFlashToTheBeat | <code>Boolean</code> | <code>false</code> |
 | body<area>.objectsRainbow        | <code>Boolean</code> | <code>false</code> |
@@ -83,7 +82,7 @@ Create a new render on o!rdr.
 | body<area>.showHPBar             | <code>Boolean</code> | <code>true</code>  |
 | body<area>.showHitCounter        | <code>Boolean</code> | <code>false</code> |
 | body<area>.showHitErrorMeter     | <code>Boolean</code> | <code>true</code>  |
-| body<area>.showKeyOverlay        | <code>Boolean</code> | <code></code>      |
+| body<area>.showKeyOverlay        | <code>Boolean</code> | <code>true</code>  |
 | body<area>.showMods              | <code>Boolean</code> | <code>true</code>  |
 | body<area>.showPPCounter         | <code>Boolean</code> | <code>true</code>  |
 | body<area>.showResultScreen      | <code>Boolean</code> | <code>true</code>  |

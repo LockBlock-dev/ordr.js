@@ -51,7 +51,6 @@ export class Client {
      * @param {Number} [body.introBGDim=0]
      * @param {Boolean} [body.loadStoryboard=true]
      * @param {Boolean} [body.loadVideo=true]
-     * @param {Boolean} body.motionBlur960fps
      * @param {Number} [body.musicVolume=50]
      * @param {Boolean} [body.objectsFlashToTheBeat=false]
      * @param {Boolean} [body.objectsRainbow=false]
@@ -66,7 +65,7 @@ export class Client {
      * @param {Boolean} [body.showHPBar=true]
      * @param {Boolean} [body.showHitCounter=false]
      * @param {Boolean} [body.showHitErrorMeter=true]
-     * @param {Boolean} body.showKeyOverlay
+     * @param {Boolean} [body.showKeyOverlay=true]
      * @param {Boolean} [body.showMods=true]
      * @param {Boolean} [body.showPPCounter=true]
      * @param {Boolean} [body.showResultScreen=true]
@@ -106,7 +105,6 @@ export class Client {
         introBGDim?: number;
         loadStoryboard?: boolean;
         loadVideo?: boolean;
-        motionBlur960fps: boolean;
         musicVolume?: number;
         objectsFlashToTheBeat?: boolean;
         objectsRainbow?: boolean;
@@ -121,7 +119,7 @@ export class Client {
         showHPBar?: boolean;
         showHitCounter?: boolean;
         showHitErrorMeter?: boolean;
-        showKeyOverlay: boolean;
+        showKeyOverlay?: boolean;
         showMods?: boolean;
         showPPCounter?: boolean;
         showResultScreen?: boolean;
