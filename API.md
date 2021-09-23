@@ -10,6 +10,9 @@
 <dt><a href="#skins">skins(params)</a> ⇒ <code>Promise</code></dt>
 <dd><p>Get a list of skins.</p>
 </dd>
+<dt><a href="#servers">servers(params)</a> ⇒ <code>Promise</code></dt>
+<dd><p>Get a list of servers.</p>
+</dd>
 </dl>
 
 # Errors
@@ -180,6 +183,41 @@ Get a list of skins.
 skins();
 skins({ pageSize: 10, page: 3 });
 skins({ search: "best-skin-osu" });
+```
+
+<a name="servers"></a>
+
+## servers(params) ⇒ <code>Promise</code>
+
+Get a list of servers.
+
+**Kind**: method  
+**Returns**:
+
+```js
+{
+    servers: Array,
+}
+```
+
+| Param             | Type                | Default                   | Description      |
+| ----------------- | ------------------- | ------------------------- | ---------------- |
+| params            | <code>Object</code> |                           | query parameters |
+| params<area>.sort | <code>String</code> | sort the servers by score | sorting option   |
+
+**Available sorting options:**
+
+| Sorting option           | Description                               |
+| ------------------------ | ----------------------------------------- |
+| <code>online</code>      | sort the servers by online status         |
+| <code>totalvideos</code> | sort the servers by total videos uploaded |
+
+**Example**
+
+```js
+servers();
+servers({ sort: "online" });
+servers({ sort: "totalvideos" });
 ```
 
 # Errors

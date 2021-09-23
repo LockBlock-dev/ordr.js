@@ -1,7 +1,6 @@
 const axios = require("axios").default;
 const errors = require("./errors");
 const { APIcodes } = require("./constants");
-const querystring = require("querystring");
 const EventEmitter = require("events");
 const { WebSocket } = require("./websocket");
 
@@ -215,5 +214,19 @@ exports.Client = class Client extends EventEmitter {
     skins(params = {}) {
         params = new URLSearchParams(params);
         return this.#request("GET", `skins?${params.toString()}`);
+    }
+
+    /**
+     * Get a list of servers.
+     * @param {Object} params - query parameters
+     * @param {String} params.sort
+     * @example servers({ sort: "online" })
+     * @link https://ordr.issou.best/#/status
+     * @return {Promise<Object>}
+     */
+    servers(params = {}) {
+        params.sort ? ((params[`sort${params.sort}`] = true), delete params.sort) : null;
+        params = new URLSearchParams(params);
+        return this.#request("GET", `servers?${params.toString()}`);
     }
 };

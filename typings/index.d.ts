@@ -166,6 +166,16 @@ export class Client {
      * @return {Promise<API.Skins>}
      */
     skins(params?: { pageSize?: number; page?: number; search?: string }): Promise<API.Skins>;
+
+    /**
+     * Get a list of servers.
+     * @param {Object} params - query parameters
+     * @param {String} params.sort
+     * @example servers({ sort: "online" })
+     * @link https://ordr.issou.best/#/status
+     * @return {Promise<API.Servers>}
+     */
+    servers(params?: { sort?: "online" | "totalvideos" }): Promise<API.Servers>;
 }
 
 declare namespace API {
@@ -272,6 +282,30 @@ declare namespace API {
         id: number;
         hasCursorMiddle: boolean;
         gridPreview: string;
+    };
+
+    interface Servers {
+        servers: API.Server[] | [];
+    }
+
+    type Server = {
+        enabled: boolean;
+        lastSeen: string;
+        name: string;
+        priority: number;
+        power: string;
+        status: string;
+        totalRendered: number;
+        renderingType: string;
+        cpu: string;
+        gpu: string;
+        motionBlurCapable: boolean;
+        usingOsuApi: boolean;
+        avgRenderTime: number;
+        avgUploadTime: number;
+        totalAvgTime: number;
+        avgFPS: number;
+        totalUploadedVideosSize: number;
     };
 }
 
