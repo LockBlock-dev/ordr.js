@@ -10,7 +10,7 @@ class Client extends EventEmitter {
     /**
      * The o!rdr client.
      * @param {string} apiKey The API key.
-     * @example const client = new Client("apiKey");
+     * @example const client = new Client("API_KEY");
      */
     constructor(apiKey) {
         super();
