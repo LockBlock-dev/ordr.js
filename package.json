@@ -4,6 +4,10 @@
     "description": "A JavaScript library for interacting with the o!rdr API and WebSocket",
     "main": "./src/client.js",
     "types": "./typings/index.d.ts",
+    "scripts": {
+        "docma:build": "docma build",
+        "docma:serve": "docma serve"
+    },
     "exports": {
         "require": "./src/client.js",
         "import": "./esm/wrapper.js"
@@ -23,6 +27,7 @@
     },
     "homepage": "https://github.com/LockBlock-dev/ordr.js#readme",
     "devDependencies": {
+        "docma": "^3.2.2",
         "gen-esm-wrapper": "^1.1.2",
         "ts-node": "^10.1.0",
         "typescript": "^4.3.5"

@@ -1,0 +1,5 @@
+{
+    "src": ["src/**/*.js"],
+    "dest": "docs",
+    "app": { "title": "ordr.js Documentation", "base": "/ordr.js" }
+}
