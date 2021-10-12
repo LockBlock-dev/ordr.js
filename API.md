@@ -116,7 +116,7 @@ Create a new render on o!rdr.
 **Example**
 
 ```js
-newRender({ replayURL: "https://url.tld/file.osr", username: "ordr.js", resolution: "1920x1080", ... })
+client.newRender({ replayURL: "https://url.tld/file.osr", username: "ordr.js", resolution: "1920x1080", ... })
 ```
 
 <a name="renders"></a>
@@ -148,9 +148,9 @@ Get a list of renders.
 **Example**
 
 ```js
-renders();
-renders({ pageSize: 10, page: 3, nobots: true });
-renders({ renderID: 1234 });
+client.renders();
+client.renders({ pageSize: 10, page: 3, nobots: true });
+client.renders({ renderID: 1234 });
 ```
 
 <a name="skins"></a>
@@ -180,9 +180,9 @@ Get a list of skins.
 **Example**
 
 ```js
-skins();
-skins({ pageSize: 10, page: 3 });
-skins({ search: "best-skin-osu" });
+client.skins();
+client.skins({ pageSize: 10, page: 3 });
+client.skins({ search: "best-skin-osu" });
 ```
 
 <a name="servers"></a>
@@ -215,9 +215,9 @@ Get a list of servers.
 **Example**
 
 ```js
-servers();
-servers({ sort: "online" });
-servers({ sort: "totalvideos" });
+client.servers();
+client.servers({ sort: "online" });
+client.servers({ sort: "totalvideos" });
 ```
 
 # Errors

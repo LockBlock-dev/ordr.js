@@ -6,37 +6,30 @@
 
 ordr.js is a Node.js module that allows you to easily interact with the o!rdr API and WebSocket.
 
-• Promise based
-
-• Performant
-
-• 100% coverage of the o!rdr API and WebSocket
+-   Promise-based
+-   Performant
+-   100% coverage of the o!rdr API and WebSocket
 
 ## Installation
 
-• Download [NPM](https://www.npmjs.com/get-npm) and [NodeJS](https://nodejs.org)
+-   Install [NodeJS](https://nodejs.org).
 
-With GitHub :
+### With GitHub:
 
-• Download the project or clone it
+-   Download or clone the project.
+-   Go to the `ordr.js` folder and run `npm install`.
+-   Require [`client.js`](/src/client.js).
 
-• Go to the ordr.js folder and do `npm install`
+### With npm:
 
-• Require the [client.js](/src/client.js)
-
-With NPM :
-
-• Download the project
-
-• Do `npm install ordr.js`
-
-• Require the library
+-   Run `npm install ordr.js`.
+-   Require the library.
 
 ## Documentation
 
-See the [API documentation](/API.md)  
-See the [WebSocket documentation](/WebSocket.md)  
-See the [changelog](/CHANGELOG.md)
+-   [API documentation](/API.md)
+-   [WebSocket documentation](/WebSocket.md)
+-   [changelog](/CHANGELOG.md)
 
 ## Example usage
 
@@ -44,9 +37,11 @@ The library can be used in both CommonJS and ES Modules
 
 ### Using the library - API
 
+The library is async, be sure to use [async functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function#syntax) or [`.then()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/then#syntax)
+
 ```js
 const { Client } = require("ordr.js");
-//OR
+// OR
 import { Client } from "ordr.js";
 
 const client = new Client();
@@ -54,30 +49,26 @@ const client = new Client();
 client.skins().then((data) => {
     console.log(data);
 });
-
-//OR
-
-const myFunc = async () => {
+// OR
+const getSkins = async () => {
     const data = await client.skins();
     console.log(data);
 };
 
-myFunc();
+getSkins();
 ```
 
-If you have an API key, you can specify it when initiating the client :
+If you have an API key, you can specify it when initiating the client:
 
 ```js
 const client = new Client("API_KEY");
 ```
 
-The library is async, be sure to use [async functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function#syntax) or [.then()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/then#syntax)
-
 ### Using the library - WebSocket
 
 ```js
 const { Client } = require("ordr.js");
-//OR
+// OR
 import { Client } from "ordr.js";
 
 const client = new Client();
@@ -93,7 +84,8 @@ List of events available [here](/WebSocket.md)
 
 ## Credits
 
-[o!rdr API](https://ordr.issou.best/docs)
+-   [o!rdr API](https://ordr.issou.best/docs)
+-   [flazepe](https://github.com/flazepe)
 
 ## Copyright
 

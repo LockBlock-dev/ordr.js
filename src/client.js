@@ -1,53 +1,51 @@
 const axios = require("axios").default;
 const errors = require("./errors");
-const { APIcodes } = require("./constants");
+const { APIcodes, WScodes, WSstatus } = require("./constants");
+const io = require("socket.io-client");
 const EventEmitter = require("events");
-const { WebSocket } = require("./websocket");
+
+let deprecationEmitted = false;
 
 exports.Client = class Client extends EventEmitter {
+    /**
+     * The o!rdr client
+     * @param {string} [API_KEY] o!rdr API key
+     * @example const client = new Client("API_KEY");
+     */
     constructor(API_KEY) {
         super();
 
         /**
          * The API Bot Key
-         * @type {String}
+         * @type {string}
          */
         this.API_KEY = API_KEY;
 
         /**
-         * The base API Url
-         * @type {String}
+         * The base API URL
+         * @type {string}
          */
-        this.baseApiUrl = "https://ordr-api.issou.best";
+        this.API_URL = "https://ordr-api.issou.best";
 
         /**
-         * The WebSocket Url
-         * @type {String}
+         * The WebSocket URL
+         * @type {string}
          */
-        this.webSocketUrl = "wss://ordr-ws.issou.best";
-    }
-
-    /**
-     * Build url to the API
-     * @param  {String} path API endpoint
-     * @return {String} url
-     * @private
-     */
-    #buildURL(path) {
-        return `${this.baseApiUrl}/${path}`;
+        this.WEBSOCKET_URL = "wss://ordr-ws.issou.best";
     }
 
     /**
      * Make request against the API
-     * @param  {String} path API endpoint
-     * @param  {Object} [options] request options
-     * @return {Promise} promise
      * @private
+     * @param {string} method HTTP method
+     * @param  {string} path API endpoint
+     * @param  {Object} [options] request options
+     * @return {Promise<Object>} promise
      */
     #request(method, path, data) {
-        var options = {
-            method: method,
-            url: this.#buildURL(path),
+        let options = {
+            method,
+            url: `${this.API_URL}/${path}`,
             headers: {
                 "User-Agent": `ordr.js ${require("../package.json").version} (https://github.com/LockBlock-dev/ordr.js)`,
                 "Content-Type": "application/json",
@@ -55,7 +53,7 @@ exports.Client = class Client extends EventEmitter {
             },
         };
 
-        data ? (options.data = data) : null;
+        if (data) options.data = data;
 
         return axios(options)
             .then((response) => {
@@ -63,8 +61,14 @@ exports.Client = class Client extends EventEmitter {
                     return response.data;
                 } else {
                     try {
-                        var data = JSON.parse(response.data);
-                        data.errorCode ? ((data.code = data.errorCode), (data.error = APIcodes[data.errorCode]), delete data.errorCode) : null;
+                        let data = JSON.parse(response.data);
+
+                        if (data.errorCode) {
+                            data.code = data.errorCode;
+                            data.error = APIcodes[data.errorCode];
+                            delete data.errorCode;
+                        }
+
                         return data;
                     } catch (err) {
                         throw new errors.ParseError(response.data, response.status, options.method, options.url);
@@ -72,11 +76,9 @@ exports.Client = class Client extends EventEmitter {
                 }
             })
             .catch((error) => {
-                if (error.type == "ParseError") {
-                    return error;
-                } else {
-                    return new errors.APIError(error, error.response, error.response.status, options.method, options.url);
-                }
+                throw error.type === "ParseError"
+                    ? error
+                    : new errors.APIError(error, error.response, error.response.status, options.method, options.url);
             });
     }
 
@@ -84,149 +86,210 @@ exports.Client = class Client extends EventEmitter {
 
     /**
      * Start the WebSocket.
-     * @example start()
+     * @example client.start();
      */
     start() {
-        const ws = new WebSocket(this.webSocketUrl);
+        const socket = io(this.WEBSOCKET_URL)
+            .on("connect", () => {
+                //console.log(socket.id)
+            })
 
-        ws.on("render_added", (data) => {
-            this.emit("render_added", data);
-        });
+            .on("disconnect", (reason) => {
+                if (reason === "io server disconnect") {
+                    // the disconnection was initiated by the server, you need to reconnect manually
+                    socket.connect();
+                }
+                // else the socket will automatically try to reconnect
+            })
 
-        ws.on("render_done", (data) => {
-            this.emit("render_done", data);
-        });
+            .on("render_added", (data) => {
+                /**
+                 * Emitted when a render is added.
+                 * @event Client#render_added
+                 * @type {Object}
+                 * @property {number} renderID render ID
+                 */
+                this.emit("render_added", { renderID: data });
+            })
 
-        ws.on("render_failed", (data) => {
-            this.emit("render_failed", data);
-        });
+            .on("render_progress", (data) => {
+                let split = data.split(" ");
+                let status = split[1],
+                    progression = WSstatus[status] ?? null;
 
-        ws.on("render_error", (data) => {
-            this.emit("render_error", data);
+                if (split[3]) {
+                    status = `${split[1]} ${split[2]} ${split[3]}`;
+                } else if (split[2]) {
+                    progression = split[2];
+                }
 
-            if (this.emit("render_error", data) && !deprecationEmitted) {
-                deprecationEmitted = true;
-                process.emitWarning("The render_error event is deprecated. Use render_failed instead", "DeprecationWarning");
-            }
-        });
+                /**
+                 * Emitted when a render has progressed.
+                 * @event Client#render_progress
+                 * @type {Object}
+                 * @property {number} renderID render ID
+                 * @property {string} status render status
+                 * @property {string | null} progression render progress
+                 */
+                this.emit("render_progress", { renderID: Number(split[0]), status, progression });
+            })
 
-        ws.on("render_progress", (data) => {
-            this.emit("render_progress", data);
-        });
+            .on("render_error", (data) => {
+                /**
+                 * Emitted when a render has failed rendering.
+                 * @event Client#render_error
+                 * @deprecated
+                 * @type {Object}
+                 * @property {number} renderID render ID
+                 */
+                this.emit("render_error", { renderID: data });
 
-        ws.start();
+                if (!deprecationEmitted) {
+                    deprecationEmitted = true;
+                    process.emitWarning("The render_error event is deprecated. Use render_failed instead", "DeprecationWarning");
+                }
+            })
+
+            .on("render_failed", (data) => {
+                let split = data.split(" ");
+
+                /**
+                 * Emitted when a render has failed rendering.
+                 * @event Client#render_failed
+                 * @type {Object}
+                 * @property {number} renderID render ID
+                 * @property {number} code error code
+                 * @property {string} error error message
+                 */
+                this.emit("render_failed", { renderID: Number(split[0]), code: Number(split[1]), error: WScodes[split[1]] });
+            })
+
+            .on("render_done", (data) => {
+                /**
+                 * Emitted when a render has done rendering.
+                 * @event Client#render_done
+                 * @type {pbject}
+                 * @property {number} renderID render ID
+                 */
+                this.emit("render_done", { renderID: data });
+            });
     }
 
     //----- WEB API ------
 
     /**
      * Create a new render on o!rdr.
-     * @param {Object} body
-     * @param {Boolean} [body.BGParallax=false]
-     * @param {Number} [body.breakBGDim=30]
-     * @param {Boolean} [body.cursorRainbow=false]
-     * @param {Boolean} [body.cursorRipples=false]
-     * @param {Boolean} [body.cursorScaleToCS=false]
-     * @param {Number} [body.cursorSize=1]
-     * @param {Boolean} [body.cursorTrail=true]
-     * @param {Boolean} [body.cursorTrailGlow=false]
-     * @param {Boolean} [body.drawComboNumbers=true]
-     * @param {Boolean} [body.drawFollowPoints=true]
-     * @param {Number} [body.globalVolume=50]
-     * @param {Number} [body.hitsoundVolume=50]
-     * @param {Number} [body.inGameBGDim=75]
-     * @param {Number} [body.introBGDim=0]
-     * @param {Boolean} [body.loadStoryboard=true]
-     * @param {Boolean} [body.loadVideo=true]
-     * @param {Number} [body.musicVolume=50]
-     * @param {Boolean} [body.objectsFlashToTheBeat=false]
-     * @param {Boolean} [body.objectsRainbow=false]
-     * @param {File} body.replayFile
-     * @param {String} body.replayURL
-     * @param {String} body.resolution
-     * @param {Boolean} [body.scaleToTheBeat=false]
-     * @param {Boolean} [body.seizureWarning=false]
-     * @param {Boolean} [body.showBorders=false]
-     * @param {Boolean} [body.showComboCounter=true]
-     * @param {Boolean} [body.showDanserLogo=true]
-     * @param {Boolean} [body.showHPBar=true]
-     * @param {Boolean} [body.showHitCounter=false]
-     * @param {Boolean} [body.showHitErrorMeter=true]
-     * @param {Boolean} [body.showKeyOverlay=true]
-     * @param {Boolean} [body.showMods=true]
-     * @param {Boolean} [body.showPPCounter=true]
-     * @param {Boolean} [body.showResultScreen=true]
-     * @param {Boolean} [body.showScore=true]
-     * @param {Boolean} [body.showScoreboard=false]
-     * @param {Boolean} [body.showUnstableRate=true]
-     * @param {String} body.skin
-     * @param {Boolean} [body.skip=true]
-     * @param {Boolean} [body.sliderMerge=false]
-     * @param {Boolean} [body.sliderSnakingIn=true]
-     * @param {Boolean} [body.sliderSnakingOut=true]
-     * @param {Boolean} [body.useBeatmapColors=true]
-     * @param {Boolean} [body.useHitCircleColor=true]
-     * @param {Boolean} [body.useSkinColors=false]
-     * @param {Boolean} [body.useSkinCursor=true]
-     * @param {Boolean} [body.useSkinHitsounds=true]
-     * @param {String} body.username
-     * @param {String} body.devmode
+     * @param {Object} [body = {}]
+     * @param {boolean} [body.BGParallax = false]
+     * @param {number} [body.breakBGDim = 30]
+     * @param {boolean} [body.cursorRainbow = false]
+     * @param {boolean} [body.cursorRipples = false]
+     * @param {boolean} [body.cursorScaleToCS = false]
+     * @param {number} [body.cursorSize = 1]
+     * @param {boolean} [body.cursorTrail = true]
+     * @param {boolean} [body.cursorTrailGlow = false]
+     * @param {boolean} [body.drawComboNumbers = true]
+     * @param {boolean} [body.drawFollowPoints = true]
+     * @param {number} [body.globalVolume = 50]
+     * @param {number} [body.hitsoundVolume = 50]
+     * @param {number} [body.inGameBGDim = 75]
+     * @param {number} [body.introBGDim = 0]
+     * @param {boolean} [body.loadStoryboard = true]
+     * @param {boolean} [body.loadVideo = true]
+     * @param {number} [body.musicVolume = 50]
+     * @param {boolean} [body.objectsFlashToTheBeat = false]
+     * @param {boolean} [body.objectsRainbow = false]
+     * @param {Buffer} body.replayFile
+     * @param {string} body.replayURL
+     * @param {string} body.resolution
+     * @param {boolean} [body.scaleToTheBeat = false]
+     * @param {boolean} [body.seizureWarning = false]
+     * @param {boolean} [body.showBorders = false]
+     * @param {boolean} [body.showComboCounter = true]
+     * @param {boolean} [body.showDanserLogo = true]
+     * @param {boolean} [body.showHPBar = true]
+     * @param {boolean} [body.showHitCounter = false]
+     * @param {boolean} [body.showHitErrorMeter = true]
+     * @param {boolean} [body.showKeyOverlay = true]
+     * @param {boolean} [body.showMods = true]
+     * @param {boolean} [body.showPPCounter = true]
+     * @param {boolean} [body.showResultScreen = true]
+     * @param {boolean} [body.showScore = true]
+     * @param {boolean} [body.showScoreboard = false]
+     * @param {boolean} [body.showUnstableRate = true]
+     * @param {string} body.skin
+     * @param {boolean} [body.skip = true]
+     * @param {boolean} [body.sliderMerge = false]
+     * @param {boolean} [body.sliderSnakingIn = true]
+     * @param {boolean} [body.sliderSnakingOut = true]
+     * @param {boolean} [body.useBeatmapColors = true]
+     * @param {boolean} [body.useHitCircleColor = true]
+     * @param {boolean} [body.useSkinColors = false]
+     * @param {boolean} [body.useSkinCursor = true]
+     * @param {boolean} [body.useSkinHitsounds = true]
+     * @param {string} body.username
+     * @param {string} body.devmode
      * @tutorial See the o!rdr Documentation: {@link https://ordr.issou.best/docs}
-     * @example newRender({ replayURL: "https://url.tld/file.osr", username: "ordr.js", resolution: "1920x1080", ... })
+     * @example client.newRender({ replayURL: "https://url.tld/file.osr", username: "ordr.js", resolution: "1920x1080", ... });
      * @return {Promise<Object>}
      */
     newRender(body = {}) {
-        this.API_KEY ? (body.verificationKey = this.API_KEY) : null;
-        body.devmode ? ((body.verificationKey = `devmode_${body.devmode}`), delete body.devmode) : null;
+        if (this.API_KEY) body.verificationKey = this.API_KEY;
+
+        if (body.devmode) {
+            body.verificationKey = `devmode_${body.devmode}`;
+            delete body.devmode;
+        }
+
         delete body?.motionBlur960fps;
+
         return this.#request("POST", "renders", body);
     }
 
     /**
-     * Get a list of renders.
-     * @param {Object} params - query parameters
-     * @param {Number} [params.pageSize=50] - number of renders that the API will return
-     * @param {Number} [params.page=1] - page number
-     * @param {String} params.ordrUsername - get renders that matches the most this o!rdr username
-     * @param {String} params.replayUsername - get renders that matches the most this replay username
-     * @param {Number} params.renderID - get a render with this specific renderID
-     * @param {Boolean} [params.nobots=false] - hide bots from the returned render query
-     * @example renders({ pageSize: 10, page: 3 })
-     * @link https://ordr.issou.best/#/renders
+     * Get a list of renders. {@link https://ordr.issou.best/#/renders}
+     * @param {Object} [params = {}] - query parameters
+     * @param {number} [params.pageSize = 50] - number of renders that the API will return
+     * @param {number} [params.page = 1] - page number
+     * @param {string} params.ordrUsername - get renders that matches the most this o!rdr username
+     * @param {string} params.replayUsername - get renders that matches the most this replay username
+     * @param {number} params.renderID - get a render with this specific renderID
+     * @param {boolean} [params.nobots = false] - hide bots from the returned render query
+     * @example client.renders({ pageSize: 10, page: 3 });
      * @return {Promise<Object>}
      */
     renders(params = {}) {
-        params.nobots == false ? delete params.nobots : null;
-        params = new URLSearchParams(params);
-        return this.#request("GET", `renders?${params.toString()}`);
+        if (params.nobots === false) delete params.nobots;
+
+        return this.#request("GET", `renders?${new URLSearchParams(params)}`);
     }
 
     /**
-     * Get a list of skins.
-     * @param {Object} params - query parameters
-     * @param {Number} [params.pageSize=100] - number of renders that the API will return
-     * @param {Number} [params.page=1] - page number
-     * @param {String} params.search - get the skins that matches the most this string
-     * @example skins({ pageSize: 10, page: 3 })
-     * @link https://ordr.issou.best/#/skins
+     * Get a list of skins. {@link https://ordr.issou.best/#/skins}
+     * @param {Object} [params = {}] - query parameters
+     * @param {number} [params.pageSize = 100] - number of renders that the API will return
+     * @param {number} [params.page = 1] - page number
+     * @param {string} params.search - skin to query
+     * @example client.skins({ pageSize: 10, page: 3 });
      * @return {Promise<Object>}
      */
     skins(params = {}) {
-        params = new URLSearchParams(params);
-        return this.#request("GET", `skins?${params.toString()}`);
+        return this.#request("GET", `skins?${new URLSearchParams(params)}`);
     }
 
     /**
-     * Get a list of servers.
-     * @param {Object} params - query parameters
-     * @param {String} params.sort
-     * @example servers({ sort: "online" })
-     * @link https://ordr.issou.best/#/status
+     * Get a list of servers. {@link https://ordr.issou.best/#/status}
+     * @param {Object} [params = {}] - query parameters
+     * @param {string} params.sort - sorting option
+     * @example client.servers({ sort: "online" });
      * @return {Promise<Object>}
      */
     servers(params = {}) {
-        params.sort ? ((params[`sort${params.sort}`] = true), delete params.sort) : null;
-        params = new URLSearchParams(params);
-        return this.#request("GET", `servers?${params.toString()}`);
+        if (params.sort) {
+            params[`sort${params.sort}`] = true;
+            delete params.sort;
+        }
+
+        return this.#request("GET", `servers?${new URLSearchParams(params)}`);
     }
 };
