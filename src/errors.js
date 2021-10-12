@@ -1,85 +1,115 @@
-const { APIcodes } = require("./constants");
+const { apiCodes } = require("./constants");
 
 class BaseError extends Error {
     /**
-     * @class BaseError
-     * @constructor
+     * Represents the base error for o!rdr.
      * @private
-     * @param {String} type Error type
-     * @param {String} message Error message
+     * @param {string} type The error type.
+     * @param {string} message The error message.
      */
     constructor(type, message) {
         super(message);
+
+        /**
+         * The error type.
+         * @type {string}
+         */
         this.type = type;
     }
 
     toJSON() {
-        return {
-            type: this.type,
-            message: this.message,
-        };
+        return { type: this.type, message: this.message };
     }
 }
 
-exports.BaseError = BaseError;
-
-exports.FatalError = class FatalError extends BaseError {
+class FatalError extends BaseError {
     /**
-     * Represents a fatal error from the Client : `"FatalError"`.
+     * Represents a fatal error from the client.
      * @extends BaseError
-     * @constructor
-     * @param {String|Error} error Error object or message
+     * @param {string | Error} error The error object or message.
      */
     constructor(error) {
-        const errObject = typeof error == "string" ? null : error;
-        const message = errObject ? errObject.message : error;
-        super("FatalError", message);
-        if (errObject) {
-            this.stack = errObject.stack;
-        }
-    }
-};
+        const errObject = typeof error === "string" ? null : error,
+            message = errObject ? errObject.message : error;
 
-exports.APIError = class APIError extends BaseError {
+        super("FatalError", message);
+
+        if (errObject) this.stack = errObject.stack;
+    }
+}
+
+class APIError extends BaseError {
     /**
-     * Represents an error from the API : `"APIError"`.
+     * Represents an error from the API.
      * @extends BaseError
-     * @constructor
-     * @param {String|Error} error Error message
-     * @param {Object} response Error response
-     * @param {String} status Status type of the request
-     * @param {String} method Method used for the request
-     * @param {String} url Url of the request to the endpoint
+     * @param {string | Error} error The error message.
+     * @param {Object} response The error response.
+     * @param {string} status The status type of the request.
+     * @param {string} method The method used for the request.
+     * @param {string} url The URL of the request to the endpoint.
      */
     constructor(error, response, status, method, url) {
-        const errObject = typeof error == "string" ? null : error;
-        const message = errObject ? errObject.message : error;
+        const errObject = typeof error === "string" ? null : error,
+            message = errObject ? errObject.message : error;
+
         super("APIError", message);
+
+        /**
+         * The status type of the request.
+         * @type {string}
+         */
         this.status = status;
+
+        /**
+         * The method used for the request.
+         * @type {string}
+         */
         this.method = method;
+
+        /**
+         * The URL of the request to the endpoint.
+         * @type {string}
+         */
         this.url = url;
+
         if (response.data) {
             response.data.message ? (this.result = response.data.message) : null;
             response.data.reason ? (this.result += `. Reason: ${response.data.reason}`) : null;
-            response.data.errorCode ? ((this.code = response.data.errorCode), (this.error = APIcodes[response.data.errorCode])) : null;
+            response.data.errorCode ? ((this.code = response.data.errorCode), (this.error = apiCodes[response.data.errorCode])) : null;
         }
     }
-};
+}
 
-exports.ParseError = class ParseError extends BaseError {
+class ParseError extends BaseError {
     /**
-     * Represents a parsing error : `"ParseError"`.
-     * @class ParseError
-     * @constructor
-     * @param {String} message Error message
-     * @param {String} status Status type of the request
-     * @param {String} method Method used for the request
-     * @param {String} url Url of the request to the endpoint
+     * Represents a parsing error.
+     * @extends BaseError
+     * @param {string} message The error message.
+     * @param {string} status The status type of the request.
+     * @param {string} method The method used for the request.
+     * @param {string} url The URL of the request to the endpoint.
      */
     constructor(message, status, method, url) {
         super("ParseError", message);
+
+        /**
+         * The status type of the request.
+         * @type {string}
+         */
         this.status = status;
+
+        /**
+         * The method used for the request.
+         * @type {string}
+         */
         this.method = method;
+
+        /**
+         * The URL of the request to the endpoint.
+         * @type {string}
+         */
         this.url = url;
     }
-};
+}
+
+module.exports = { FatalError, APIError, ParseError };
