@@ -6,10 +6,13 @@ export class Client {
     WEBSOCKET_URL: string;
 
     on(event: "render_added", listener: (data: { renderID: number }) => any): this;
-    on(event: "render_done", listener: (data: { renderID: number }) => any): this;
-    on(event: "render_failed", listener: (data: { renderID: number; code: number; error: string }) => any): this;
+    on(event: "render_done", listener: (data: { renderID: number; videoUrl: string }) => any): this;
+    on(event: "render_failed", listener: (data: { renderID: number; errorCode: number; errorMessage: string }) => any): this;
     on(event: "render_error", listener: (data: { renderID: number }) => any): this;
-    on(event: "render_progress", listener: (data: { renderID: number; status: string; progression: string | null }) => any): this;
+    on(
+        event: "render_progress",
+        listener: (data: { renderID: number; username: string; progress: string; renderer: string; description: string }) => any
+    ): this;
 
     start(): void;
 
@@ -38,6 +41,8 @@ export class Client {
         resolution: string;
         scaleToTheBeat?: boolean;
         seizureWarning?: boolean;
+        showAimErrorMeter?: boolean;
+        showAvatarsOnScoreboard?: boolean;
         showBorders?: boolean;
         showComboCounter?: boolean;
         showDanserLogo?: boolean;
@@ -176,6 +181,10 @@ declare namespace API {
         id: number;
         hasCursorMiddle: boolean;
         gridPreview: string;
+        author: "atturbo555";
+        modified: false;
+        version: "Normal";
+        alphabeticalId: 1;
     }
 
     interface Servers {
@@ -200,18 +209,13 @@ declare namespace API {
         totalAvgTime: number;
         avgFPS: number;
         totalUploadedVideosSize: number;
+        uhdCapable: boolean;
     }
 }
 
-export const WSstatus: {
-    Waiting: string;
-    "Uploading...": string;
-    "Finalizing...": string;
-};
+export const WScodes: Record<1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 18 | 19 | 20 | 21 | 22 | 24 | 26, string>;
 
-export const WScodes: Record<1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 18 | 19 | 20 | 21 | 22, string>;
-
-export const APIcodes: Record<2 | 5 | 6 | 7 | 15 | 16 | 17 | 24, string>;
+export const APIcodes: Record<2 | 5 | 6 | 7 | 15 | 16 | 17 | 23 | 25, string>;
 
 export class BaseError extends Error {
     constructor();

@@ -5,6 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.6.0] - 2021-11-04
+
+### Added
+
+-   Added showAimErrorMeter and showAvatarsOnScoreboard param in newRender method
+-   Added error codes 25 & 26
+-   TS types for new values returned by /skins endpoint
+
+### Changed
+
+-   Dependencies updates
+-   Switched WebSocket events to their JSON versiob
+
 ## [3.5.0] - 2021-10-12
 
 ### Changed
@@ -26,27 +39,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 
--   motion blur 960 fps option
+-   Motion blur 960 fps option
 
 ## [3.3.1] - 2021-08-19
 
 ### Changed
 
--   fix on render_error deprecation warning
+-   Fix on render_error deprecation warning
 
 ## [3.3.0] - 2021-08-18
 
 ### Added
 
--   nobot param in renders method
--   api devmode
+-   Nobot param in renders method
+-   API devmode
 -   showHitCounter param in newRender method
--   defaults in API Doc
--   added error codes 22 & 23
+-   Defaults in API Doc
+-   Added error codes 22 & 23
 
 ### Changed
 
--   ts types are now only in 1 file
+-   TS types are now only in 1 file
 
 ### Removed
 
@@ -124,9 +137,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
--   default replay params (rev12)
--   better errors with error codes (rev12)
--   better JSdoc
+-   Default replay params (rev12)
+-   Better errors with error codes (rev12)
+-   Better JSdoc
 
 ### Deprecated
 

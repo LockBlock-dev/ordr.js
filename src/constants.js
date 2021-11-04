@@ -1,10 +1,4 @@
 module.exports = {
-    WSstatus: {
-        Waiting: "(0%)",
-        "Uploading...": "(100%)",
-        "Finalizing...": "(100%)",
-    },
-
     WScodes: {
         1: "Emergency stop (triggered manually)",
         2: "Replay parsing error (bad upload from the sender)",
@@ -25,6 +19,8 @@ module.exports = {
         20: "Beatmap version on the mirror is not the same as the replay",
         21: "The replay is corrupted (danser cannot process it)",
         22: "There is a server-side problem while finalizing the generated video",
+        24: "The beatmap has no name",
+        26: "The replay has incompatible mods",
     },
 
     APIcodes: {
@@ -36,5 +32,6 @@ module.exports = {
         16: "This IP is banned from o!rdr",
         17: "This username is banned from o!rdr",
         23: "There is a server-side problem while preparing the render",
+        25: "This replay is missing input data",
     },
 };

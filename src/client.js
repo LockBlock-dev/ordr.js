@@ -1,6 +1,6 @@
 const axios = require("axios").default;
 const errors = require("./errors");
-const { APIcodes, WScodes, WSstatus } = require("./constants");
+const { APIcodes, WScodes } = require("./constants");
 const io = require("socket.io-client");
 const EventEmitter = require("events");
 
@@ -39,7 +39,7 @@ exports.Client = class Client extends EventEmitter {
      * @private
      * @param {string} method HTTP method
      * @param  {string} path API endpoint
-     * @param  {Object} [options] request options
+     * @param  {Object} [data] request data
      * @return {Promise<Object>} promise
      */
     #request(method, path, data) {
@@ -102,36 +102,28 @@ exports.Client = class Client extends EventEmitter {
                 // else the socket will automatically try to reconnect
             })
 
-            .on("render_added", (data) => {
+            .on("render_added_json", (data) => {
                 /**
                  * Emitted when a render is added.
                  * @event Client#render_added
                  * @type {Object}
                  * @property {number} renderID render ID
                  */
-                this.emit("render_added", { renderID: data });
+                this.emit("render_added", data);
             })
 
-            .on("render_progress", (data) => {
-                let split = data.split(" ");
-                let status = split[1],
-                    progression = WSstatus[status] ?? null;
-
-                if (split[3]) {
-                    status = `${split[1]} ${split[2]} ${split[3]}`;
-                } else if (split[2]) {
-                    progression = split[2];
-                }
-
+            .on("render_progress_json", (data) => {
                 /**
                  * Emitted when a render has progressed.
                  * @event Client#render_progress
                  * @type {Object}
                  * @property {number} renderID render ID
-                 * @property {string} status render status
-                 * @property {string | null} progression render progress
+                 * @property {string} username render submitter username
+                 * @property {string} progress render progress
+                 * @property {string} renderer render renderer
+                 * @property {string} description render description
                  */
-                this.emit("render_progress", { renderID: Number(split[0]), status, progression });
+                this.emit("render_progress", data);
             })
 
             .on("render_error", (data) => {
@@ -150,28 +142,27 @@ exports.Client = class Client extends EventEmitter {
                 }
             })
 
-            .on("render_failed", (data) => {
-                let split = data.split(" ");
-
+            .on("render_failed_json", (data) => {
                 /**
                  * Emitted when a render has failed rendering.
                  * @event Client#render_failed
                  * @type {Object}
                  * @property {number} renderID render ID
-                 * @property {number} code error code
-                 * @property {string} error error message
+                 * @property {number} errorCode error code
+                 * @property {string} errorMessage error message
                  */
-                this.emit("render_failed", { renderID: Number(split[0]), code: Number(split[1]), error: WScodes[split[1]] });
+                this.emit("render_failed", data);
             })
 
-            .on("render_done", (data) => {
+            .on("render_done_json", (data) => {
                 /**
                  * Emitted when a render has done rendering.
                  * @event Client#render_done
                  * @type {pbject}
                  * @property {number} renderID render ID
+                 * @property {string} videoUrl render video URL
                  */
-                this.emit("render_done", { renderID: data });
+                this.emit("render_done", data);
             });
     }
 
@@ -204,6 +195,8 @@ exports.Client = class Client extends EventEmitter {
      * @param {string} body.resolution
      * @param {boolean} [body.scaleToTheBeat = false]
      * @param {boolean} [body.seizureWarning = false]
+     * @param {boolean} [body.showAimErrorMeter = false]
+     * @param {boolean} [body.showAvatarsOnScoreboard = false]
      * @param {boolean} [body.showBorders = false]
      * @param {boolean} [body.showComboCounter = true]
      * @param {boolean} [body.showDanserLogo = true]

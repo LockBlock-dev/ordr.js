@@ -52,58 +52,60 @@ Create a new render on o!rdr.
 }
 ```
 
-| Param                            | Type                 | Default            |
-| -------------------------------- | -------------------- | ------------------ |
-| body                             | <code>Object</code>  |                    |
-| body<area>.BGParallax            | <code>Boolean</code> | <code>false</code> |
-| body<area>.breakBGDim            | <code>Number</code>  | <code>30</code>    |
-| body<area>.cursorRainbow         | <code>Boolean</code> | <code>false</code> |
-| body<area>.cursorRipples         | <code>Boolean</code> | <code>false</code> |
-| body<area>.cursorScaleToCS       | <code>Boolean</code> | <code>false</code> |
-| body<area>.cursorSize            | <code>Number</code>  | <code>1</code>     |
-| body<area>.cursorTrail           | <code>Boolean</code> | <code>true</code>  |
-| body<area>.cursorTrailGlow       | <code>Boolean</code> | <code>false</code> |
-| body<area>.drawComboNumbers      | <code>Boolean</code> | <code>true</code>  |
-| body<area>.drawFollowPoints      | <code>Boolean</code> | <code>true</code>  |
-| body<area>.globalVolume          | <code>Number</code>  | <code>50</code>    |
-| body<area>.hitsoundVolume        | <code>Number</code>  | <code>50</code>    |
-| body<area>.inGameBGDim           | <code>Number</code>  | <code>75</code>    |
-| body<area>.introBGDim            | <code>Number</code>  | <code>0</code>     |
-| body<area>.loadStoryboard        | <code>Boolean</code> | <code>true</code>  |
-| body<area>.loadVideo             | <code>Boolean</code> | <code>true</code>  |
-| body<area>.musicVolume           | <code>Number</code>  | <code>50</code>    |
-| body<area>.objectsFlashToTheBeat | <code>Boolean</code> | <code>false</code> |
-| body<area>.objectsRainbow        | <code>Boolean</code> | <code>false</code> |
-| body<area>.replayFile            | <code>File</code>    |                    |
-| body<area>.replayURL             | <code>String</code>  |                    |
-| body<area>.resolution            | <code>String</code>  |                    |
-| body<area>.scaleToTheBeat        | <code>Boolean</code> | <code>false</code> |
-| body<area>.seizureWarning        | <code>Boolean</code> | <code>false</code> |
-| body<area>.showBorders           | <code>Boolean</code> | <code>false</code> |
-| body<area>.showComboCounter      | <code>Boolean</code> | <code>true</code>  |
-| body<area>.showDanserLogo        | <code>Boolean</code> | <code>true</code>  |
-| body<area>.showHPBar             | <code>Boolean</code> | <code>true</code>  |
-| body<area>.showHitCounter        | <code>Boolean</code> | <code>false</code> |
-| body<area>.showHitErrorMeter     | <code>Boolean</code> | <code>true</code>  |
-| body<area>.showKeyOverlay        | <code>Boolean</code> | <code>true</code>  |
-| body<area>.showMods              | <code>Boolean</code> | <code>true</code>  |
-| body<area>.showPPCounter         | <code>Boolean</code> | <code>true</code>  |
-| body<area>.showResultScreen      | <code>Boolean</code> | <code>true</code>  |
-| body<area>.showScore             | <code>Boolean</code> | <code>true</code>  |
-| body<area>.showScoreboard        | <code>Boolean</code> | <code>false</code> |
-| body<area>.showUnstableRate      | <code>Boolean</code> | <code>true</code>  |
-| body<area>.skin                  | <code>String</code>  |                    |
-| body<area>.skip                  | <code>Boolean</code> | <code>true</code>  |
-| body<area>.sliderMerge           | <code>Boolean</code> | <code>false</code> |
-| body<area>.sliderSnakingIn       | <code>Boolean</code> | <code>true</code>  |
-| body<area>.sliderSnakingOut      | <code>Boolean</code> | <code>true</code>  |
-| body<area>.useBeatmapColors      | <code>Boolean</code> | <code>true</code>  |
-| body<area>.useHitCircleColor     | <code>Boolean</code> | <code>true</code>  |
-| body<area>.useSkinColors         | <code>Boolean</code> | <code>false</code> |
-| body<area>.useSkinCursor         | <code>Boolean</code> | <code>true</code>  |
-| body<area>.useSkinHitsounds      | <code>Boolean</code> | <code>true</code>  |
-| body<area>.username              | <code>String</code>  |                    |
-| body<area>.devmode               | <code>String</code>  |                    |
+| Param                              | Type                 | Default            |
+| ---------------------------------- | -------------------- | ------------------ |
+| body                               | <code>Object</code>  |                    |
+| body<area>.BGParallax              | <code>Boolean</code> | <code>false</code> |
+| body<area>.breakBGDim              | <code>Number</code>  | <code>30</code>    |
+| body<area>.cursorRainbow           | <code>Boolean</code> | <code>false</code> |
+| body<area>.cursorRipples           | <code>Boolean</code> | <code>false</code> |
+| body<area>.cursorScaleToCS         | <code>Boolean</code> | <code>false</code> |
+| body<area>.cursorSize              | <code>Number</code>  | <code>1</code>     |
+| body<area>.cursorTrail             | <code>Boolean</code> | <code>true</code>  |
+| body<area>.cursorTrailGlow         | <code>Boolean</code> | <code>false</code> |
+| body<area>.drawComboNumbers        | <code>Boolean</code> | <code>true</code>  |
+| body<area>.drawFollowPoints        | <code>Boolean</code> | <code>true</code>  |
+| body<area>.globalVolume            | <code>Number</code>  | <code>50</code>    |
+| body<area>.hitsoundVolume          | <code>Number</code>  | <code>50</code>    |
+| body<area>.inGameBGDim             | <code>Number</code>  | <code>75</code>    |
+| body<area>.introBGDim              | <code>Number</code>  | <code>0</code>     |
+| body<area>.loadStoryboard          | <code>Boolean</code> | <code>true</code>  |
+| body<area>.loadVideo               | <code>Boolean</code> | <code>true</code>  |
+| body<area>.musicVolume             | <code>Number</code>  | <code>50</code>    |
+| body<area>.objectsFlashToTheBeat   | <code>Boolean</code> | <code>false</code> |
+| body<area>.objectsRainbow          | <code>Boolean</code> | <code>false</code> |
+| body<area>.replayFile              | <code>File</code>    |                    |
+| body<area>.replayURL               | <code>String</code>  |                    |
+| body<area>.resolution              | <code>String</code>  |                    |
+| body<area>.scaleToTheBeat          | <code>Boolean</code> | <code>false</code> |
+| body<area>.seizureWarning          | <code>Boolean</code> | <code>false</code> |
+| body<area>.showAimErrorMeter       | <code>Boolean</code> | <code>false</code> |
+| body<area>.showAvatarsOnScoreboard | <code>Boolean</code> | <code>false</code> |
+| body<area>.showBorders             | <code>Boolean</code> | <code>false</code> |
+| body<area>.showComboCounter        | <code>Boolean</code> | <code>true</code>  |
+| body<area>.showDanserLogo          | <code>Boolean</code> | <code>true</code>  |
+| body<area>.showHPBar               | <code>Boolean</code> | <code>true</code>  |
+| body<area>.showHitCounter          | <code>Boolean</code> | <code>false</code> |
+| body<area>.showHitErrorMeter       | <code>Boolean</code> | <code>true</code>  |
+| body<area>.showKeyOverlay          | <code>Boolean</code> | <code>true</code>  |
+| body<area>.showMods                | <code>Boolean</code> | <code>true</code>  |
+| body<area>.showPPCounter           | <code>Boolean</code> | <code>true</code>  |
+| body<area>.showResultScreen        | <code>Boolean</code> | <code>true</code>  |
+| body<area>.showScore               | <code>Boolean</code> | <code>true</code>  |
+| body<area>.showScoreboard          | <code>Boolean</code> | <code>false</code> |
+| body<area>.showUnstableRate        | <code>Boolean</code> | <code>true</code>  |
+| body<area>.skin                    | <code>String</code>  |                    |
+| body<area>.skip                    | <code>Boolean</code> | <code>true</code>  |
+| body<area>.sliderMerge             | <code>Boolean</code> | <code>false</code> |
+| body<area>.sliderSnakingIn         | <code>Boolean</code> | <code>true</code>  |
+| body<area>.sliderSnakingOut        | <code>Boolean</code> | <code>true</code>  |
+| body<area>.useBeatmapColors        | <code>Boolean</code> | <code>true</code>  |
+| body<area>.useHitCircleColor       | <code>Boolean</code> | <code>true</code>  |
+| body<area>.useSkinColors           | <code>Boolean</code> | <code>false</code> |
+| body<area>.useSkinCursor           | <code>Boolean</code> | <code>true</code>  |
+| body<area>.useSkinHitsounds        | <code>Boolean</code> | <code>true</code>  |
+| body<area>.username                | <code>String</code>  |                    |
+| body<area>.devmode                 | <code>String</code>  |                    |
 
 **Available devmodes:**
 

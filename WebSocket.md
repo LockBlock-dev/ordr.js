@@ -52,14 +52,14 @@ start();
 
 ## render_added ⇒ <code>Event</code>
 
-Get the renderID of a render that just got added.
+Get the render ID of a render that just got added.
 
 **Kind**: event  
 **Returns**:
 
 ```js
 {
-    renderID: Number;
+    renderID: Number,
 }
 ```
 
@@ -73,14 +73,15 @@ client.on("render_added");
 
 ## render_done ⇒ <code>Event</code>
 
-Get the renderID of a render that just got finished.
+Get the render ID and video URL of a render that just got finished.
 
 **Kind**: event  
 **Returns**:
 
 ```js
 {
-    renderID: Number;
+    renderID: Number,
+    videoUrl: String,
 }
 ```
 
@@ -94,7 +95,7 @@ client.on("render_done");
 
 ## render_failed ⇒ <code>Event</code>
 
-Get the renderID and the error code of a render that failed.
+Get the render ID, error code and message of a render that failed.
 
 **Kind**: event  
 **Returns**:
@@ -102,8 +103,8 @@ Get the renderID and the error code of a render that failed.
 ```js
 {
     renderID: Number,
-    code: Number,
-    error: String
+    errorCode: Number,
+    errorMessage: String,
 }
 ```
 
@@ -117,7 +118,7 @@ client.on("render_failed");
 
 ## render_error ⇒ <code>Event</code>
 
-Get the renderID of a render that failed. (DEPRECATED)
+Get the render ID of a render that failed. (DEPRECATED)
 
 **Kind**: event  
 **Returns**:
@@ -139,7 +140,7 @@ client.on("render_error");
 
 ## render_progress ⇒ <code>Event</code>
 
-Get the renderID and the progression of this render when it changes.
+Get the render ID, submitter username, progress, renderer and description of a render when it changes.
 
 **Kind**: event  
 **Returns**:
@@ -147,8 +148,10 @@ Get the renderID and the progression of this render when it changes.
 ```js
 {
     renderID: Number,
-    status: String,
-    progression: String
+    username: String,
+    progress: String,
+    renderer: String,
+    description: String,
 }
 ```
 
