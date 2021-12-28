@@ -4,6 +4,9 @@
 <dt><a href="#newRender">newRender(body)</a> ⇒ <code>Promise</code></dt>
 <dd><p>Create a new render on o!rdr.</p>
 </dd>
+<dt><a href="#onlineCounts">onlineCounts(params)</a> ⇒ <code>Promise</code></dt>
+<dd><p>Get the count of online servers.</p>
+</dd>
 <dt><a href="#renders">renders(params)</a> ⇒ <code>Promise</code></dt>
 <dd><p>Get a list of renders.</p>
 </dd>
@@ -121,6 +124,34 @@ Create a new render on o!rdr.
 client.newRender({ replayURL: "https://url.tld/file.osr", username: "ordr.js", resolution: "1920x1080", ... })
 ```
 
+<a name="onlineCounts"></a>
+
+## onlineCounts(params) ⇒ <code>Promise</code>
+
+Get the count of online servers.
+
+**Kind**: method  
+**Returns**:
+
+```js
+Number;
+```
+
+| Param                      | Type                 | Default            | Description                                  |
+| -------------------------- | -------------------- | ------------------ | -------------------------------------------- |
+| params                     | <code>Object</code>  |                    | query parameters                             |
+| params<area>.hasMotionBlur | <code>Boolean</code> | <code>false</code> | filter servers that have motion blur enabled |
+| params<area>.hasUhds       | <code>Boolean</code> | <code>false</code> | filter servers that have 4K enabled          |
+| params<area>.usingOsuApi   | <code>Boolean</code> | <code>false</code> | filter servers that have an Osu! API key     |
+
+**Example**
+
+```js
+client.onlineCounts();
+client.onlineCounts({ hasMotionBlur: true });
+client.onlineCounts({ usingOsuApi: true, hasUhd: true });
+```
+
 <a name="renders"></a>
 
 ## renders(params) ⇒ <code>Promise</code>
@@ -146,6 +177,7 @@ Get a list of renders.
 | params<area>.renderID       | <code>Number</code>  |                    | render with this specific renderID                 |
 | params<area>.replayUsername | <code>String</code>  |                    | renders that matches the most this replay username |
 | params<area>.nobots         | <code>Boolean</code> | <code>false</code> | hide bots from the returned render query           |
+| params<area>.lite           | <code>Boolean</code> | <code>false</code> | lite mode gives less info                          |
 
 **Example**
 
@@ -153,6 +185,7 @@ Get a list of renders.
 client.renders();
 client.renders({ pageSize: 10, page: 3, nobots: true });
 client.renders({ renderID: 1234 });
+client.renders({ lite: true });
 ```
 
 <a name="skins"></a>

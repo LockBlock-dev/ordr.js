@@ -91,7 +91,7 @@ exports.Client = class Client extends EventEmitter {
     start() {
         const socket = io(this.WEBSOCKET_URL)
             .on("connect", () => {
-                //console.log(socket.id)
+                // console.log(socket.id)
             })
 
             .on("disconnect", (reason) => {
@@ -248,13 +248,17 @@ exports.Client = class Client extends EventEmitter {
      * @param {string} params.replayUsername - get renders that matches the most this replay username
      * @param {number} params.renderID - get a render with this specific renderID
      * @param {boolean} [params.nobots = false] - hide bots from the returned render query
+     * @param {boolean} [params.lite = false] - lite mode gives less info
      * @example client.renders({ pageSize: 10, page: 3 });
      * @return {Promise<Object>}
      */
     renders(params = {}) {
         if (params.nobots === false) delete params.nobots;
 
-        return this.#request("GET", `renders?${new URLSearchParams(params)}`);
+        if (params.lite) {
+            delete params.lite;
+            return this.#request("GET", `rendersweb?${new URLSearchParams(params)}`);
+        } else return this.#request("GET", `renders?${new URLSearchParams(params)}`);
     }
 
     /**
@@ -284,5 +288,18 @@ exports.Client = class Client extends EventEmitter {
         }
 
         return this.#request("GET", `servers?${new URLSearchParams(params)}`);
+    }
+
+    /**
+     * Get the count of online servers.
+     * @param {Object} [params = {}] - query parameters
+     * @param {boolean} [params.hasMotionBlur = false] - filter servers that have motion blur enabled
+     * @param {boolean} [params.hasUhd = false] - filter servers that have 4K enabled
+     * @param {boolean} [params.usingOsuApi = false] - filter servers that have an Osu! API key
+     * @example client.onlineCount({ sort: "online" });
+     * @return {Promise<Object>}
+     */
+    onlineCount(params = {}) {
+        return this.#request("GET", `servers/onlinecount?${new URLSearchParams(params)}`.toLowerCase());
     }
 };

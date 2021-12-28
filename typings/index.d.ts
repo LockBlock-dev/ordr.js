@@ -70,7 +70,17 @@ export class Client {
         devmode: "success" | "fail" | "wsfail";
     }): Promise<API.NewRender>;
 
-    renders(params?: { pageSize?: number; page?: number; ordrUsername?: string; replayUsername?: string; renderID?: number }): Promise<API.Renders>;
+    onlineCount(params?: { hasMotionBlur?: boolean; hasUhd?: boolean; usingOsuApi?: boolean }): Promise<number>;
+
+    renders(params?: {
+        pageSize?: number;
+        page?: number;
+        ordrUsername?: string;
+        replayUsername?: string;
+        renderID?: number;
+        nobots?: boolean;
+        lite?: boolean;
+    }): Promise<API.Renders>;
 
     skins(params?: { pageSize?: number; page?: number; search?: string }): Promise<API.Skins>;
 

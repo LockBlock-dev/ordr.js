@@ -21,6 +21,7 @@ module.exports = {
         22: "There is a server-side problem while finalizing the generated video",
         24: "The beatmap has no name",
         26: "The replay has incompatible mods",
+        27: "Something went wrong with the renderer",
     },
 
     APIcodes: {
