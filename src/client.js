@@ -4,8 +4,6 @@ const { APIcodes, WScodes } = require("./constants");
 const io = require("socket.io-client");
 const EventEmitter = require("events");
 
-let deprecationEmitted = false;
-
 exports.Client = class Client extends EventEmitter {
     /**
      * The o!rdr client
@@ -32,6 +30,18 @@ exports.Client = class Client extends EventEmitter {
          * @type {string}
          */
         this.WEBSOCKET_URL = "wss://ordr-ws.issou.best";
+
+        /**
+         * API error codes
+         * @type {string}
+         */
+        this.API_CODES = APIcodes;
+
+        /**
+         * WebSocket error codes
+         * @type {string}
+         */
+        this.WS_CODES = WScodes;
     }
 
     /**
@@ -47,7 +57,9 @@ exports.Client = class Client extends EventEmitter {
             method,
             url: `${this.API_URL}/${path}`,
             headers: {
-                "User-Agent": `ordr.js ${require("../package.json").version} (https://github.com/LockBlock-dev/ordr.js)`,
+                "User-Agent": `ordr.js ${
+                    require("../package.json").version
+                } (https://github.com/LockBlock-dev/ordr.js)`,
                 "Content-Type": "application/json",
                 "Accept-Encoding": "UTF8",
             },
@@ -71,14 +83,25 @@ exports.Client = class Client extends EventEmitter {
 
                         return data;
                     } catch (err) {
-                        throw new errors.ParseError(response.data, response.status, options.method, options.url);
+                        throw new errors.ParseError(
+                            response.data,
+                            response.status,
+                            options.method,
+                            options.url
+                        );
                     }
                 }
             })
             .catch((error) => {
                 throw error.type === "ParseError"
                     ? error
-                    : new errors.APIError(error, error.response, error.response.status, options.method, options.url);
+                    : new errors.APIError(
+                          error,
+                          error.response,
+                          error.response.status,
+                          options.method,
+                          options.url
+                      );
             });
     }
 
@@ -124,22 +147,6 @@ exports.Client = class Client extends EventEmitter {
                  * @property {string} description render description
                  */
                 this.emit("render_progress", data);
-            })
-
-            .on("render_error", (data) => {
-                /**
-                 * Emitted when a render has failed rendering.
-                 * @event Client#render_error
-                 * @deprecated
-                 * @type {Object}
-                 * @property {number} renderID render ID
-                 */
-                this.emit("render_error", { renderID: data });
-
-                if (!deprecationEmitted) {
-                    deprecationEmitted = true;
-                    process.emitWarning("The render_error event is deprecated. Use render_failed instead", "DeprecationWarning");
-                }
             })
 
             .on("render_failed_json", (data) => {
@@ -190,6 +197,7 @@ exports.Client = class Client extends EventEmitter {
      * @param {number} [body.musicVolume = 50]
      * @param {boolean} [body.objectsFlashToTheBeat = false]
      * @param {boolean} [body.objectsRainbow = false]
+     * @param {boolean} [body.playNightcoreSamples = true]
      * @param {Buffer} body.replayFile
      * @param {string} body.replayURL
      * @param {string} body.resolution
@@ -249,6 +257,7 @@ exports.Client = class Client extends EventEmitter {
      * @param {number} params.renderID - get a render with this specific renderID
      * @param {boolean} [params.nobots = false] - hide bots from the returned render query
      * @param {boolean} [params.lite = false] - lite mode gives less info
+     * @param {boolean} params.link - path of a shortlink (example pov8n for https://link.issou.best/pov8n)
      * @example client.renders({ pageSize: 10, page: 3 });
      * @return {Promise<Object>}
      */
@@ -300,6 +309,9 @@ exports.Client = class Client extends EventEmitter {
      * @return {Promise<Object>}
      */
     onlineCount(params = {}) {
-        return this.#request("GET", `servers/onlinecount?${new URLSearchParams(params)}`.toLowerCase());
+        return this.#request(
+            "GET",
+            `servers/onlinecount?${new URLSearchParams(params)}`.toLowerCase()
+        );
     }
 };

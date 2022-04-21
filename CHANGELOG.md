@@ -5,6 +5,24 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.8.0] - 20212-04-21
+
+### Added
+
+-   Added playNightcoreSamples param in newRender method and its according type in the render object
+-   Added link param in renders method
+-   Added error code 28, 29, 30, 31
+-   Added client.API_CODES and client.WS_CODES
+
+### Removed
+
+-   Skin mozaicPreview type for in the skin object
+-   render_error event
+
+### Changed
+
+-   Dependencies update
+
 ## [3.7.0] - 2021-12-28
 
 ### Added
@@ -21,7 +39,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
--   Added showAimErrorMeter and showAvatarsOnScoreboard param in newRender method
+-   Added showAimErrorMeter and showAvatarsOnScoreboard params in newRender method
 -   Added error codes 25 & 26
 -   TS types for new values returned by /skins endpoint
 

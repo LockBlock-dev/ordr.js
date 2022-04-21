@@ -22,6 +22,7 @@ module.exports = {
         24: "The beatmap has no name",
         26: "The replay has incompatible mods",
         27: "Something went wrong with the renderer",
+        28: "The renderer cannot download the replay",
     },
 
     APIcodes: {
@@ -34,5 +35,9 @@ module.exports = {
         17: "This username is banned from o!rdr",
         23: "There is a server-side problem while preparing the render",
         25: "This replay is missing input data",
+        26: "The replay has incompatible mods",
+        29: "the replay is already rendering or in queue",
+        30: "The star rating is greater than 20",
+        31: "The mapper is blacklisted",
     },
 };

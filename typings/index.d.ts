@@ -4,14 +4,48 @@ export class Client {
     API_KEY?: string;
     API_URL: string;
     WEBSOCKET_URL: string;
+    API_CODES: Record<
+        | 1
+        | 2
+        | 3
+        | 4
+        | 5
+        | 6
+        | 7
+        | 8
+        | 9
+        | 10
+        | 11
+        | 12
+        | 13
+        | 14
+        | 18
+        | 19
+        | 20
+        | 21
+        | 22
+        | 27
+        | 28,
+        string
+    >;
+    WS_CODES: Record<2 | 5 | 6 | 7 | 15 | 16 | 17 | 23 | 25 | 26 | 29 | 30 | 31, string>;
 
     on(event: "render_added", listener: (data: { renderID: number }) => any): this;
     on(event: "render_done", listener: (data: { renderID: number; videoUrl: string }) => any): this;
-    on(event: "render_failed", listener: (data: { renderID: number; errorCode: number; errorMessage: string }) => any): this;
+    on(
+        event: "render_failed",
+        listener: (data: { renderID: number; errorCode: number; errorMessage: string }) => any
+    ): this;
     on(event: "render_error", listener: (data: { renderID: number }) => any): this;
     on(
         event: "render_progress",
-        listener: (data: { renderID: number; username: string; progress: string; renderer: string; description: string }) => any
+        listener: (data: {
+            renderID: number;
+            username: string;
+            progress: string;
+            renderer: string;
+            description: string;
+        }) => any
     ): this;
 
     start(): void;
@@ -36,6 +70,7 @@ export class Client {
         musicVolume?: number;
         objectsFlashToTheBeat?: boolean;
         objectsRainbow?: boolean;
+        playNightcoreSamples?: boolean;
         replayFile: File;
         replayURL: string;
         resolution: string;
@@ -70,7 +105,11 @@ export class Client {
         devmode: "success" | "fail" | "wsfail";
     }): Promise<API.NewRender>;
 
-    onlineCount(params?: { hasMotionBlur?: boolean; hasUhd?: boolean; usingOsuApi?: boolean }): Promise<number>;
+    onlineCount(params?: {
+        hasMotionBlur?: boolean;
+        hasUhd?: boolean;
+        usingOsuApi?: boolean;
+    }): Promise<number>;
 
     renders(params?: {
         pageSize?: number;
@@ -80,6 +119,7 @@ export class Client {
         renderID?: number;
         nobots?: boolean;
         lite?: boolean;
+        link?: string;
     }): Promise<API.Renders>;
 
     skins(params?: { pageSize?: number; page?: number; search?: string }): Promise<API.Skins>;
@@ -105,7 +145,6 @@ declare namespace API {
         renderID: number;
         username: string;
         progress: string;
-        errorCode: number;
         renderer: string;
         description: string;
         title: string;
@@ -173,6 +212,9 @@ declare namespace API {
         uploadEndTime: number;
         uploadTotalTime: number;
         removed: boolean;
+        showAimErrorMeter: boolean;
+        showAvatarsOnScoreboard: boolean;
+        playNightcoreSamples: boolean;
     }
 
     interface Skins {
@@ -187,14 +229,13 @@ declare namespace API {
         url: string;
         lowResPreview: string;
         highResPreview: string;
-        mozaicPreview: string;
         id: number;
         hasCursorMiddle: boolean;
         gridPreview: string;
         author: "atturbo555";
         modified: false;
         version: "Normal";
-        alphabeticalId: 1;
+        timesUsed: number;
     }
 
     interface Servers {
@@ -222,10 +263,6 @@ declare namespace API {
         uhdCapable: boolean;
     }
 }
-
-export const WScodes: Record<1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 18 | 19 | 20 | 21 | 22 | 24 | 26, string>;
-
-export const APIcodes: Record<2 | 5 | 6 | 7 | 15 | 16 | 17 | 23 | 25, string>;
 
 export class BaseError extends Error {
     constructor();

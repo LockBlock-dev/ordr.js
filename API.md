@@ -1,3 +1,23 @@
+# Properties
+
+<dl>
+<dt><a href="#API_KEY">API_KEY</a></dt>
+<dd><p>The API Bot Key.</p>
+</dd>
+<dt><a href="#API_URL">API_URL</a></dt>
+<dd><p>The base API URL.</p>
+</dd>
+<dt><a href="#WEBSOCKET_URL">WEBSOCKET_URL</a></dt>
+<dd><p>The WebSocket URL.</p>
+</dd>
+<dt><a href="#API_CODES">API_CODES</a></dt>
+<dd><p>API error codes.</p>
+</dd>
+<dt><a href="#WS_CODES">WS_CODES</a></dt>
+<dd><p>WebSocket error codes.</p>
+</dd>
+</dl>
+
 # Methods
 
 <dl>
@@ -33,6 +53,78 @@
 </dl>
 
 ---
+
+# Properties
+
+<a name="API_KEY"></a>
+
+## API_KEY
+
+The API Bot Key.
+
+**Kind**: property
+
+**Example**
+
+```js
+client.API_KEY;
+```
+
+<a name="API_URL"></a>
+
+## API_URL
+
+The base API URL.
+
+**Kind**: property
+
+**Example**
+
+```js
+client.API_URL;
+```
+
+<a name="WEBSOCKET_URL"></a>
+
+## WEBSOCKET_URL
+
+The WebSocket URL.
+
+**Kind**: property
+
+**Example**
+
+```js
+client.WEBSOCKET_URL;
+```
+
+<a name="API_CODES"></a>
+
+## API_CODES
+
+API error codes.
+
+**Kind**: property
+
+**Example**
+
+```js
+client.API_CODES;
+```
+
+<a name="WS_CODES"></a>
+
+## WS_CODES
+
+WebSocket error codes.
+
+**Kind**: property
+
+**Example**
+
+```js
+client.WS_CODES;
+```
 
 # Methods
 
@@ -77,6 +169,7 @@ Create a new render on o!rdr.
 | body<area>.musicVolume             | <code>Number</code>  | <code>50</code>    |
 | body<area>.objectsFlashToTheBeat   | <code>Boolean</code> | <code>false</code> |
 | body<area>.objectsRainbow          | <code>Boolean</code> | <code>false</code> |
+| body<area>.playNightcoreSamples    | <code>Boolean</code> | <code>true</code>  |
 | body<area>.replayFile              | <code>File</code>    |                    |
 | body<area>.replayURL               | <code>String</code>  |                    |
 | body<area>.resolution              | <code>String</code>  |                    |
@@ -168,16 +261,17 @@ Get a list of renders.
 }
 ```
 
-| Param                       | Type                 | Default            | Description                                        |
-| --------------------------- | -------------------- | ------------------ | -------------------------------------------------- |
-| params                      | <code>Object</code>  |                    | query parameters                                   |
-| params<area>.ordrUsername   | <code>String</code>  |                    | renders that matches the most this o!rdr username  |
-| params<area>.page           | <code>Number</code>  | <code>1</code>     | page number                                        |
-| params<area>.pageSize       | <code>Number</code>  | <code>50</code>    | number of renders that the API will return         |
-| params<area>.renderID       | <code>Number</code>  |                    | render with this specific renderID                 |
-| params<area>.replayUsername | <code>String</code>  |                    | renders that matches the most this replay username |
-| params<area>.nobots         | <code>Boolean</code> | <code>false</code> | hide bots from the returned render query           |
-| params<area>.lite           | <code>Boolean</code> | <code>false</code> | lite mode gives less info                          |
+| Param                       | Type                 | Default            | Description                                                           |
+| --------------------------- | -------------------- | ------------------ | --------------------------------------------------------------------- |
+| params                      | <code>Object</code>  |                    | query parameters                                                      |
+| params<area>.ordrUsername   | <code>String</code>  |                    | renders that matches the most this o!rdr username                     |
+| params<area>.page           | <code>Number</code>  | <code>1</code>     | page number                                                           |
+| params<area>.pageSize       | <code>Number</code>  | <code>50</code>    | number of renders that the API will return                            |
+| params<area>.renderID       | <code>Number</code>  |                    | render with this specific renderID                                    |
+| params<area>.replayUsername | <code>String</code>  |                    | renders that matches the most this replay username                    |
+| params<area>.nobots         | <code>Boolean</code> | <code>false</code> | hide bots from the returned render query                              |
+| params<area>.lite           | <code>Boolean</code> | <code>false</code> | lite mode gives less info                                             |
+| params<area>.link           | <code>String</code>  |                    | path of a shortlink (example pov8n for https://link.issou.best/pov8n) |
 
 **Example**
 
@@ -186,6 +280,7 @@ client.renders();
 client.renders({ pageSize: 10, page: 3, nobots: true });
 client.renders({ renderID: 1234 });
 client.renders({ lite: true });
+client.renders({ link: "pov8n" });
 ```
 
 <a name="skins"></a>
