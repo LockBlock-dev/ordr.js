@@ -1,6 +1,7 @@
 const axios = require("axios").default;
 const errors = require("./errors");
 const { APIcodes, WScodes } = require("./constants");
+const pkg = require("../package.json");
 const io = require("socket.io-client");
 const EventEmitter = require("events");
 
@@ -57,9 +58,7 @@ exports.Client = class Client extends EventEmitter {
             method,
             url: `${this.API_URL}/${path}`,
             headers: {
-                "User-Agent": `ordr.js ${
-                    require("../package.json").version
-                } (https://github.com/LockBlock-dev/ordr.js)`,
+                "User-Agent": `ordr.js ${pkg.version} (https://github.com/LockBlock-dev/ordr.js)`,
                 "Content-Type": "application/json",
                 "Accept-Encoding": "UTF8",
             },
