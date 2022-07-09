@@ -24,7 +24,7 @@ exports.Client = class Client extends EventEmitter {
          * The base API URL
          * @type {string}
          */
-        this.API_URL = "https://ordr-api.issou.best";
+        this.API_URL = "https://apis.issou.best/ordr";
 
         /**
          * The WebSocket URL
@@ -285,7 +285,7 @@ exports.Client = class Client extends EventEmitter {
     /**
      * Get a list of servers. {@link https://ordr.issou.best/#/status}
      * @param {Object} [params = {}] - query parameters
-     * @param {string} params.sort - sorting option
+     * @param {string} params.sort - sorting option: online, totalvideos
      * @example client.servers({ sort: "online" });
      * @return {Promise<Object>}
      */
@@ -304,7 +304,7 @@ exports.Client = class Client extends EventEmitter {
      * @param {boolean} [params.hasMotionBlur = false] - filter servers that have motion blur enabled
      * @param {boolean} [params.hasUhd = false] - filter servers that have 4K enabled
      * @param {boolean} [params.usingOsuApi = false] - filter servers that have an Osu! API key
-     * @example client.onlineCount({ sort: "online" });
+     * @example client.onlineCount({ hasMotionBlur: true });
      * @return {Promise<Object>}
      */
     onlineCount(params = {}) {

@@ -1,6 +1,6 @@
 {
     "name": "ordr.js",
-    "version": "3.8.1",
+    "version": "3.9.0",
     "description": "A JavaScript library for interacting with the o!rdr API and WebSocket",
     "main": "./src/client.js",
     "types": "./typings/index.d.ts",

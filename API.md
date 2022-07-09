@@ -24,7 +24,7 @@
 <dt><a href="#newRender">newRender(body)</a> ⇒ <code>Promise</code></dt>
 <dd><p>Create a new render on o!rdr.</p>
 </dd>
-<dt><a href="#onlineCounts">onlineCounts(params)</a> ⇒ <code>Promise</code></dt>
+<dt><a href="#onlineCount">onlineCount(params)</a> ⇒ <code>Promise</code></dt>
 <dd><p>Get the count of online servers.</p>
 </dd>
 <dt><a href="#renders">renders(params)</a> ⇒ <code>Promise</code></dt>
@@ -217,9 +217,9 @@ Create a new render on o!rdr.
 client.newRender({ replayURL: "https://url.tld/file.osr", username: "ordr.js", resolution: "1920x1080", ... })
 ```
 
-<a name="onlineCounts"></a>
+<a name="onlineCount"></a>
 
-## onlineCounts(params) ⇒ <code>Promise</code>
+## onlineCount(params) ⇒ <code>Promise</code>
 
 Get the count of online servers.
 
@@ -240,9 +240,9 @@ Number;
 **Example**
 
 ```js
-client.onlineCounts();
-client.onlineCounts({ hasMotionBlur: true });
-client.onlineCounts({ usingOsuApi: true, hasUhd: true });
+client.onlineCount();
+client.onlineCount({ hasMotionBlur: true });
+client.onlineCount({ usingOsuApi: true, hasUhd: true });
 ```
 
 <a name="renders"></a>

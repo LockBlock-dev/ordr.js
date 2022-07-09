@@ -5,10 +5,7 @@ export class Client {
     API_URL: string;
     WEBSOCKET_URL: string;
     API_CODES: Record<
-        | 1
-        | 2
-        | 3
-        | 4
+        2
         | 5
         | 6
         | 7
@@ -19,6 +16,25 @@ export class Client {
         | 12
         | 13
         | 14
+        | 16
+        | 17
+        | 23
+        | 24
+        | 25
+        | 26
+        | 29
+        | 30
+        | 31
+        | 32
+        | 33,
+        number
+    >;
+    WS_CODES: Record<
+        1
+        | 2
+        | 3
+        | 4
+        | 15
         | 18
         | 19
         | 20
@@ -26,9 +42,8 @@ export class Client {
         | 22
         | 27
         | 28,
-        string
+        number
     >;
-    WS_CODES: Record<2 | 5 | 6 | 7 | 15 | 16 | 17 | 23 | 25 | 26 | 29 | 30 | 31, string>;
 
     on(event: "render_added", listener: (data: { renderID: number }) => any): this;
     on(event: "render_done", listener: (data: { renderID: number; videoUrl: string }) => any): this;
