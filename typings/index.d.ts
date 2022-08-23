@@ -60,6 +60,7 @@ export class Client {
         cursorSize?: number;
         cursorTrail?: boolean;
         cursorTrailGlow?: boolean;
+        customSkin?: boolean;
         drawComboNumbers?: boolean;
         drawFollowPoints?: boolean;
         globalVolume?: number;

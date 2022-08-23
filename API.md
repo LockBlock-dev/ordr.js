@@ -158,6 +158,7 @@ Create a new render on o!rdr.
 | body<area>.cursorSize              | <code>Number</code>  | <code>1</code>     |
 | body<area>.cursorTrail             | <code>Boolean</code> | <code>true</code>  |
 | body<area>.cursorTrailGlow         | <code>Boolean</code> | <code>false</code> |
+| body<area>.customSkin              | <code>Boolean</code> | <code>false</code> |
 | body<area>.drawComboNumbers        | <code>Boolean</code> | <code>true</code>  |
 | body<area>.drawFollowPoints        | <code>Boolean</code> | <code>true</code>  |
 | body<area>.globalVolume            | <code>Number</code>  | <code>50</code>    |

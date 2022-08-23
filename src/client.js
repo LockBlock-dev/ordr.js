@@ -185,6 +185,7 @@ exports.Client = class Client extends EventEmitter {
      * @param {number} [body.cursorSize = 1]
      * @param {boolean} [body.cursorTrail = true]
      * @param {boolean} [body.cursorTrailGlow = false]
+     * @param {boolean} [body.customSkin = false]
      * @param {boolean} [body.drawComboNumbers = true]
      * @param {boolean} [body.drawFollowPoints = true]
      * @param {number} [body.globalVolume = 50]
