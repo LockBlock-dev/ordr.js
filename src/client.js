@@ -256,7 +256,8 @@ exports.Client = class Client extends EventEmitter {
      * @param {number} params.renderID - get a render with this specific renderID
      * @param {boolean} [params.nobots = false] - hide bots from the returned render query
      * @param {boolean} [params.lite = false] - lite mode gives less info
-     * @param {boolean} params.link - path of a shortlink (example pov8n for https://link.issou.best/pov8n)
+     * @param {string} params.link - path of a shortlink (example pov8n for https://link.issou.best/pov8n)
+     * @param {number} params.beatmapsetid - renders with this specific beatmapset ID
      * @example client.renders({ pageSize: 10, page: 3 });
      * @return {Promise<Object>}
      */
@@ -312,5 +313,15 @@ exports.Client = class Client extends EventEmitter {
             "GET",
             `servers/onlinecount?${new URLSearchParams(params)}`.toLowerCase()
         );
+    }
+
+    /**
+     * Get a custom skin info. {@link https://ordr.issou.best/#/skins}
+     * @param {number} id - custom skin ID
+     * @example client.customSkinInfo(1);
+     * @return {Promise<Object>}
+     */
+    customSkinInfo(id) {
+        return this.#request("GET", `skins/custom?id=${id}`);
     }
 };

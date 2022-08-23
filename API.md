@@ -272,6 +272,7 @@ Get a list of renders.
 | params<area>.nobots         | <code>Boolean</code> | <code>false</code> | hide bots from the returned render query                              |
 | params<area>.lite           | <code>Boolean</code> | <code>false</code> | lite mode gives less info                                             |
 | params<area>.link           | <code>String</code>  |                    | path of a shortlink (example pov8n for https://link.issou.best/pov8n) |
+| params<area>.beatmapsetid   | <code>Number</code>  |                    | renders with this specific beatmapset ID                              |
 
 **Example**
 
@@ -281,6 +282,7 @@ client.renders({ pageSize: 10, page: 3, nobots: true });
 client.renders({ renderID: 1234 });
 client.renders({ lite: true });
 client.renders({ link: "pov8n" });
+client.renders({ beatmapsetid: 1234 });
 ```
 
 <a name="skins"></a>
@@ -348,6 +350,36 @@ Get a list of servers.
 client.servers();
 client.servers({ sort: "online" });
 client.servers({ sort: "totalvideos" });
+```
+
+<a name="customSkinInfo"></a>
+
+## customSkinInfo(id) ⇒ <code>Promise</code>
+
+Get a custom skin info.
+
+**Kind**: method  
+**Returns**:
+
+```js
+{
+    found: Boolean,
+    removed: Boolean,
+    message: String,
+    skinName: String,
+    skinAuthor: String,
+    downloadLink: String,
+}
+```
+
+| Param | Type                | Default | Description    |
+| ----- | ------------------- | ------- | -------------- |
+| id    | <code>number</code> |         | custom skin ID |
+
+**Example**
+
+```js
+client.customSkinInfo(1);
 ```
 
 # Errors

@@ -5,7 +5,7 @@ export class Client {
     API_URL: string;
     WEBSOCKET_URL: string;
     API_CODES: Record<
-        2
+        | 2
         | 5
         | 6
         | 7
@@ -29,21 +29,7 @@ export class Client {
         | 33,
         number
     >;
-    WS_CODES: Record<
-        1
-        | 2
-        | 3
-        | 4
-        | 15
-        | 18
-        | 19
-        | 20
-        | 21
-        | 22
-        | 27
-        | 28,
-        number
-    >;
+    WS_CODES: Record<1 | 2 | 3 | 4 | 15 | 18 | 19 | 20 | 21 | 22 | 27 | 28, number>;
 
     on(event: "render_added", listener: (data: { renderID: number }) => any): this;
     on(event: "render_done", listener: (data: { renderID: number; videoUrl: string }) => any): this;
@@ -135,11 +121,14 @@ export class Client {
         nobots?: boolean;
         lite?: boolean;
         link?: string;
+        beatmapsetid?: number;
     }): Promise<API.Renders>;
 
     skins(params?: { pageSize?: number; page?: number; search?: string }): Promise<API.Skins>;
 
     servers(params?: { sort?: "online" | "totalvideos" }): Promise<API.Servers>;
+
+    customSkinInfo(id: number): Promise<API.CustomSkin>;
 }
 
 declare namespace API {
@@ -276,6 +265,15 @@ declare namespace API {
         avgFPS: number;
         totalUploadedVideosSize: number;
         uhdCapable: boolean;
+    }
+
+    interface CustomSkin {
+        found: boolean;
+        removed: boolean;
+        message: string;
+        skinName: string;
+        skinAuthor: string;
+        downloadLink: string;
     }
 }
 
