@@ -58,10 +58,25 @@ const getSkins = async () => {
 getSkins();
 ```
 
+### Using the library - API key
+
 If you have an API key, you can specify it when initiating the client:
 
 ```js
 const client = new Client("API_KEY");
+```
+
+### Using the library - replayFile
+
+You can send a replay file by doing the following:
+
+```js
+const fileBuffer = fs.createReadStream("path/to/your/file.osr");
+client.newRender({
+    ...
+    replayFile: fileBuffer,
+    ...
+})
 ```
 
 ### Using the library - WebSocket
