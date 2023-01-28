@@ -1,6 +1,6 @@
 {
     "name": "ordr.js",
-    "version": "3.11.0",
+    "version": "3.11.1",
     "description": "A JavaScript library for interacting with the o!rdr API and WebSocket",
     "main": "./src/client.js",
     "types": "./typings/index.d.ts",
@@ -9,8 +9,8 @@
         "import": "./esm/wrapper.js"
     },
     "dependencies": {
-        "axios": "^0.27.2",
-        "socket.io-client": "^4.5.3"
+        "axios": "^1.2.5",
+        "socket.io-client": "^4.5.4"
     },
     "repository": {
         "type": "git",
