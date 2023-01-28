@@ -65,7 +65,7 @@ exports.Client = class Client extends EventEmitter {
         };
 
         if (data) options.data = data;
-        if (data.replayFile) options.headers["Content-Type"] = "multipart/form-data";
+        if (data?.replayFile) options.headers["Content-Type"] = "multipart/form-data";
 
         return axios(options)
             .then((response) => {
@@ -98,7 +98,7 @@ exports.Client = class Client extends EventEmitter {
                     : new errors.APIError(
                           error,
                           error.response,
-                          error.response.status,
+                          error.response?.status,
                           options.method,
                           options.url
                       );
