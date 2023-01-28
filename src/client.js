@@ -93,15 +93,17 @@ exports.Client = class Client extends EventEmitter {
                 }
             })
             .catch((error) => {
-                throw error.type === "ParseError"
-                    ? error
-                    : new errors.APIError(
-                          error,
-                          error.response,
-                          error.response?.status,
-                          options.method,
-                          options.url
-                      );
+                if (error.response && error.type !== "ParseError") {
+                    throw new errors.APIError(
+                        error,
+                        error.response,
+                        error.response?.status,
+                        options.method,
+                        options.url
+                    );
+                } else {
+                    throw error;
+                }
             });
     }
 
