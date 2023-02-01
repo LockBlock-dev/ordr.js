@@ -60,7 +60,6 @@ exports.Client = class Client extends EventEmitter {
             headers: {
                 "User-Agent": `ordr.js ${pkg.version} (https://github.com/LockBlock-dev/ordr.js)`,
                 "Content-Type": "application/json",
-                "Accept-Encoding": "UTF8",
             },
         };
 
