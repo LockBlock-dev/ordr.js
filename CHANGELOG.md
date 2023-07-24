@@ -5,6 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.12.0] - 2023-07-24
+
+### Added
+
+-   New fields in newRender:
+    -   ignoreFail
+    -   showSliderBreaks
+    -   showStrainGraph
+
+### Changed
+
+-   Dependencies update
+
 ## [3.11.1] - 2023-01-28
 
 ### Changed
@@ -17,7 +30,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 -   replayFile support
--   pnpm-lock ignore
+-   pnpm-lock file ignore
 
 ### Changed
 
@@ -50,7 +63,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 -   Switched API URL from `https://ordr-api.issou.best` to `https://apis.issou.best/ordr`
 -   Correct API documentation onlineCount function name
--   Correct ts types for error codes
+-   Correct TS types for error codes
 -   Rewrote error codes
 
 ## [3.8.1] - 2022-05-23
@@ -70,7 +83,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 
--   Skin mozaicPreview type for in the skin object
+-   Skin mozaicPreview type in the skin object
 -   render_error event
 
 ### Changed

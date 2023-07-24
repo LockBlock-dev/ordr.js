@@ -163,6 +163,7 @@ Create a new render on o!rdr.
 | body<area>.drawFollowPoints        | <code>Boolean</code> | <code>true</code>  |
 | body<area>.globalVolume            | <code>Number</code>  | <code>50</code>    |
 | body<area>.hitsoundVolume          | <code>Number</code>  | <code>50</code>    |
+| body<area>.ignoreFail              | <code>Boolean</code> | <code>false</code> |
 | body<area>.inGameBGDim             | <code>Number</code>  | <code>75</code>    |
 | body<area>.introBGDim              | <code>Number</code>  | <code>0</code>     |
 | body<area>.loadStoryboard          | <code>Boolean</code> | <code>true</code>  |
@@ -190,6 +191,8 @@ Create a new render on o!rdr.
 | body<area>.showResultScreen        | <code>Boolean</code> | <code>true</code>  |
 | body<area>.showScore               | <code>Boolean</code> | <code>true</code>  |
 | body<area>.showScoreboard          | <code>Boolean</code> | <code>false</code> |
+| body<area>.showSliderBreaks        | <code>Boolean</code> | <code>false</code> |
+| body<area>.showStrainGraph         | <code>Boolean</code> | <code>false</code> |
 | body<area>.showUnstableRate        | <code>Boolean</code> | <code>true</code>  |
 | body<area>.skin                    | <code>String</code>  |                    |
 | body<area>.skip                    | <code>Boolean</code> | <code>true</code>  |

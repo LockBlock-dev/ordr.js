@@ -65,6 +65,7 @@ export class Client {
         drawFollowPoints?: boolean;
         globalVolume?: number;
         hitsoundVolume?: number;
+        ignoreFail?: boolean;
         inGameBGDim?: number;
         introBGDim?: number;
         loadStoryboard?: boolean;
@@ -92,6 +93,8 @@ export class Client {
         showResultScreen?: boolean;
         showScore?: boolean;
         showScoreboard?: boolean;
+        showSliderBreaks?: boolean;
+        showStrainGraph?: boolean;
         showUnstableRate?: boolean;
         skin: string;
         skip?: boolean;

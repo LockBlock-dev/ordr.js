@@ -1,6 +1,6 @@
 {
     "name": "ordr.js",
-    "version": "3.11.1",
+    "version": "3.12.0",
     "description": "A JavaScript library for interacting with the o!rdr API and WebSocket",
     "main": "./src/client.js",
     "types": "./typings/index.d.ts",
@@ -9,12 +9,12 @@
         "import": "./esm/wrapper.js"
     },
     "dependencies": {
-        "axios": "^1.2.5",
-        "socket.io-client": "^4.5.4"
+        "axios": "^1.4.0",
+        "socket.io-client": "^4.7.1"
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/LockBlock-dev/ordr.js.git"
+        "url": "git+https://github.com/LockBlock-dev/ordr.js.git"
     },
     "author": "LockBlock-dev",
     "license": "MIT",
@@ -24,8 +24,8 @@
     "homepage": "https://github.com/LockBlock-dev/ordr.js#readme",
     "devDependencies": {
         "gen-esm-wrapper": "^1.1.2",
-        "ts-node": "^10.1.0",
-        "typescript": "^4.3.5"
+        "ts-node": "^10.9.1",
+        "typescript": "^5.1.6"
     },
     "keywords": [
         "osu",

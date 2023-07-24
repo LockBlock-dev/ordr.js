@@ -193,6 +193,7 @@ exports.Client = class Client extends EventEmitter {
      * @param {boolean} [body.drawFollowPoints = true]
      * @param {number} [body.globalVolume = 50]
      * @param {number} [body.hitsoundVolume = 50]
+     * @param {boolean} [body.ignoreFail = false]
      * @param {number} [body.inGameBGDim = 75]
      * @param {number} [body.introBGDim = 0]
      * @param {boolean} [body.loadStoryboard = true]
@@ -220,6 +221,8 @@ exports.Client = class Client extends EventEmitter {
      * @param {boolean} [body.showResultScreen = true]
      * @param {boolean} [body.showScore = true]
      * @param {boolean} [body.showScoreboard = false]
+     * @param {boolean} [body.showSliderBreaks = false]
+     * @param {boolean} [body.showStrainGraph = false]
      * @param {boolean} [body.showUnstableRate = true]
      * @param {string} body.skin
      * @param {boolean} [body.skip = true]
