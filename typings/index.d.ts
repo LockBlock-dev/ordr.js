@@ -4,6 +4,7 @@ export class Client {
     API_KEY?: string;
     API_URL: string;
     WEBSOCKET_URL: string;
+    WEBSOCKET_ENDPOINT: string;
     API_CODES: Record<
         | 2
         | 5

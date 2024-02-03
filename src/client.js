@@ -30,7 +30,13 @@ exports.Client = class Client extends EventEmitter {
          * The WebSocket URL
          * @type {string}
          */
-        this.WEBSOCKET_URL = "wss://ordr-ws.issou.best";
+        this.WEBSOCKET_URL = "wss://apis.issou.best";
+
+        /**
+         * The WebSocket endpoint
+         * @type {string}
+         */
+        this.WEBSOCKET_ENDPOINT = "/ordr/ws";
 
         /**
          * API error codes
@@ -113,7 +119,9 @@ exports.Client = class Client extends EventEmitter {
      * @example client.start();
      */
     start() {
-        const socket = io(this.WEBSOCKET_URL)
+        const socket = io(this.WEBSOCKET_URL, {
+            path: this.WEBSOCKET_ENDPOINT,
+        })
             .on("connect", () => {
                 // console.log(socket.id)
             })
