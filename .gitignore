@@ -1,5 +1,5 @@
-node_modules
+node_modules/
+dist/
 package-lock.json
 pnpm-lock.yaml
-test.js
-test.ts
+test.*

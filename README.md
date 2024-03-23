@@ -1,8 +1,8 @@
 # o!rdr.js
 
-[![axios](https://img.shields.io/github/package-json/dependency-version/LockBlock-dev/ordr.js/axios)](https://www.npmjs.com/package/axios) [![ws](https://img.shields.io/github/package-json/dependency-version/LockBlock-dev/ordr.js/socket.io-client)](https://www.npmjs.com/package/socket.io-client)
+[![GitHub stars](https://img.shields.io/github/stars/LockBlock-dev/ordr.js.svg)](https://github.com/LockBlock-dev/ordr.js/stargazers)
 
-[![GitHub stars](https://img.shields.io/github/stars/LockBlock-dev/ordr.js.svg)](https://github.com/LockBlock-dev/ordr.js/stargazers) ![npm](https://img.shields.io/npm/dm/ordr.js)
+[![npm](https://img.shields.io/npm/dm/ordr.js)](https://www.npmjs.com/package/ordr.js)
 
 ordr.js is a Node.js module that allows you to easily interact with the o!rdr API and WebSocket.
 
@@ -12,53 +12,30 @@ ordr.js is a Node.js module that allows you to easily interact with the o!rdr AP
 
 ## Installation
 
--   Install [NodeJS](https://nodejs.org).
-
-### With GitHub:
-
--   Download or clone the project.
--   Go to the `ordr.js` folder and run `npm install`.
--   Require [`client.js`](/src/client.js).
-
-### With npm:
-
--   Run `npm install ordr.js`.
--   Require the library.
+-   Install [NodeJS](https://nodejs.org)
+-   Run `npm install ordr.js`
 
 ## Documentation
 
--   [API documentation](/API.md)
--   [WebSocket documentation](/WebSocket.md)
--   [changelog](/CHANGELOG.md)
+-   [Documentation](/docs/modules/client.md)
+-   [WebSocket events](/docs/enums/types_ws.WebSocketEvents.md)
+-   [Changelog](/CHANGELOG.md)
 
 ## Example usage
 
-The library can be used in both CommonJS and ES Modules
-
-### Using the library - API
-
-The library is async, be sure to use [async functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function#syntax) or [`.then()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/then#syntax)
+### API
 
 ```js
-const { Client } = require("ordr.js");
-// OR
 import { Client } from "ordr.js";
 
 const client = new Client();
 
-client.skins().then((data) => {
-    console.log(data);
-});
-// OR
-const getSkins = async () => {
-    const data = await client.skins();
-    console.log(data);
-};
+const skins = await client.getSkins();
 
-getSkins();
+console.log(skins);
 ```
 
-### Using the library - API key
+### API key
 
 If you have an API key, you can specify it when initiating the client:
 
@@ -66,36 +43,57 @@ If you have an API key, you can specify it when initiating the client:
 const client = new Client("API_KEY");
 ```
 
-### Using the library - replayFile
+### Sending a replay
 
-You can send a replay file by doing the following:
+You can send a replay by doing the following:
 
 ```js
-const fileBuffer = fs.createReadStream("path/to/your/file.osr");
-client.newRender({
+client.sendRender({
     ...
-    replayFile: fileBuffer,
+    replay: "https://domain.tld/path/to/your/file.osr",
     ...
 })
 ```
 
-### Using the library - WebSocket
+```js
+client.sendRender({
+    ...
+    replay: "path/to/your/file.osr",
+    ...
+})
+```
 
 ```js
-const { Client } = require("ordr.js");
-// OR
-import { Client } from "ordr.js";
+const file = readFile("path/to/your/file.osr");
+client.sendRender({
+    ...
+    replay: file,
+    ...
+})
+```
+
+```js
+const file = createReadStream("path/to/your/file.osr");
+client.sendRender({
+    ...
+    replay: file,
+    ...
+})
+```
+
+### WebSocket
+
+```js
+import { Client, Events } from "ordr.js";
 
 const client = new Client();
 
-client.on("event", (data) => {
-    console.log(data);
-});
+client.on(Events.Connected, () => console.log("Client connected!"));
 
 client.start();
 ```
 
-List of events available [here](/WebSocket.md)
+List of events available [here](/docs/enums/types_ws.WebSocketEvents.md)
 
 ## Credits
 
