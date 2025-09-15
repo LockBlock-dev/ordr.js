@@ -25,7 +25,7 @@
 
 #### Defined in
 
-[types/api/operations.ts:22](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/operations.ts#L22)
+[types/api/operations.ts:28](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/operations.ts#L28)
 
 ___
 
@@ -35,7 +35,7 @@ ___
 
 #### Defined in
 
-[types/api/operations.ts:23](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/operations.ts#L23)
+[types/api/operations.ts:29](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/operations.ts#L29)
 
 ___
 
@@ -45,7 +45,7 @@ ___
 
 #### Defined in
 
-[types/api/operations.ts:24](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/operations.ts#L24)
+[types/api/operations.ts:30](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/operations.ts#L30)
 
 ___
 
@@ -55,7 +55,7 @@ ___
 
 #### Defined in
 
-[types/api/operations.ts:25](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/operations.ts#L25)
+[types/api/operations.ts:31](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/operations.ts#L31)
 
 ___
 
@@ -65,7 +65,7 @@ ___
 
 #### Defined in
 
-[types/api/operations.ts:26](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/operations.ts#L26)
+[types/api/operations.ts:32](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/operations.ts#L32)
 
 ___
 
@@ -75,7 +75,7 @@ ___
 
 #### Defined in
 
-[types/api/operations.ts:27](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/operations.ts#L27)
+[types/api/operations.ts:33](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/operations.ts#L33)
 
 ___
 
@@ -85,7 +85,7 @@ ___
 
 #### Defined in
 
-[types/api/operations.ts:28](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/operations.ts#L28)
+[types/api/operations.ts:34](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/operations.ts#L34)
 
 ___
 
@@ -95,4 +95,4 @@ ___
 
 #### Defined in
 
-[types/api/operations.ts:29](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/operations.ts#L29)
+[types/api/operations.ts:35](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/operations.ts#L35)

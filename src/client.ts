@@ -175,6 +175,26 @@ export class Client {
     }
 
     /**
+     * Retrieve a user's preset using their Discord user ID.
+     *
+     * @see {@link https://ordr.issou.best/docs/#/paths/~1ordr~1presets~1bot/get}
+     *
+     * @param params.key - Your verified bot key
+     * @param params.discord_id - The Discord user ID of the preset owner
+     * @returns The user's preset
+     */
+    async getDiscordUserPreset(
+        params: API.Operations.DiscordUserPreset
+    ): Promise<API.Preset> {
+        return this.request({
+            method: HttpMethod.GET,
+            path: "/presets/bot",
+            service: "ordr",
+            query: makeUrlSearchParams(params),
+        });
+    }
+
+    /**
      * Generate a temporary video download link for the specified render.
      *
      * @see {@link https://ordr.issou.best/docs/#operation/5}

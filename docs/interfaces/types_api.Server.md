@@ -39,7 +39,7 @@
 
 #### Defined in
 
-[types/api/index.ts:154](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L154)
+[types/api/index.ts:225](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L225)
 
 ___
 
@@ -49,7 +49,7 @@ ___
 
 #### Defined in
 
-[types/api/index.ts:164](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L164)
+[types/api/index.ts:235](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L235)
 
 ___
 
@@ -59,7 +59,7 @@ ___
 
 #### Defined in
 
-[types/api/index.ts:165](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L165)
+[types/api/index.ts:236](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L236)
 
 ___
 
@@ -69,7 +69,7 @@ ___
 
 #### Defined in
 
-[types/api/index.ts:159](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L159)
+[types/api/index.ts:230](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L230)
 
 ___
 
@@ -86,7 +86,7 @@ ___
 
 #### Defined in
 
-[types/api/index.ts:168](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L168)
+[types/api/index.ts:239](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L239)
 
 ___
 
@@ -96,7 +96,7 @@ ___
 
 #### Defined in
 
-[types/api/index.ts:150](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L150)
+[types/api/index.ts:221](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L221)
 
 ___
 
@@ -106,7 +106,7 @@ ___
 
 #### Defined in
 
-[types/api/index.ts:160](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L160)
+[types/api/index.ts:231](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L231)
 
 ___
 
@@ -116,7 +116,7 @@ ___
 
 #### Defined in
 
-[types/api/index.ts:174](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L174)
+[types/api/index.ts:245](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L245)
 
 ___
 
@@ -126,7 +126,7 @@ ___
 
 #### Defined in
 
-[types/api/index.ts:151](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L151)
+[types/api/index.ts:222](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L222)
 
 ___
 
@@ -136,7 +136,7 @@ ___
 
 #### Defined in
 
-[types/api/index.ts:161](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L161)
+[types/api/index.ts:232](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L232)
 
 ___
 
@@ -146,7 +146,7 @@ ___
 
 #### Defined in
 
-[types/api/index.ts:152](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L152)
+[types/api/index.ts:223](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L223)
 
 ___
 
@@ -156,7 +156,7 @@ ___
 
 #### Defined in
 
-[types/api/index.ts:172](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L172)
+[types/api/index.ts:243](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L243)
 
 ___
 
@@ -166,7 +166,7 @@ ___
 
 #### Defined in
 
-[types/api/index.ts:173](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L173)
+[types/api/index.ts:244](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L244)
 
 ___
 
@@ -176,7 +176,7 @@ ___
 
 #### Defined in
 
-[types/api/index.ts:155](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L155)
+[types/api/index.ts:226](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L226)
 
 ___
 
@@ -186,7 +186,7 @@ ___
 
 #### Defined in
 
-[types/api/index.ts:153](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L153)
+[types/api/index.ts:224](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L224)
 
 ___
 
@@ -196,7 +196,7 @@ ___
 
 #### Defined in
 
-[types/api/index.ts:158](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L158)
+[types/api/index.ts:229](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L229)
 
 ___
 
@@ -206,7 +206,7 @@ ___
 
 #### Defined in
 
-[types/api/index.ts:156](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L156)
+[types/api/index.ts:227](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L227)
 
 ___
 
@@ -216,7 +216,7 @@ ___
 
 #### Defined in
 
-[types/api/index.ts:166](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L166)
+[types/api/index.ts:237](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L237)
 
 ___
 
@@ -226,7 +226,7 @@ ___
 
 #### Defined in
 
-[types/api/index.ts:157](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L157)
+[types/api/index.ts:228](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L228)
 
 ___
 
@@ -236,7 +236,7 @@ ___
 
 #### Defined in
 
-[types/api/index.ts:167](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L167)
+[types/api/index.ts:238](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L238)
 
 ___
 
@@ -246,7 +246,7 @@ ___
 
 #### Defined in
 
-[types/api/index.ts:163](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L163)
+[types/api/index.ts:234](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L234)
 
 ___
 
@@ -256,4 +256,4 @@ ___
 
 #### Defined in
 
-[types/api/index.ts:162](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L162)
+[types/api/index.ts:233](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L233)

@@ -6,6 +6,7 @@
 
 ### Interfaces
 
+- [DiscordUserPreset](../interfaces/types_api_operations.DiscordUserPreset.md)
 - [RenderCreate](../interfaces/types_api_operations.RenderCreate.md)
 - [Renders](../interfaces/types_api_operations.Renders.md)
 - [Servers](../interfaces/types_api_operations.Servers.md)

@@ -22,7 +22,7 @@
 
 #### Defined in
 
-[types/ws/events.ts:25](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/ws/events.ts#L25)
+[types/ws/events.ts:25](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/ws/events.ts#L25)
 
 ___
 
@@ -32,7 +32,7 @@ ___
 
 #### Defined in
 
-[types/ws/events.ts:23](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/ws/events.ts#L23)
+[types/ws/events.ts:23](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/ws/events.ts#L23)
 
 ___
 
@@ -42,7 +42,7 @@ ___
 
 #### Defined in
 
-[types/ws/events.ts:21](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/ws/events.ts#L21)
+[types/ws/events.ts:21](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/ws/events.ts#L21)
 
 ___
 
@@ -52,7 +52,7 @@ ___
 
 #### Defined in
 
-[types/ws/events.ts:24](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/ws/events.ts#L24)
+[types/ws/events.ts:24](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/ws/events.ts#L24)
 
 ___
 
@@ -62,4 +62,4 @@ ___
 
 #### Defined in
 
-[types/ws/events.ts:22](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/ws/events.ts#L22)
+[types/ws/events.ts:22](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/ws/events.ts#L22)

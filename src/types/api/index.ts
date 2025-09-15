@@ -3,6 +3,13 @@ import type { ErrorCodes } from "../../constants.js";
 
 export * as Operations from "./operations.js";
 
+export type Resolution =
+    | "720x480"
+    | "960x540"
+    | "1280x720"
+    | "1920x1080"
+    | "3840x2160";
+
 /**
  * @internal
  */
@@ -78,7 +85,7 @@ export interface InternalRender {
     objectsFlashToTheBeat: boolean;
     objectsRainbow: boolean;
     playNightcoreSamples: boolean;
-    resolution: "720x480" | "960x540" | "1280x720" | "1920x1080" | "3840x2160";
+    resolution: Resolution;
     scaleToTheBeat: boolean;
     seizureWarning: boolean;
     showAimErrorMeter: boolean;
@@ -108,6 +115,70 @@ export interface InternalRender {
     useSkinCursor: boolean;
     useSkinHitsounds: boolean;
     username: string;
+}
+
+export interface Preset {
+    presetName: string;
+    lastSavedOn: string;
+    resolution: Resolution;
+    noDelete: boolean;
+    musicVolume: number;
+    hitsoundVolume: number;
+    useSkinHitsounds: boolean;
+    showHitErrorMeter: boolean;
+    showScore: boolean;
+    showHPBar: boolean;
+    showComboCounter: boolean;
+    showPPCounter: boolean;
+    showKeyOverlay: boolean;
+    showScoreboard: boolean;
+    showAvatarsOnScoreboard: boolean;
+    showBorders: boolean;
+    showMods: boolean;
+    showResultScreen: boolean;
+    showHitCounter: boolean;
+    showSliderBreaks: boolean;
+    showAimErrorMeter: boolean;
+    showStrainGraph: boolean;
+    skin: string;
+    customSkin: number;
+    useSkinCursor: boolean;
+    circleColors: string;
+    cursorScaleToCS: boolean;
+    cursorRainbow: boolean;
+    cursorTrailGlow: boolean;
+    drawFollowPoints: boolean;
+    scaleToTheBeat: boolean;
+    sliderMerge: boolean;
+    objectsRainbow: boolean;
+    objectsFlashToTheBeat: boolean;
+    useHitCircleColor: boolean;
+    seizureWarning: boolean;
+    introBGDim: number;
+    inGameBGDim: number;
+    breakBGDim: number;
+    BGParallax: boolean;
+    showDanserLogo: boolean;
+    ignoreFail: boolean;
+    skip: boolean;
+    cursorRipples: boolean;
+    sliderSnakingIn: boolean;
+    sliderSnakingOut: boolean;
+    cursorSize: number;
+    cursorTrail: boolean;
+    showUnstableRate: boolean;
+    drawComboNumbers: boolean;
+    loadStoryboardVideo: boolean;
+    playNightcoreSamples: boolean;
+    elementsPosition: {
+        aimErrorMeter: { x: number; y: number };
+        ppCounter: { x: number; y: number };
+        hitCounter: { x: number; y: number };
+        strainGraph: { x: number; y: number };
+    };
+    motionBlur: boolean;
+    motionBlurForce: number;
+    addPitch: boolean;
 }
 
 export interface Render extends InternalRender {

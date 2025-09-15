@@ -1,13 +1,6 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 
-// HACK //
-// The following code emits an ExperimentalWarning, using require is the only way.
-// import pkg from "../package.json" with { type: "json" };
-import { createRequire } from "node:module";
-
-const require = createRequire(import.meta.url);
-const pkg = require("../package.json") as { version: number };
-// END HACK //
+import pkg from "../package.json" with { type: "json" };
 
 export const DefaultClientOptions = {
     api: {
@@ -56,6 +49,10 @@ export const ErrorCodes = {
         39: "This custom skin does not exist or has been deleted.",
         40: "o!rdr is not ready to take render jobs at the moment.",
         41: "o!rdr is not ready to take render jobs from unauthenticated users at the moment.",
+        46: "The replay username is too long (> 32 characters).",
+        47: "This user doesn't have the permission to use motion blur.",
+        48: "This user doesn't have the permission to set the resolution to 1080p.",
+        49: "This user doesn't have the permission to change the music pitch.",
     },
     ws: {
         1: "Unknown error triggered by an emergency stop.",

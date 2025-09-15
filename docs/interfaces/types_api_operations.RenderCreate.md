@@ -24,6 +24,7 @@
 - [cursorTrailGlow](types_api_operations.RenderCreate.md#cursortrailglow)
 - [customSkin](types_api_operations.RenderCreate.md#customskin)
 - [devmode](types_api_operations.RenderCreate.md#devmode)
+- [discordUserId](types_api_operations.RenderCreate.md#discorduserid)
 - [drawComboNumbers](types_api_operations.RenderCreate.md#drawcombonumbers)
 - [drawFollowPoints](types_api_operations.RenderCreate.md#drawfollowpoints)
 - [globalVolume](types_api_operations.RenderCreate.md#globalvolume)
@@ -82,7 +83,7 @@ Partial.BGParallax
 
 #### Defined in
 
-[types/api/index.ts:60](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L60)
+[types/api/index.ts:67](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L67)
 
 ___
 
@@ -96,7 +97,7 @@ Partial.breakBGDim
 
 #### Defined in
 
-[types/api/index.ts:61](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L61)
+[types/api/index.ts:68](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L68)
 
 ___
 
@@ -110,7 +111,7 @@ Partial.cursorRainbow
 
 #### Defined in
 
-[types/api/index.ts:62](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L62)
+[types/api/index.ts:69](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L69)
 
 ___
 
@@ -124,7 +125,7 @@ Partial.cursorRipples
 
 #### Defined in
 
-[types/api/index.ts:63](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L63)
+[types/api/index.ts:70](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L70)
 
 ___
 
@@ -138,7 +139,7 @@ Partial.cursorScaleToCS
 
 #### Defined in
 
-[types/api/index.ts:64](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L64)
+[types/api/index.ts:71](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L71)
 
 ___
 
@@ -152,7 +153,7 @@ Partial.cursorSize
 
 #### Defined in
 
-[types/api/index.ts:65](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L65)
+[types/api/index.ts:72](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L72)
 
 ___
 
@@ -166,7 +167,7 @@ Partial.cursorTrail
 
 #### Defined in
 
-[types/api/index.ts:66](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L66)
+[types/api/index.ts:73](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L73)
 
 ___
 
@@ -180,7 +181,7 @@ Partial.cursorTrailGlow
 
 #### Defined in
 
-[types/api/index.ts:67](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L67)
+[types/api/index.ts:74](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L74)
 
 ___
 
@@ -190,7 +191,7 @@ ___
 
 #### Defined in
 
-[types/api/operations.ts:4](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/operations.ts#L4)
+[types/api/operations.ts:9](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/operations.ts#L9)
 
 ___
 
@@ -200,7 +201,17 @@ ___
 
 #### Defined in
 
-[types/api/operations.ts:5](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/operations.ts#L5)
+[types/api/operations.ts:10](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/operations.ts#L10)
+
+___
+
+### discordUserId
+
+• `Optional` **discordUserId**: `string`
+
+#### Defined in
+
+[types/api/operations.ts:11](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/operations.ts#L11)
 
 ___
 
@@ -214,7 +225,7 @@ Partial.drawComboNumbers
 
 #### Defined in
 
-[types/api/index.ts:68](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L68)
+[types/api/index.ts:75](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L75)
 
 ___
 
@@ -228,7 +239,7 @@ Partial.drawFollowPoints
 
 #### Defined in
 
-[types/api/index.ts:69](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L69)
+[types/api/index.ts:76](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L76)
 
 ___
 
@@ -242,7 +253,7 @@ Partial.globalVolume
 
 #### Defined in
 
-[types/api/index.ts:70](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L70)
+[types/api/index.ts:77](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L77)
 
 ___
 
@@ -256,7 +267,7 @@ Partial.hitsoundVolume
 
 #### Defined in
 
-[types/api/index.ts:71](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L71)
+[types/api/index.ts:78](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L78)
 
 ___
 
@@ -270,7 +281,7 @@ Partial.ignoreFail
 
 #### Defined in
 
-[types/api/index.ts:72](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L72)
+[types/api/index.ts:79](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L79)
 
 ___
 
@@ -284,7 +295,7 @@ Partial.inGameBGDim
 
 #### Defined in
 
-[types/api/index.ts:73](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L73)
+[types/api/index.ts:80](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L80)
 
 ___
 
@@ -298,7 +309,7 @@ Partial.introBGDim
 
 #### Defined in
 
-[types/api/index.ts:74](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L74)
+[types/api/index.ts:81](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L81)
 
 ___
 
@@ -312,7 +323,7 @@ Partial.loadStoryboard
 
 #### Defined in
 
-[types/api/index.ts:75](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L75)
+[types/api/index.ts:82](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L82)
 
 ___
 
@@ -326,7 +337,7 @@ Partial.loadVideo
 
 #### Defined in
 
-[types/api/index.ts:76](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L76)
+[types/api/index.ts:83](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L83)
 
 ___
 
@@ -340,7 +351,7 @@ Partial.musicVolume
 
 #### Defined in
 
-[types/api/index.ts:77](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L77)
+[types/api/index.ts:84](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L84)
 
 ___
 
@@ -354,7 +365,7 @@ Partial.objectsFlashToTheBeat
 
 #### Defined in
 
-[types/api/index.ts:78](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L78)
+[types/api/index.ts:85](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L85)
 
 ___
 
@@ -368,7 +379,7 @@ Partial.objectsRainbow
 
 #### Defined in
 
-[types/api/index.ts:79](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L79)
+[types/api/index.ts:86](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L86)
 
 ___
 
@@ -382,7 +393,7 @@ Partial.playNightcoreSamples
 
 #### Defined in
 
-[types/api/index.ts:80](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L80)
+[types/api/index.ts:87](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L87)
 
 ___
 
@@ -392,7 +403,7 @@ ___
 
 #### Defined in
 
-[types/api/operations.ts:6](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/operations.ts#L6)
+[types/api/operations.ts:12](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/operations.ts#L12)
 
 ___
 
@@ -406,7 +417,7 @@ Partial.resolution
 
 #### Defined in
 
-[types/api/operations.ts:7](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/operations.ts#L7)
+[types/api/operations.ts:13](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/operations.ts#L13)
 
 ___
 
@@ -420,7 +431,7 @@ Partial.scaleToTheBeat
 
 #### Defined in
 
-[types/api/index.ts:82](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L82)
+[types/api/index.ts:89](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L89)
 
 ___
 
@@ -434,7 +445,7 @@ Partial.seizureWarning
 
 #### Defined in
 
-[types/api/index.ts:83](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L83)
+[types/api/index.ts:90](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L90)
 
 ___
 
@@ -448,7 +459,7 @@ Partial.showAimErrorMeter
 
 #### Defined in
 
-[types/api/index.ts:84](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L84)
+[types/api/index.ts:91](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L91)
 
 ___
 
@@ -462,7 +473,7 @@ Partial.showAvatarsOnScoreboard
 
 #### Defined in
 
-[types/api/index.ts:85](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L85)
+[types/api/index.ts:92](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L92)
 
 ___
 
@@ -476,7 +487,7 @@ Partial.showBorders
 
 #### Defined in
 
-[types/api/index.ts:86](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L86)
+[types/api/index.ts:93](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L93)
 
 ___
 
@@ -490,7 +501,7 @@ Partial.showComboCounter
 
 #### Defined in
 
-[types/api/index.ts:87](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L87)
+[types/api/index.ts:94](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L94)
 
 ___
 
@@ -504,7 +515,7 @@ Partial.showDanserLogo
 
 #### Defined in
 
-[types/api/index.ts:88](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L88)
+[types/api/index.ts:95](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L95)
 
 ___
 
@@ -518,7 +529,7 @@ Partial.showHPBar
 
 #### Defined in
 
-[types/api/index.ts:89](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L89)
+[types/api/index.ts:96](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L96)
 
 ___
 
@@ -532,7 +543,7 @@ Partial.showHitCounter
 
 #### Defined in
 
-[types/api/index.ts:90](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L90)
+[types/api/index.ts:97](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L97)
 
 ___
 
@@ -546,7 +557,7 @@ Partial.showHitErrorMeter
 
 #### Defined in
 
-[types/api/index.ts:91](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L91)
+[types/api/index.ts:98](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L98)
 
 ___
 
@@ -560,7 +571,7 @@ Partial.showKeyOverlay
 
 #### Defined in
 
-[types/api/index.ts:92](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L92)
+[types/api/index.ts:99](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L99)
 
 ___
 
@@ -574,7 +585,7 @@ Partial.showMods
 
 #### Defined in
 
-[types/api/index.ts:93](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L93)
+[types/api/index.ts:100](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L100)
 
 ___
 
@@ -588,7 +599,7 @@ Partial.showPPCounter
 
 #### Defined in
 
-[types/api/index.ts:94](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L94)
+[types/api/index.ts:101](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L101)
 
 ___
 
@@ -602,7 +613,7 @@ Partial.showResultScreen
 
 #### Defined in
 
-[types/api/index.ts:95](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L95)
+[types/api/index.ts:102](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L102)
 
 ___
 
@@ -616,7 +627,7 @@ Partial.showScore
 
 #### Defined in
 
-[types/api/index.ts:96](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L96)
+[types/api/index.ts:103](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L103)
 
 ___
 
@@ -630,7 +641,7 @@ Partial.showScoreboard
 
 #### Defined in
 
-[types/api/index.ts:97](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L97)
+[types/api/index.ts:104](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L104)
 
 ___
 
@@ -644,7 +655,7 @@ Partial.showSliderBreaks
 
 #### Defined in
 
-[types/api/index.ts:98](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L98)
+[types/api/index.ts:105](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L105)
 
 ___
 
@@ -658,7 +669,7 @@ Partial.showStrainGraph
 
 #### Defined in
 
-[types/api/index.ts:99](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L99)
+[types/api/index.ts:106](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L106)
 
 ___
 
@@ -672,7 +683,7 @@ Partial.showUnstableRate
 
 #### Defined in
 
-[types/api/index.ts:100](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L100)
+[types/api/index.ts:107](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L107)
 
 ___
 
@@ -682,7 +693,7 @@ ___
 
 #### Defined in
 
-[types/api/operations.ts:8](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/operations.ts#L8)
+[types/api/operations.ts:14](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/operations.ts#L14)
 
 ___
 
@@ -696,7 +707,7 @@ Partial.skip
 
 #### Defined in
 
-[types/api/index.ts:101](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L101)
+[types/api/index.ts:108](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L108)
 
 ___
 
@@ -710,7 +721,7 @@ Partial.sliderMerge
 
 #### Defined in
 
-[types/api/index.ts:102](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L102)
+[types/api/index.ts:109](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L109)
 
 ___
 
@@ -724,7 +735,7 @@ Partial.sliderSnakingIn
 
 #### Defined in
 
-[types/api/index.ts:103](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L103)
+[types/api/index.ts:110](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L110)
 
 ___
 
@@ -738,7 +749,7 @@ Partial.sliderSnakingOut
 
 #### Defined in
 
-[types/api/index.ts:104](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L104)
+[types/api/index.ts:111](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L111)
 
 ___
 
@@ -752,7 +763,7 @@ Partial.useBeatmapColors
 
 #### Defined in
 
-[types/api/index.ts:105](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L105)
+[types/api/index.ts:112](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L112)
 
 ___
 
@@ -766,7 +777,7 @@ Partial.useHitCircleColor
 
 #### Defined in
 
-[types/api/index.ts:106](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L106)
+[types/api/index.ts:113](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L113)
 
 ___
 
@@ -780,7 +791,7 @@ Partial.useSkinColors
 
 #### Defined in
 
-[types/api/index.ts:107](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L107)
+[types/api/index.ts:114](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L114)
 
 ___
 
@@ -794,7 +805,7 @@ Partial.useSkinCursor
 
 #### Defined in
 
-[types/api/index.ts:108](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L108)
+[types/api/index.ts:115](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L115)
 
 ___
 
@@ -808,7 +819,7 @@ Partial.useSkinHitsounds
 
 #### Defined in
 
-[types/api/index.ts:109](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L109)
+[types/api/index.ts:116](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L116)
 
 ___
 
@@ -822,4 +833,4 @@ Partial.username
 
 #### Defined in
 
-[types/api/operations.ts:9](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/operations.ts#L9)
+[types/api/operations.ts:15](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/operations.ts#L15)

@@ -14,6 +14,7 @@
 - [DynamicLink](../interfaces/types_api.DynamicLink.md)
 - [Info](../interfaces/types_api.Info.md)
 - [InfoCost](../interfaces/types_api.InfoCost.md)
+- [Preset](../interfaces/types_api.Preset.md)
 - [Render](../interfaces/types_api.Render.md)
 - [RenderCreate](../interfaces/types_api.RenderCreate.md)
 - [Renders](../interfaces/types_api.Renders.md)
@@ -26,6 +27,7 @@
 ### Type Aliases
 
 - [Replay](types_api.md#replay)
+- [Resolution](types_api.md#resolution)
 - [ServersLeaderboard](types_api.md#serversleaderboard)
 - [ServersOnlineCount](types_api.md#serversonlinecount)
 
@@ -43,7 +45,17 @@ Renames and re-exports [types/api/operations](types_api_operations.md)
 
 #### Defined in
 
-[types/api/index.ts:16](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L16)
+[types/api/index.ts:23](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L23)
+
+___
+
+### Resolution
+
+Ƭ **Resolution**: ``"720x480"`` \| ``"960x540"`` \| ``"1280x720"`` \| ``"1920x1080"`` \| ``"3840x2160"``
+
+#### Defined in
+
+[types/api/index.ts:6](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L6)
 
 ___
 
@@ -53,7 +65,7 @@ ___
 
 #### Defined in
 
-[types/api/index.ts:190](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L190)
+[types/api/index.ts:261](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L261)
 
 ___
 
@@ -63,4 +75,4 @@ ___
 
 #### Defined in
 
-[types/api/index.ts:192](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L192)
+[types/api/index.ts:263](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L263)

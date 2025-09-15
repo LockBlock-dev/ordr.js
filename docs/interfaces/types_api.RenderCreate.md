@@ -17,11 +17,11 @@
 
 ### errorCode
 
-• **errorCode**: ``2`` \| ``5`` \| ``6`` \| ``7`` \| ``8`` \| ``9`` \| ``10`` \| ``11`` \| ``12`` \| ``13`` \| ``14`` \| ``16`` \| ``17`` \| ``23`` \| ``24`` \| ``25`` \| ``26`` \| ``29`` \| ``30`` \| ``31`` \| ``32`` \| ``33`` \| ``34`` \| ``35`` \| ``36`` \| ``37`` \| ``38`` \| ``39`` \| ``40`` \| ``41``
+• **errorCode**: ``2`` \| ``5`` \| ``6`` \| ``7`` \| ``8`` \| ``9`` \| ``10`` \| ``11`` \| ``12`` \| ``13`` \| ``14`` \| ``16`` \| ``17`` \| ``23`` \| ``24`` \| ``25`` \| ``26`` \| ``29`` \| ``30`` \| ``31`` \| ``32`` \| ``33`` \| ``34`` \| ``35`` \| ``36`` \| ``37`` \| ``38`` \| ``39`` \| ``40`` \| ``41`` \| ``46`` \| ``47`` \| ``48`` \| ``49``
 
 #### Defined in
 
-[types/api/index.ts:50](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L50)
+[types/api/index.ts:57](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L57)
 
 ___
 
@@ -31,7 +31,7 @@ ___
 
 #### Defined in
 
-[types/api/index.ts:51](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L51)
+[types/api/index.ts:58](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L58)
 
 ___
 
@@ -41,7 +41,7 @@ ___
 
 #### Defined in
 
-[types/api/index.ts:52](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L52)
+[types/api/index.ts:59](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L59)
 
 ___
 
@@ -51,4 +51,4 @@ ___
 
 #### Defined in
 
-[types/api/index.ts:53](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L53)
+[types/api/index.ts:60](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L60)

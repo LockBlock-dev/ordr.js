@@ -21,7 +21,7 @@
 
 #### Defined in
 
-[types/http.ts:20](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/http.ts#L20)
+[types/http.ts:20](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/http.ts#L20)
 
 ___
 
@@ -31,7 +31,7 @@ ___
 
 #### Defined in
 
-[types/http.ts:22](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/http.ts#L22)
+[types/http.ts:22](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/http.ts#L22)
 
 ___
 
@@ -41,7 +41,7 @@ ___
 
 #### Defined in
 
-[types/http.ts:21](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/http.ts#L21)
+[types/http.ts:21](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/http.ts#L21)
 
 ___
 
@@ -51,4 +51,4 @@ ___
 
 #### Defined in
 
-[types/http.ts:23](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/http.ts#L23)
+[types/http.ts:23](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/http.ts#L23)

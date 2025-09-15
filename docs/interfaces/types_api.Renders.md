@@ -19,7 +19,7 @@
 
 #### Defined in
 
-[types/api/index.ts:145](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L145)
+[types/api/index.ts:216](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L216)
 
 ___
 
@@ -29,4 +29,4 @@ ___
 
 #### Defined in
 
-[types/api/index.ts:146](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L146)
+[types/api/index.ts:217](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L217)

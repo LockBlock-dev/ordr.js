@@ -17,6 +17,7 @@ The main client for interacting with the o!rdr API.
 - [emit](client.Client.md#emit)
 - [generateDownloadLink](client.Client.md#generatedownloadlink)
 - [getCustomSkin](client.Client.md#getcustomskin)
+- [getDiscordUserPreset](client.Client.md#getdiscorduserpreset)
 - [getInfo](client.Client.md#getinfo)
 - [getOnlineServersCount](client.Client.md#getonlineserverscount)
 - [getRenders](client.Client.md#getrenders)
@@ -45,7 +46,7 @@ The main client for interacting with the o!rdr API.
 
 #### Defined in
 
-[client.ts:29](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/client.ts#L29)
+[client.ts:29](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/client.ts#L29)
 
 ## Methods
 
@@ -76,7 +77,7 @@ true if the event had listeners, false otherwise
 
 #### Defined in
 
-[client.ts:44](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/client.ts#L44)
+[client.ts:44](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/client.ts#L44)
 
 ___
 
@@ -104,7 +105,7 @@ The download link
 
 #### Defined in
 
-[client.ts:185](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/client.ts#L185)
+[client.ts:205](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/client.ts#L205)
 
 ___
 
@@ -132,7 +133,35 @@ The custom skin
 
 #### Defined in
 
-[client.ts:168](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/client.ts#L168)
+[client.ts:168](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/client.ts#L168)
+
+___
+
+### getDiscordUserPreset
+
+▸ **getDiscordUserPreset**(`params`): `Promise`\<[`Preset`](../interfaces/types_api.Preset.md)\>
+
+Retrieve a user's preset using their Discord user ID
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `params` | [`DiscordUserPreset`](../interfaces/types_api_operations.DiscordUserPreset.md) |
+
+#### Returns
+
+`Promise`\<[`Preset`](../interfaces/types_api.Preset.md)\>
+
+The user's preset
+
+**`See`**
+
+[https://ordr.issou.best/docs/#/paths/~1ordr~1presets~1bot/get](https://ordr.issou.best/docs/#/paths/~1ordr~1presets~1bot/get)
+
+#### Defined in
+
+[client.ts:186](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/client.ts#L186)
 
 ___
 
@@ -150,7 +179,7 @@ The o!rdr service info
 
 #### Defined in
 
-[client.ts:199](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/client.ts#L199)
+[client.ts:219](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/client.ts#L219)
 
 ___
 
@@ -174,7 +203,7 @@ The online servers count
 
 #### Defined in
 
-[client.ts:249](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/client.ts#L249)
+[client.ts:269](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/client.ts#L269)
 
 ___
 
@@ -202,7 +231,7 @@ The list of renders.
 
 #### Defined in
 
-[client.ts:107](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/client.ts#L107)
+[client.ts:107](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/client.ts#L107)
 
 ___
 
@@ -226,7 +255,7 @@ The servers list
 
 #### Defined in
 
-[client.ts:213](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/client.ts#L213)
+[client.ts:233](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/client.ts#L233)
 
 ___
 
@@ -244,7 +273,7 @@ The servers leaderboard
 
 #### Defined in
 
-[client.ts:233](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/client.ts#L233)
+[client.ts:253](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/client.ts#L253)
 
 ___
 
@@ -272,7 +301,7 @@ The list of skins
 
 #### Defined in
 
-[client.ts:83](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/client.ts#L83)
+[client.ts:83](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/client.ts#L83)
 
 ___
 
@@ -303,7 +332,7 @@ The client instance
 
 #### Defined in
 
-[client.ts:58](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/client.ts#L58)
+[client.ts:58](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/client.ts#L58)
 
 ___
 
@@ -331,7 +360,7 @@ The render submission status
 
 #### Defined in
 
-[client.ts:128](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/client.ts#L128)
+[client.ts:128](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/client.ts#L128)
 
 ___
 
@@ -347,4 +376,4 @@ Connect and setup the o!rdr websocket.
 
 #### Defined in
 
-[client.ts:69](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/client.ts#L69)
+[client.ts:69](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/client.ts#L69)

@@ -19,7 +19,7 @@
 
 #### Defined in
 
-[types/ws/events.ts:8](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/ws/events.ts#L8)
+[types/ws/events.ts:8](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/ws/events.ts#L8)
 
 ___
 
@@ -29,4 +29,4 @@ ___
 
 #### Defined in
 
-[types/ws/events.ts:9](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/ws/events.ts#L9)
+[types/ws/events.ts:9](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/ws/events.ts#L9)

@@ -24,7 +24,7 @@ Emitted when the client is connected.
 
 #### Defined in
 
-[types/ws/index.ts:21](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/ws/index.ts#L21)
+[types/ws/index.ts:21](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/ws/index.ts#L21)
 
 ___
 
@@ -36,7 +36,7 @@ Emitted when a render is added.
 
 #### Defined in
 
-[types/ws/index.ts:26](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/ws/index.ts#L26)
+[types/ws/index.ts:26](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/ws/index.ts#L26)
 
 ___
 
@@ -48,7 +48,7 @@ Emitted when a render is done.
 
 #### Defined in
 
-[types/ws/index.ts:31](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/ws/index.ts#L31)
+[types/ws/index.ts:31](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/ws/index.ts#L31)
 
 ___
 
@@ -60,7 +60,7 @@ Emitted when a render failed.
 
 #### Defined in
 
-[types/ws/index.ts:36](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/ws/index.ts#L36)
+[types/ws/index.ts:36](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/ws/index.ts#L36)
 
 ___
 
@@ -72,4 +72,4 @@ Emitted when a render progress is updated.
 
 #### Defined in
 
-[types/ws/index.ts:41](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/ws/index.ts#L41)
+[types/ws/index.ts:41](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/ws/index.ts#L41)

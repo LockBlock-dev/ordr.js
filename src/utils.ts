@@ -18,9 +18,9 @@ const resolveFiles = async (files: Replay[] = []): Promise<RequestFile[]> => {
     const key = "replayFile";
 
     const finalFiles: RequestFile[] = await Promise.all(
-        files.map(async (file: Replay) => {
+        files.map(async (file: Replay): Promise<RequestFile> => {
             if (Buffer.isBuffer(file))
-                return { data: file, name: "replay.osr", key };
+                return { data: file as Uint8Array, name: "replay.osr", key };
 
             if (
                 file instanceof ReadStream &&
@@ -32,7 +32,7 @@ const resolveFiles = async (files: Replay[] = []): Promise<RequestFile[]> => {
                     buffers.push(Buffer.from(data as string));
 
                 return {
-                    data: Buffer.concat(buffers),
+                    data: Buffer.concat(buffers as Uint8Array[]) as Uint8Array,
                     name: "replay.osr",
                     key,
                 };
@@ -43,7 +43,7 @@ const resolveFiles = async (files: Replay[] = []): Promise<RequestFile[]> => {
                 const stats = await stat(path);
                 if (stats.isFile())
                     return {
-                        data: await readFile(path),
+                        data: (await readFile(path)) as Uint8Array,
                         name: basename(path),
                         key,
                     };

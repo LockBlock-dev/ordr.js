@@ -20,7 +20,7 @@
 
 #### Defined in
 
-[types/ws/events.ts:16](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/ws/events.ts#L16)
+[types/ws/events.ts:16](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/ws/events.ts#L16)
 
 ___
 
@@ -30,7 +30,7 @@ ___
 
 #### Defined in
 
-[types/ws/events.ts:17](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/ws/events.ts#L17)
+[types/ws/events.ts:17](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/ws/events.ts#L17)
 
 ___
 
@@ -40,4 +40,4 @@ ___
 
 #### Defined in
 
-[types/ws/events.ts:15](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/ws/events.ts#L15)
+[types/ws/events.ts:15](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/ws/events.ts#L15)

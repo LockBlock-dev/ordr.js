@@ -22,7 +22,7 @@
 
 #### Defined in
 
-[types/ws/index.ts:45](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/ws/index.ts#L45)
+[types/ws/index.ts:45](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/ws/index.ts#L45)
 
 ___
 
@@ -32,7 +32,7 @@ ___
 
 #### Defined in
 
-[types/ws/index.ts:46](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/ws/index.ts#L46)
+[types/ws/index.ts:46](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/ws/index.ts#L46)
 
 ___
 
@@ -42,7 +42,7 @@ ___
 
 #### Defined in
 
-[types/ws/index.ts:47](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/ws/index.ts#L47)
+[types/ws/index.ts:47](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/ws/index.ts#L47)
 
 ___
 
@@ -52,7 +52,7 @@ ___
 
 #### Defined in
 
-[types/ws/index.ts:48](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/ws/index.ts#L48)
+[types/ws/index.ts:48](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/ws/index.ts#L48)
 
 ___
 
@@ -62,4 +62,4 @@ ___
 
 #### Defined in
 
-[types/ws/index.ts:49](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/ws/index.ts#L49)
+[types/ws/index.ts:49](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/ws/index.ts#L49)

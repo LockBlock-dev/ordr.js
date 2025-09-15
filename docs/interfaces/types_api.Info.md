@@ -26,7 +26,7 @@
 
 #### Defined in
 
-[types/api/index.ts:38](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L38)
+[types/api/index.ts:45](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L45)
 
 ___
 
@@ -36,7 +36,7 @@ ___
 
 #### Defined in
 
-[types/api/index.ts:39](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L39)
+[types/api/index.ts:46](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L46)
 
 ___
 
@@ -46,7 +46,7 @@ ___
 
 #### Defined in
 
-[types/api/index.ts:40](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L40)
+[types/api/index.ts:47](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L47)
 
 ___
 
@@ -56,7 +56,7 @@ ___
 
 #### Defined in
 
-[types/api/index.ts:41](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L41)
+[types/api/index.ts:48](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L48)
 
 ___
 
@@ -66,7 +66,7 @@ ___
 
 #### Defined in
 
-[types/api/index.ts:42](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L42)
+[types/api/index.ts:49](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L49)
 
 ___
 
@@ -76,7 +76,7 @@ ___
 
 #### Defined in
 
-[types/api/index.ts:43](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L43)
+[types/api/index.ts:50](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L50)
 
 ___
 
@@ -86,7 +86,7 @@ ___
 
 #### Defined in
 
-[types/api/index.ts:44](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L44)
+[types/api/index.ts:51](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L51)
 
 ___
 
@@ -96,7 +96,7 @@ ___
 
 #### Defined in
 
-[types/api/index.ts:45](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L45)
+[types/api/index.ts:52](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L52)
 
 ___
 
@@ -106,4 +106,4 @@ ___
 
 #### Defined in
 
-[types/api/index.ts:46](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/index.ts#L46)
+[types/api/index.ts:53](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/index.ts#L53)

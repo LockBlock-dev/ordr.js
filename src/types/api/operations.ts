@@ -1,8 +1,14 @@
 import type { InternalRender, Replay } from "../api/index.js";
 
+export interface DiscordUserPreset {
+    key: string;
+    discord_id: string;
+}
+
 export interface RenderCreate extends Partial<InternalRender> {
     customSkin?: boolean;
     devmode?: "success" | "fail" | "wsfail";
+    discordUserId?: string;
     replay: Replay;
     resolution: "720x480" | "960x540" | "1280x720"; // Required
     skin: string | number; // Required

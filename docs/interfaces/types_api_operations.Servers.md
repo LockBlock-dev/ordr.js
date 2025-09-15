@@ -18,4 +18,4 @@
 
 #### Defined in
 
-[types/api/operations.ts:33](https://github.com/LockBlock-dev/ordr.js/blob/b45a0e0/src/types/api/operations.ts#L33)
+[types/api/operations.ts:39](https://github.com/LockBlock-dev/ordr.js/blob/6ed11d0/src/types/api/operations.ts#L39)
